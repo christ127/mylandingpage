@@ -15,6 +15,8 @@ export async function uploadToBlob(uploadUrl, file) {
       "Content-Type": file.type || "application/octet-stream",
     },
     body: file,
+    credentials: 'omit', 
+
   });
   if (!res.ok) {
     const text = await res.text().catch(() => "");

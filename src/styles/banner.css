@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+
+.banner-section {
+    @apply relative w-full h-[75vh] overflow-hidden bg-[#00704A] flex items-center justify-center;
+  }
+  
+  .banner-image {
+    @apply absolute inset-0 w-full h-full object-cover object-center brightness-95 md:brightness-100 transition-all duration-700;
+  }
+  
+  .banner-text {
+    @apply relative text-center px-4;
+  }
+  
+  .banner-title {
+    @apply text-white text-4xl md:text-5xl font-extrabold drop-shadow-lg;
+  }
+  
+  .banner-subtitle {
+    @apply text-white/90 mt-2 text-lg md:text-xl font-medium drop-shadow-md;
+  }

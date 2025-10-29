@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+
+:root {
+  /* Starbucks Brand Colors */
+  --sb-green: #00704A;
+  --sb-dark-green: #0C7A52;
+  --sb-accent-green: #0EA371;
+  --sb-red: #D61F26;
+  --sb-brown: #2C1810;
+  --sb-cream: #F7F5E7;
+}
+
+/* Default banner background */
+.banner-cream {
+  background-color: var(--sb-cream);
+}
+
+/* Optional helpers */
+.text-sb-green {
+  color: var(--sb-green);
+}
+
+.bg-sb-green {
+  background-color: var(--sb-green);
+}
+
+.bg-sb-red {
+  background-color: var(--sb-red);
+}
+
+html, body, #root { height: 100%; margin: 0; }
+body { margin: 0} 
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+.bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}

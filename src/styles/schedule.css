@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+.schedule-wrap {
+    @apply w-full max-w-3xl md:max-w-4xl mx-auto;
+  }
+  
+  /* Green card with subtle waves */
+  .schedule-card {
+    @apply relative rounded-3xl shadow-lg overflow-hidden border border-black/10;
+    background: #0C7A52;
+    /* subtle abstract waves */
+    background-image:
+      radial-gradient(80% 50% at 20% 20%, rgba(255,255,255,0.06) 0%, transparent 60%),
+      radial-gradient(60% 80% at 70% 60%, rgba(0,0,0,0.08) 0%, transparent 60%);
+  }
+  
+  /* Red ribbon header */
+  .schedule-ribbon {
+    @apply relative inline-flex items-center px-5 md:px-7 py-2 md:py-3 text-white font-extrabold text-lg md:text-xl;
+    background: #D61F26;
+    border-radius: 10px;
+    border: 2px dotted #fff;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.12);
+  }
+  
+  /* Ribbon notch (right) */
+  .schedule-ribbon::after {
+    content: "";
+    position: absolute;
+    right: -22px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 22px solid #D61F26;
+  }
+  
+  /* Top header area (title + logo spot if needed) */
+  .schedule-head {
+    @apply flex items-center justify-between px-4 md:px-6 pt-5 md:pt-6 pb-4;
+  }
+  
+  /* Table */
+  .schedule-table {
+    @apply w-full px-4 md:px-6 pb-6;
+  }
+  
+  /* One row */
+  .schedule-row {
+    @apply grid grid-cols-12 gap-3 md:gap-4 py-3 md:py-4 border-t border-white/20;
+  }
+  
+  /* First row has no border */
+  .schedule-row:first-child {
+    border-top: 0;
+  }
+  
+  /* Date cell (left) */
+  .schedule-date {
+    @apply col-span-4 sm:col-span-3 md:col-span-3 text-white font-extrabold;
+  }
+  
+  /* Locations (middle) */
+  .schedule-places {
+    @apply col-span-5 sm:col-span-6 md:col-span-6 text-white/95;
+  }
+  
+  /* Times (right) */
+  .schedule-times {
+    @apply col-span-3 sm:col-span-3 md:col-span-3 text-white text-right font-semibold;
+  }
+  
+  /* Tiny date style (e.g., 1.NOV.25) */
+  .schedule-date .date-badge {
+    @apply inline-block bg-white/10 rounded-md px-2 py-1 tracking-wide text-sm md:text-base;
+  }

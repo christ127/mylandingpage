@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+.success-page {
+    @apply min-h-screen bg-[#F7F5E7] flex flex-col items-center px-4 py-10;
+  }
+  
+  .success-card {
+    @apply bg-white border border-black/10 rounded-2xl shadow-sm p-8 max-w-md w-full text-center;
+  }
+  
+  .success-icon {
+    @apply mx-auto mb-4 h-14 w-14 rounded-full bg-green-100 grid place-items-center;
+  }
+  
+  .success-title {
+    @apply text-2xl font-extrabold text-[#2C1810];
+  }
+  
+  .success-text {
+    @apply mt-2 text-neutral-700;
+  }
+  
+  .success-actions {
+    @apply mt-6 flex items-center justify-center gap-3;
+  }
+  
+  /* Schedule below the card with its own scroll area */
+  .schedule-container {
+    @apply w-full mt-10;
+  }
+  
+  .schedule-scrollbox {
+    @apply max-w-3xl md:max-w-4xl mx-auto max-h-[420px] overflow-y-auto rounded-2xl shadow-lg;
+    /* optional: smoother scroll */
+    scroll-behavior: smooth;
+  }

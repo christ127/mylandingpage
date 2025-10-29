@@ -1,0 +1,115 @@
+name: Debug & Deploy React SPA to Azure App Service
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  # 👇 REQUIRED: your App Service name (e.g., contest-web)
+  AZURE_WEBAPP_NAME: contest-web
+  # Node version to use in CI
+  NODE_VERSION: '22'
+  # 👇 Change this to the folder that contains your package.json
+  APP_DIR: starbuckslandingweb
+
+jobs:
+  debug-paths:
+    name: Debug repo structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Show workspace layout (dirs & package.json locations)
+        run: |
+          echo "Workspace: $GITHUB_WORKSPACE"
+          echo "PWD:"
+          pwd
+          echo "Top-level listing:"
+          ls -la
+          echo "---- Find all directories (depth 2) ----"
+          find . -maxdepth 2 -type d -print
+          echo "---- Find all package.json files ----"
+          find . -name package.json -not -path "*/node_modules/*" -print
+
+      - name: Show target APP_DIR and contents
+        run: |
+          echo "APP_DIR is set to: ${APP_DIR}"
+          if [ -d "${APP_DIR}" ]; then
+            echo "Contents of ${APP_DIR}:"
+            ls -la "${APP_DIR}"
+          else
+            echo "WARNING: ${APP_DIR} does not exist (check the debug output above)."
+          fi
+
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    needs: debug-paths
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Verify app directory exists (fail fast if wrong)
+        run: |
+          echo "Looking for ${APP_DIR}..."
+          if [ ! -d "${APP_DIR}" ]; then
+            echo "❌ ${APP_DIR} not found."
+            echo "Found package.json at:"
+            find . -name package.json -not -path "*/node_modules/*" -print || true
+            exit 1
+          fi
+          echo "✅ Found ${APP_DIR}"
+
+      - name: Setup Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: ${{ env.APP_DIR }}/package-lock.json
+
+      - name: Show package.json & lock file presence
+        run: |
+          ls -la "${APP_DIR}"
+          if [ -f "${APP_DIR}/package-lock.json" ]; then
+            echo "✅ package-lock.json found."
+          elif [ -f "${APP_DIR}/yarn.lock" ]; then
+            echo "✅ yarn.lock found. (Consider switching cache: yarn)"
+          else
+            echo "⚠️ No lock file found in ${APP_DIR}. CI will proceed but reproducibility is better with a lock file."
+          fi
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ${{ env.APP_DIR }}
+
+      # If you're using CRA, the --base ./ flag is harmless. For Vite, it prevents broken /assets paths.
+      - name: Build
+        run: npm run build -- --base ./
+        working-directory: ${{ env.APP_DIR }}
+
+      - name: Detect build output (dist for Vite, build for CRA)
+        id: outdir
+        shell: bash
+        run: |
+          if [ -d "${APP_DIR}/dist" ]; then
+            echo "dir=${APP_DIR}/dist" >> $GITHUB_OUTPUT
+            echo "Using Vite output: ${APP_DIR}/dist"
+          elif [ -d "${APP_DIR}/build" ]; then
+            echo "dir=${APP_DIR}/build" >> $GITHUB_OUTPUT
+            echo "Using CRA output: ${APP_DIR}/build"
+          else
+            echo "❌ No dist/ or build/ found in ${APP_DIR} after build."
+            ls -la "${APP_DIR}"
+            exit 1
+          fi
+
+      # Deploy using your Publish Profile secret (must be set as AZURE_WEBAPP_PUBLISH_PROFILE)
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ steps.outdir.outputs.dir }}

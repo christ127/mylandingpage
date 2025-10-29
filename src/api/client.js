@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:5111";
+const BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5111";
 
 async function request(path, { method = "GET", headers = {}, body, raw = false } = {}) {
   const url = `${BASE}${path}`;

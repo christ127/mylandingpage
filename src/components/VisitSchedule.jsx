@@ -4,18 +4,19 @@ import "../styles/schedule.css";
 /** Example data (you can replace with your own) */
 const defaultEntries = [
     { date: "1.NOV.25", places: ["Pueblo Río Hondo"], times: ["11 AM – 2 PM"] },
-    { date: "2.NOV.25", places: ["Supermax San Francisco", "Econo Levittown"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
-    { date: "7.NOV.25", places: ["Econo Condado Moderno", "Selectos Guaynabo"], times: ["3 PM – 6 PM", "2 PM – 5 PM"] },
+    { date: "2.NOV.25", places: ["Supermax San Francisco", "Econo Levittown", "Ralph's Rio Grande"], times: ["11 AM – 2 PM", "11 AM – 2 PM", "4 PM - 7 PM"] },
+    { date: "7.NOV.25", places: ["Econo Condado Moderno", "Selectos Guaynabo",], times: ["3 PM – 6 PM", "2 PM – 5 PM"] },
     { date: "8.NOV.25", places: ["Selectos Los Prados", "Supermax Caparra"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
     { date: "9.NOV.25", places: ["Walgreens Caguas", "Amigo Plaza Guaynabo"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
     { date: "13.NOV.25", places: ["Walgreens Plaza Las Américas"], times: ["2 PM – 5 PM"] },
-    { date: "14.NOV.25", places: ["Pueblo Plaza Las Américas", "Econo Plaza Carolina", "Supermax De Diego"], times: ["11 AM – 2 PM", "11 AM – 2 PM", "11 AM – 2 PM"] },
-    { date: "15.NOV.25", places: ["Ralph’s Montehidra"], times: ["11 AM – 2 PM"] },
+    { date: "14.NOV.25", places: ["Pueblo Plaza Las Américas", "Econo Plaza Carolina"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
+    { date: "15.NOV.25", places: ["Ralph’s Montehiedra", "Supermax De Diego"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
     { date: "21.NOV.25", places: ["Supermax Los Filtros", "Supermax Guaynabo"], times: ["12 PM – 3 PM", "12 PM – 3 PM"] },
     { date: "22.NOV.25", places: ["Selectos Levittown", "Walgreens Isla Verde"], times: ["12 PM – 3 PM", "12 PM – 3 PM"] },
-    { date: "23.NOV.25", places: ["Walgreens San Patricio", "Pueblo Montemall"], times: ["12 PM – 3 PM", "2 PM – 5 PM"] },
-    { date: "5.DEC.25", places: ["Econo Altamira"], times: ["2 PM – 5 PM"] },
-    { date: "12.DEC.25", places: ["Pueblo Señorial", "Mr. Special Mayagüez Balboa", "Mr. Special Cabo Rojo"], times: ["2 PM – 5 PM", "10 AM – 1 PM", "11 AM – 2 PM"] },
+    { date: "4.DEC.25", places: ["Walgreens San Patricio", "Pueblo Montemall"], times: ["12 PM – 3 PM", "2 PM – 5 PM"] },
+    { date: "5.DEC.25", places: ["Econo Altamira","Pueblo Señorial", ], times: ["2 PM – 5 PM", "2 PM – 5 PM"] },
+    { date: "13.DEC.25", places: ["Mr. Special Mayagüez Balboa"], times: ["10 AM – 1 PM"] },
+    { date: "14.DEC.25", places: ["Mr. Special Cabo Rojo"], times: ["10 AM – 1 PM"] },
     { date: "20.DEC.25", places: ["Pueblo Isla Verde"], times: ["11 AM – 2 PM"] },
   ];
 

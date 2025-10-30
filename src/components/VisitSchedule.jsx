@@ -22,37 +22,27 @@ const defaultEntries = [
 export default function VisitSchedule({ title = "Calendario de visitas", entries = defaultEntries }) {
   return (
     <div className="schedule-wrap">
-      {/* Green card */}
-      <div className="schedule-card">
-        {/* Header with ribbon */}
-        <div className="schedule-head">
-          <div className="schedule-ribbon">{title}</div>
-          {/* Optional logo spot:
-          <img src="/starbucks-logo.png" alt="" className="h-12 w-12 hidden md:block" />
-          */}
-        </div>
+      <div className="schedule-inner">{/* NEW */}
+        <div className="schedule-card">
+          <div className="schedule-head">
+            <div className="schedule-ribbon">{title}</div>
+          </div>
 
-        {/* Table */}
-        <div className="schedule-table">
-          {entries.map((row, idx) => (
-            <div className="schedule-row" key={idx}>
-              <div className="schedule-date">
-                <span className="date-badge">{row.date}</span>
+          <div className="schedule-table">
+            {entries.map((row, idx) => (
+              <div className="schedule-row" key={idx}>
+                <div className="schedule-date">
+                  <span className="date-badge">{row.date}</span>
+                </div>
+                <div className="schedule-places">
+                  {row.places.map((p, i) => <div key={i} className="leading-tight">{p}</div>)}
+                </div>
+                <div className="schedule-times">
+                  {row.times.map((t, i) => <div key={i} className="leading-tight">{t}</div>)}
+                </div>
               </div>
-
-              <div className="schedule-places">
-                {row.places.map((p, i) => (
-                  <div key={i} className="leading-tight">{p}</div>
-                ))}
-              </div>
-
-              <div className="schedule-times">
-                {row.times.map((t, i) => (
-                  <div key={i} className="leading-tight">{t}</div>
-                ))}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

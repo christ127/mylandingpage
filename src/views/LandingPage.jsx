@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import StickyBanner from "../components/StickyBanner";
+import VisitSchedule from "../components/VisitSchedule"; // ← make sure this path matches your project
+
 import "../styles/buttons.css";
 import "../styles/footer.css";
 import "../styles/schedule.css"; // styles for VisitSchedule

@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 .footer {
-  @apply w-full bg-[#00704A] text-white text-center py-5 mt-auto shadow-inner;
+  @apply w-full bg-[#00704A] text-white text-center py-3 mt-auto shadow-inner;
 }
 
 .footer-content {
-  @apply max-w-7xl mx-auto px-3;
+  @apply max-w-7xl mx-auto px-2;
 }
 
-/* Slightly smaller overall text */
+/* Smaller footer text */
 .footer-text {
-  @apply text-xs sm:text-sm font-medium tracking-wide;
+  @apply text-[0.65rem] sm:text-xs font-medium tracking-wide leading-tight;
 }
 
-/* Make links smaller too */
+/* Compact footer links */
 .footer-links {
-  @apply mt-2 flex flex-col sm:flex-row justify-center items-center gap-3 text-[0.7rem] sm:text-xs opacity-90;
+  @apply mt-1 flex flex-col sm:flex-row justify-center items-center gap-2 text-[0.6rem] sm:text-[0.7rem] opacity-80;
 }
 
 .footer-link {
@@ -23,5 +23,5 @@
 }
 
 .footer-separator {
-  @apply hidden sm:block text-white/60;
+  @apply hidden sm:block text-white/50 text-[0.6rem];
 }

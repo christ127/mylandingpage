@@ -3,14 +3,16 @@
 /* SECTION — sticky, uses cream background to match the rest of the page */
 .banner-section {
   @apply sticky top-0 z-20 relative w-full overflow-hidden flex items-center justify-center;
-  background-color: #F7F5E7; /* match landing background */
+  background-color: #F9F6F1;
+  ; /* match landing background */
 }
 
 /* IMAGE — shows entire image with no crop */
 .banner-image {
   @apply w-full h-full object-contain object-center select-none transition-all duration-500;
   image-rendering: auto;
-  background-color: #F7F5E7; /* ensures consistent color in letterbox areas */
+  background-color: #F9F6F1;
+  ; /* ensures consistent color in letterbox areas */
 }
 
 /* GRADIENT — smooth fade to cream at bottom */

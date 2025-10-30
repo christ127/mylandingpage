@@ -15,11 +15,5 @@
 
 /* GRADIENT — smooth fade to cream at bottom */
 .banner-gradient {
-  @apply pointer-events-none absolute inset-0;
-  background: linear-gradient(
-    to bottom,
-    rgba(247, 245, 231, 0) 60%,   /* transparent at top 60% */
-    rgba(247, 245, 231, 0.4) 80%, /* slight fade mid-bottom */
-    rgba(247, 245, 231, 1) 100%   /* solid cream at bottom */
-  );
+ display: none;
 }

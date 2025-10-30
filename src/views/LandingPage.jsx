@@ -25,8 +25,7 @@ export default function LandingPage() {
       <footer className="footer">
         <div className="footer-content">
           <p className="footer-text">
-            © {new Date().getFullYear()} Starbucks Contest — Todos los derechos
-            reservados
+            © {new Date().getFullYear()} Válido del 1 de noviembre al 15 de diciembre de 2025. Participación sin obligación de compra. Participación limitada a mayores de edad y residentes legales de Puerto Rico, con excepción de las personas descritas en las reglas.Reglas completas en www.ganaconstarbucks.com
           </p>         
         </div>
       </footer>

@@ -8,7 +8,7 @@
 
 /* Match landing/footer content width */
 .schedule-inner {
-  @apply w-full max-w-7xl mx-auto; /* same cap as .footer-content */
+  @apply w-full mx-auto; /* same cap as .footer-content */
 }
 
 /* Card stays fluid within the inner width */

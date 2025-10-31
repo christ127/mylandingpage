@@ -20,18 +20,33 @@
  display: none;
 }
 
-
-.schedule-scrollbox {
-    /* fill the parent width, no cap, no auto-centering */
-    @apply w-full max-w-none mx-0;
+.schedule-container {
+    @apply w-full mt-10;
+    /* break out of any centered parent */
+    width: 100% !important;
+    max-width: none !important;
+    align-self: stretch !important;
+    justify-self: stretch !important;
+  }
   
-    /* keep your existing behavior */
-    @apply max-h-[420px] overflow-y-auto rounded-2xl shadow-lg;
+  .schedule-scrollbox {
+    /* remove max-width caps and centering */
+    @apply w-full mx-0 rounded-2xl shadow-lg;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   
-    /* smoother scroll (optional) */
+    /* preserve vertical scroll & height limit */
+    max-height: 420px;
+    overflow-y: auto;
     scroll-behavior: smooth;
   
-    /* if the parent is flex/grid and centers children, stretch anyway */
-    align-self: stretch;
-    justify-self: stretch;
+    /* make it fill horizontally even inside grid/flex layouts */
+    align-self: stretch !important;
+    justify-self: stretch !important;
+  }
+  
+  .schedule-scrollbox > * {
+    width: 100% !important;
+    max-width: none !important;
   }

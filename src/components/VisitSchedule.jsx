@@ -22,7 +22,7 @@ const defaultEntries = [
 
 export default function VisitSchedule({ title = "Calendario de visitas", entries = defaultEntries }) {
   return (
-    <div className="schedule-wrap">
+    <div className="schedule-wrap full-bleed">
       <div className="schedule-inner">{/* NEW */}
         <div className="schedule-card">
           <div className="schedule-head">

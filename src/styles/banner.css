@@ -19,3 +19,19 @@
 .banner-gradient {
  display: none;
 }
+
+
+.schedule-scrollbox {
+    /* fill the parent width, no cap, no auto-centering */
+    @apply w-full max-w-none mx-0;
+  
+    /* keep your existing behavior */
+    @apply max-h-[420px] overflow-y-auto rounded-2xl shadow-lg;
+  
+    /* smoother scroll (optional) */
+    scroll-behavior: smooth;
+  
+    /* if the parent is flex/grid and centers children, stretch anyway */
+    align-self: stretch;
+    justify-self: stretch;
+  }

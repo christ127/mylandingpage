@@ -21,14 +21,38 @@
   }
   
   /* even smaller on big screens */
-  @media (min-width: 1024px) {
+  /* @media (min-width: 1024px) {
     .banner-image { transform: scale(0.85); }
-  }
+  } */
 
 /* GRADIENT — smooth fade to cream at bottom */
 .banner-gradient {
  display: none;
 }
+
+/* Wrap + inner match schedule spacing/width */
+.banner-wrap {
+    @apply w-full px-3 sm:px-4 md:px-6; /* same as .schedule-wrap */
+  }
+  .banner-inner {
+    @apply w-full mx-auto;              /* same as .schedule-inner */
+  }
+  
+  /* Card frame matches schedule-card radius/border/shadow */
+  .banner-card {
+    @apply relative rounded-3xl overflow-hidden shadow-lg border border-black/10;
+    background: #f7f5e7; /* cream to match page */
+  }
+  
+  /* Image: no crop, no dark edges, fills card width */
+  .banner-img {
+    @apply block w-full h-auto select-none transition-all duration-500;
+    object-fit: contain;   /* show full image */
+    background-color: #f7f5e7;
+  }
+  
+  /* (Optional) remove previous scaling to avoid side gaps */
+  .banner-image { transform: none !important; }
 
 .schedule-container {
     @apply w-full bg-[#f7f5e7];

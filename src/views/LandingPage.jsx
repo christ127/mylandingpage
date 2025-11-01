@@ -13,8 +13,13 @@ export default function LandingPage() {
   return (
     <div className="relative min-h-screen bg-[#F7F5E7] flex flex-col overflow-hidden">
       {/* Banner */}
-      <StickyBanner image="/starbucks-banner.jpg" />
-
+      <section className="banner-wrap">
+        <div className="banner-inner">
+          <div className="banner-card">
+            <StickyBanner image="/starbucks-banner.jpg" />
+          </div>
+        </div>
+      </section>
       {/* Schedule section */}
       <div className="schedule-container">
         <div className="schedule-scrollbox">

@@ -31,7 +31,7 @@
 }
 
 .schedule-container {
-    @apply w-full mt-10 bg-[#F7F5E7];
+    @apply w-full bg-[#F7F5E7];
     /* break out of any centered parent */
     width: 100% !important;
     max-width: none !important;

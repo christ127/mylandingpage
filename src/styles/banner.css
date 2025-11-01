@@ -15,13 +15,23 @@
   ; /* ensures consistent color in letterbox areas */
 }
 
+.banner-image {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+  
+  /* even smaller on big screens */
+  @media (min-width: 1024px) {
+    .banner-image { transform: scale(0.85); }
+  }
+
 /* GRADIENT — smooth fade to cream at bottom */
 .banner-gradient {
  display: none;
 }
 
 .schedule-container {
-    @apply w-full mt-10;
+    @apply w-full mt-10 bg-[#F7F5E7];
     /* break out of any centered parent */
     width: 100% !important;
     max-width: none !important;

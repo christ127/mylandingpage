@@ -33,17 +33,13 @@
   position: absolute;
   right: -22px; top: 0;
   width: 0; height: 0;
-  border-top: 22px solid transparent;
+  border: 2px dotted #fff;
+  /* border-top: 22px solid transparent;
   border-bottom: 22px solid transparent;
-  border-left: 22px solid #D61F26;
+  border-left: 22px solid #D61F26; */
 }
 
 
-.schedule-scrollbox {
-    @apply max-w-3xl md:max-w-4xl mx-auto max-h-[420px] overflow-y-auto rounded-2xl shadow-lg;
-    /* optional: smoother scroll */
-    scroll-behavior: smooth;
-  }
 
 /* Header / table / rows (unchanged) */
 .schedule-head { @apply flex items-center justify-between px-4 md:px-6 pt-5 md:pt-6 pb-4; }

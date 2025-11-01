@@ -41,7 +41,7 @@
   
   .schedule-scrollbox {
     /* remove max-width caps and centering */
-    @apply w-full mx-0 rounded-2xl shadow-lg;
+    @apply w-full mx-0  shadow-lg;
     max-width: none !important;
     margin-left: 0 !important;
     margin-right: 0 !important;

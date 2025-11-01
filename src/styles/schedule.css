@@ -50,3 +50,9 @@
 .schedule-places { @apply col-span-5 sm:col-span-6 md:col-span-6 text-white/95; }
 .schedule-times { @apply col-span-3 sm:col-span-3 md:col-span-3 text-white text-right font-semibold; }
 .schedule-date .date-badge { @apply inline-block bg-white/10 rounded-md px-2 py-1 tracking-wide text-sm md:text-base; }
+
+@media (max-width: 640px) { /* sm breakpoint */
+    .schedule-date  { @apply col-span-3 text-sm; }  /* take 1 less column */
+    .schedule-places { @apply col-span-5 text-[0.95rem]; } /* same space */
+    .schedule-times  { @apply col-span-4 text-sm text-right; } /* extra column for time */
+  }

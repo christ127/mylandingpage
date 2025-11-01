@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .success-page {
-    @apply min-h-screen bg-[#F7F5E7] flex flex-col items-center px-4 py-10;
+    @apply min-h-screen bg-[#f7f5e7] flex flex-col items-center px-4 py-10;
   }
   
   .success-card {

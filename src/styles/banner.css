@@ -3,7 +3,7 @@
 /* SECTION — sticky, uses cream background to match the rest of the page */
 .banner-section {
   @apply sticky top-0 z-20 relative w-full overflow-hidden flex items-center justify-center;
-  background-color: #F9F6F1;
+  background-color: #f7f5e7;
   ; /* match landing background */
 }
 
@@ -11,7 +11,7 @@
 .banner-image {
   @apply w-full h-full object-contain object-center select-none transition-all duration-500;
   image-rendering: auto;
-  background-color: #F9F6F1;
+  background-color: #f7f5e7;
   ; /* ensures consistent color in letterbox areas */
 }
 
@@ -31,7 +31,7 @@
 }
 
 .schedule-container {
-    @apply w-full bg-[#F7F5E7];
+    @apply w-full bg-[#f7f5e7];
     /* break out of any centered parent */
     width: 100% !important;
     max-width: none !important;

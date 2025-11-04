@@ -16,7 +16,13 @@ export default function LandingPage() {
       <section className="banner-wrap">
         <div className="banner-inner">
           <div className="banner-card">
-            <StickyBanner image="/starbucks-banner.jpg" />
+            <StickyBanner
+              desktopImage="/starbucks-banner.jpg"
+              mobileImage="/starbucks-banner-mobile.jpg"
+              minHeightPx={260} // close to native mobile height
+              maxHeightPx={550} // cap for large screens
+              mobileBreakpointPx={768}
+            />{" "}
           </div>
         </div>
       </section>

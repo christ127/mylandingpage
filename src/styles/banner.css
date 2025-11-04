@@ -54,6 +54,20 @@
   /* (Optional) remove previous scaling to avoid side gaps */
   .banner-image { transform: none !important; }
 
+  @media (max-width: 767px) {
+    .banner-section {
+      height: auto !important;       /* let it size naturally */
+      aspect-ratio: 360 / 300;       /* maintain correct shape */
+    }
+  
+    .banner-image {
+      object-fit: contain;
+      transform: none;
+      width: 100%;
+      height: auto;
+    }
+  }
+
 .schedule-container {
     @apply w-full bg-[#f7f5e7];
     /* break out of any centered parent */

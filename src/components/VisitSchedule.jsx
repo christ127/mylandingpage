@@ -4,11 +4,12 @@ import "../styles/schedule.css";
 /** Example data (you can replace with your own) */
 const defaultEntries = [
     { date: "1.NOV.25", places: ["Pueblo Río Hondo"], times: ["11 AM – 2 PM"] },
-    { date: "2.NOV.25", places: ["Supermax San Francisco", "Econo Levittown", "Ralph's Rio Grande"], times: ["11 AM – 2 PM", "11 AM – 2 PM", "4 PM - 7 PM"] },
+    { date: "2.NOV.25", places: ["Supermax San Francisco", "Econo Levittown"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
+    { date: "4.NOV.25", places: ["Ralph's Rio Grande"], times: ["3 PM - 7 PM"]},
     { date: "7.NOV.25", places: ["Econo Condado Moderno", "Selectos Guaynabo",], times: ["3 PM – 6 PM", "2 PM – 5 PM"] },
     { date: "8.NOV.25", places: ["Selectos Los Prados", "Supermax Caparra"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
     { date: "9.NOV.25", places: ["Walgreens Caguas", "Amigo Plaza Guaynabo"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
-    { date: "13.NOV.25", places: ["Walgreens Plaza Las Américas"], times: ["2 PM – 5 PM"] },
+    { date: "13.NOV.25", places: ["Walgreens Plaza Las Américas", "Ralph's Montehiedra"], times: ["2 PM – 5 PM", "2 PM – 5 PM"] },
     { date: "14.NOV.25", places: ["Pueblo Plaza Las Américas", "Econo Plaza Carolina"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
     { date: "15.NOV.25", places: ["Ralph’s Montehiedra", "Supermax De Diego"], times: ["11 AM – 2 PM", "11 AM – 2 PM"] },
     { date: "21.NOV.25", places: ["Supermax Los Filtros", "Supermax Guaynabo"], times: ["12 PM – 3 PM", "12 PM – 3 PM"] },

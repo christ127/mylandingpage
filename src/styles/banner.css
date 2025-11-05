@@ -1,76 +1,69 @@
-@import "tailwindcss";
-
-/* SECTION — sticky, uses cream background to match the rest of the page */
+/* ====== BANNER CONTAINER ====== */
 .banner-section {
-  @apply sticky top-0 z-20 relative w-full overflow-hidden flex items-center justify-center;
-  background-color: #f7f5e7;
-  ; /* match landing background */
-}
-
-/* IMAGE — shows entire image with no crop */
-.banner-image {
-  @apply w-full h-full object-contain object-center select-none transition-all duration-500;
-  image-rendering: auto;
-  background-color: #f7f5e7;
-  ; /* ensures consistent color in letterbox areas */
-}
-
-.banner-image {
-    transform: scale(0.9);
-    transform-origin: center;
+    @apply sticky top-0 z-20 relative w-full overflow-hidden flex items-center justify-center;
+    background-color: #f7f5e7;
+    height: auto;
   }
   
-  /* even smaller on big screens */
-  /* @media (min-width: 1024px) {
-    .banner-image { transform: scale(0.85); }
-  } */
-
-/* GRADIENT — smooth fade to cream at bottom */
-.banner-gradient {
- display: none;
-}
-
-/* Wrap + inner match schedule spacing/width */
-.banner-wrap {
-    @apply w-full px-3 sm:px-4 md:px-6; /* same as .schedule-wrap */
+  
+  /* ====== DESKTOP IMAGE BEHAVIOR ====== */
+  /* Show full artwork without cropping */
+  .banner-image {
+    @apply w-full h-full object-contain object-center select-none transition-all duration-500;
+    background-color: #f7f5e7; /* match page background */
+    image-rendering: auto;
   }
+  
+  
+  /* ====== MOBILE IMAGE BEHAVIOR ====== */
+  /* Fill entire container (allow cropping) */
+  @media (max-width: 767px) {
+    .banner-image {
+      @apply object-cover object-center;
+    }
+  }
+  
+  
+  /* ====== OPTIONAL SMALL-SCREEN HEIGHT ====== */
+  /* Ensures container has size so image can fill */
+  @media (max-width: 767px) {
+    .banner-section {
+      aspect-ratio: 360 / 300;  /* matches your mobile banner ratio */
+      height: auto !important;
+    }
+  }
+  
+  
+  /* ====== (Optional) Remove Gradient ====== */
+  .banner-gradient {
+    display: none;
+  }
+  
+  
+  /* ====== WRAPPER STYLES TO MATCH SCHEDULE LAYOUT ====== */
+  .banner-wrap {
+    @apply w-full px-3 sm:px-4 md:px-6;
+  }
+  
   .banner-inner {
-    @apply w-full mx-auto;              /* same as .schedule-inner */
+    @apply w-full mx-auto;
   }
   
-  /* Card frame matches schedule-card radius/border/shadow */
   .banner-card {
     @apply relative rounded-3xl overflow-hidden shadow-lg border border-black/10;
-    background: #f7f5e7; /* cream to match page */
+    background: #f7f5e7;
   }
   
-  /* Image: no crop, no dark edges, fills card width */
   .banner-img {
     @apply block w-full h-auto select-none transition-all duration-500;
-    object-fit: contain;   /* show full image */
+    object-fit: contain;
     background-color: #f7f5e7;
   }
   
-  /* (Optional) remove previous scaling to avoid side gaps */
-  .banner-image { transform: none !important; }
-
-  @media (max-width: 767px) {
-    .banner-section {
-      height: auto !important;       /* let it size naturally */
-      aspect-ratio: 360 / 300;       /* maintain correct shape */
-    }
   
-    .banner-image {
-      object-fit: contain;
-      transform: none;
-      width: 100%;
-      height: auto;
-    }
-  }
-
-.schedule-container {
+  /* ====== SCHEDULE WIDTH FIX — KEEP FULL WIDTH ====== */
+  .schedule-container {
     @apply w-full bg-[#f7f5e7];
-    /* break out of any centered parent */
     width: 100% !important;
     max-width: none !important;
     align-self: stretch !important;
@@ -78,18 +71,13 @@
   }
   
   .schedule-scrollbox {
-    /* remove max-width caps and centering */
-    @apply w-full mx-0  shadow-lg;
+    @apply w-full mx-0 shadow-lg;
     max-width: none !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-  
-    /* preserve vertical scroll & height limit */
     max-height: 420px;
     overflow-y: auto;
     scroll-behavior: smooth;
-  
-    /* make it fill horizontally even inside grid/flex layouts */
     align-self: stretch !important;
     justify-self: stretch !important;
   }
@@ -98,3 +86,4 @@
     width: 100% !important;
     max-width: none !important;
   }
+  

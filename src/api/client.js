@@ -1,5 +1,4 @@
 const BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5111";
-console.log(BASE);
 async function request(path, { method = "GET", headers = {}, body, raw = false } = {}) {
   const url = `${BASE}${path}`;
   const opts = {

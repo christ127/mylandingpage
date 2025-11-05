@@ -2,32 +2,36 @@
 
 /* ====== BANNER CONTAINER ====== */
 .banner-section {
-    @apply sticky top-0 z-20 relative w-full overflow-hidden flex items-center justify-center;
+    @apply sticky top-0 z-20 relative w-full overflow-hidden flex items-center justify-center rounded-3xl;
     background-color: #f7f5e7;
-    height: auto;
+    height: auto; /* your component controls height inline */
   }
   
+  /* If you wrap with a card, make sure it also clips */
+  .banner-card {
+    @apply relative rounded-3xl overflow-hidden shadow-lg border border-black/10;
+    background: #f7f5e7;
+  }
   
-  /* ====== DESKTOP IMAGE BEHAVIOR ====== */
-  /* Show full artwork without cropping */
+  /* ====== IMAGE (DESKTOP DEFAULT) ====== */
+  /* Desktop: show full artwork without cropping */
   .banner-image {
     @apply w-full h-full object-contain object-center select-none transition-all duration-500;
     background-color: #f7f5e7; /* match page background */
     image-rendering: auto;
+    display: block;
   }
   
-  
-  /* MOBILE: Fill entire card INCLUDING rounded corners */
-@media (max-width: 767px) {
-
-    /* Ensure container clips the image */
+  /* ====== MOBILE FILL (ALLOW CROPPING) ====== */
+  @media (max-width: 767px) {
+    /* Ensure the container actually clips the rounded edges and has a usable height.
+       The JS sets inline height; we just ensure a sensible floor in case. */
     .banner-section {
-      @apply rounded-3xl overflow-hidden;
-      height: auto !important;
-      min-height: 300px; /* Matches your banner height shape */
+      @apply overflow-hidden rounded-3xl;
+      min-height: 300px;   /* matches your 360x300 mobile artwork */
     }
   
-    /* Image must stretch to container */
+    /* Force the image to fill the container completely */
     .banner-image {
       width: 100% !important;
       height: 100% !important;
@@ -36,43 +40,27 @@
     }
   }
   
-  
-  /* ====== OPTIONAL SMALL-SCREEN HEIGHT ====== */
-  /* Ensures container has size so image can fill */
+  /* ====== OPTIONAL: Focus the crop area on mobile
+     (uncomment one if needed)
   @media (max-width: 767px) {
-    .banner-section {
-      aspect-ratio: 360 / 300;  /* matches your mobile banner ratio */
-      height: auto !important;
-    }
+    .banner-image { object-position: top; }    
+    .banner-image { object-position: center; } 
+    .banner-image { object-position: bottom; } 
   }
+  */
   
+  /* ====== GRADIENT (disabled by default) ====== */
+  .banner-gradient { display: none; }
   
-  /* ====== (Optional) Remove Gradient ====== */
-  .banner-gradient {
-    display: none;
-  }
-  
-  
-  /* ====== WRAPPER STYLES TO MATCH SCHEDULE LAYOUT ====== */
-  .banner-wrap {
-    @apply w-full px-3 sm:px-4 md:px-6;
-  }
-  
-  .banner-inner {
-    @apply w-full mx-auto;
-  }
-  
-  .banner-card {
-    @apply relative rounded-3xl overflow-hidden shadow-lg border border-black/10;
-    background: #f7f5e7;
-  }
+  /* ====== WRAPPER UTILS (if you use them) ====== */
+  .banner-wrap { @apply w-full px-3 sm:px-4 md:px-6; }
+  .banner-inner { @apply w-full mx-auto; }
   
   .banner-img {
     @apply block w-full h-auto select-none transition-all duration-500;
     object-fit: contain;
     background-color: #f7f5e7;
   }
-  
   
   /* ====== SCHEDULE WIDTH FIX — KEEP FULL WIDTH ====== */
   .schedule-container {

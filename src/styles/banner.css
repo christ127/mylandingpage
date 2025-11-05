@@ -17,11 +17,22 @@
   }
   
   
-  /* ====== MOBILE IMAGE BEHAVIOR ====== */
-  /* Fill entire container (allow cropping) */
-  @media (max-width: 767px) {
+  /* MOBILE: Fill entire card INCLUDING rounded corners */
+@media (max-width: 767px) {
+
+    /* Ensure container clips the image */
+    .banner-section {
+      @apply rounded-3xl overflow-hidden;
+      height: auto !important;
+      min-height: 300px; /* Matches your banner height shape */
+    }
+  
+    /* Image must stretch to container */
     .banner-image {
+      width: 100% !important;
+      height: 100% !important;
       @apply object-cover object-center;
+      display: block;
     }
   }
   

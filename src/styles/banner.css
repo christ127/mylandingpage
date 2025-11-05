@@ -22,16 +22,24 @@
     display: block;
   }
   
-  /* ====== MOBILE FILL (ALLOW CROPPING) ====== */
-  @media (max-width: 767px) {
-    /* Ensure the container actually clips the rounded edges and has a usable height.
-       The JS sets inline height; we just ensure a sensible floor in case. */
-    .banner-section {
-      @apply overflow-hidden rounded-3xl;
-      min-height: 300px;   /* matches your 360x300 mobile artwork */
+  /* ====== REMOVE PADDING ON MOBILE — KEEP ROUNDED CORNERS ====== */
+@media (max-width: 767px) {
+    /* Remove horizontal padding so banner touches the rounded card edges */
+    .banner-wrap,
+    .banner-section,
+    .banner-inner {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+      max-width: none !important;
     }
   
-    /* Force the image to fill the container completely */
+    /* Ensure the container itself is what's rounding + clipping */
+    .banner-section {
+      @apply rounded-3xl overflow-hidden;
+    }
+  
+    /* Ensure image fills entire container */
     .banner-image {
       width: 100% !important;
       height: 100% !important;

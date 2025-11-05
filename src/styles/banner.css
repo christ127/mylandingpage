@@ -24,29 +24,29 @@
   
   /* ====== REMOVE PADDING ON MOBILE — KEEP ROUNDED CORNERS ====== */
 @media (max-width: 767px) {
-    /* Remove horizontal padding so banner touches the rounded card edges */
-    .banner-wrap,
-    .banner-section,
-    .banner-inner {
-      padding: 0 !important;
-      margin: 0 !important;
-      width: 100% !important;
-      max-width: none !important;
-    }
-  
-    /* Ensure the container itself is what's rounding + clipping */
-    .banner-section {
-      @apply rounded-3xl overflow-hidden;
-    }
-  
-    /* Ensure image fills entire container */
-    .banner-image {
-      width: 100% !important;
-      height: 100% !important;
-      @apply object-cover object-center;
-      display: block;
-    }
+  /* Remove horizontal padding so banner touches the rounded card edges */
+  .banner-wrap,
+  .banner-section,
+  .banner-inner {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
   }
+
+  /* Ensure the container itself is what's rounding + clipping */
+  .banner-section {
+    @apply rounded-3xl overflow-hidden;
+  }
+
+  /* Ensure image fills entire container */
+  .banner-image {
+    width: 100% !important;
+    height: 100% !important;
+    @apply object-cover object-center;
+    display: block;
+  }
+}
   
   /* ====== OPTIONAL: Focus the crop area on mobile
      (uncomment one if needed)

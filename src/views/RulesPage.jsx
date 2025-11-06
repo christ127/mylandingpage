@@ -3,10 +3,47 @@ import "../styles/rules.css";
 
 const establecimientosData = [
   { fecha: "01.NOV.2025", establecimiento: "Pueblo Río Hondo", horario: "11:00 AM – 2:00 PM", municipio: "Bayamón" },
+
   { fecha: "02.NOV.2025", establecimiento: "Supermax San Francisco", horario: "11:00 AM – 2:00 PM", municipio: "San Juan" },
-  { fecha: "02.NOV.2025", establecimiento: "Econo Levittown", horario: "11:00 AM – 2:00 PM", municipio: "Toa Baja" },
-  { fecha: "07.NOV.2025", establecimiento: "Econo Condado Moderno", horario: "3:00 PM – 6:00 PM", municipio: "San Juan" },
+  { fecha: "02.NOV.2025", establecimiento: "Econo Levittown", horario: "11:00 AM – 2:00 PM", municipio: "Bayamón" },
+
+  { fecha: "04.NOV.2025", establecimiento: "Ralph's Río Grande", horario: "3:00 PM – 7:00 PM", municipio: "Rio Grande" },
+
+  { fecha: "07.NOV.2025", establecimiento: "Econo Condado Moderno", horario: "3:00 PM – 6:00 PM", municipio: "Caguas" },
   { fecha: "07.NOV.2025", establecimiento: "Selectos Guaynabo", horario: "2:00 PM – 5:00 PM", municipio: "Guaynabo" },
+
+  { fecha: "08.NOV.2025", establecimiento: "Selectos Los Prados", horario: "11:00 AM – 2:00 PM", municipio: "Caguas" },
+  { fecha: "08.NOV.2025", establecimiento: "Supermax Caparra", horario: "11:00 AM – 2:00 PM", municipio: "San Juan" },
+
+  { fecha: "09.NOV.2025", establecimiento: "Walgreens Caguas", horario: "11:00 AM – 2:00 PM", municipio: "Caguas" },
+  { fecha: "09.NOV.2025", establecimiento: "Amigo Plaza Guaynabo", horario: "11:00 AM – 2:00 PM", municipio: "Guaynabo" },
+
+  { fecha: "13.NOV.2025", establecimiento: "Walgreens Plaza Las Américas", horario: "2:00 PM – 5:00 PM", municipio: "San Juan" },
+  { fecha: "13.NOV.2025", establecimiento: "Ralph's Montehiedra", horario: "2:00 PM – 5:00 PM", municipio: "San Juan" },
+
+  { fecha: "14.NOV.2025", establecimiento: "Pueblo Plaza Las Américas", horario: "11:00 AM – 2:00 PM", municipio: "San Juan" },
+  { fecha: "14.NOV.2025", establecimiento: "Econo Plaza Carolina", horario: "11:00 AM – 2:00 PM", municipio: "Carolina" },
+
+  { fecha: "15.NOV.2025", establecimiento: "Ralph’s Montehiedra", horario: "11:00 AM – 2:00 PM", municipio: "San Juan" },
+  { fecha: "15.NOV.2025", establecimiento: "Supermax De Diego", horario: "11:00 AM – 2:00 PM", municipio: "San Juan" },
+
+  { fecha: "21.NOV.2025", establecimiento: "Supermax Los Filtros", horario: "12:00 PM – 3:00 PM", municipio: "Bayamón" },
+  { fecha: "21.NOV.2025", establecimiento: "Supermax Guaynabo", horario: "12:00 PM – 3:00 PM", municipio: "Guaynabo" },
+
+  { fecha: "22.NOV.2025", establecimiento: "Selectos Levittown", horario: "12:00 PM – 3:00 PM", municipio: "Bayamón" },
+  { fecha: "22.NOV.2025", establecimiento: "Walgreens Isla Verde", horario: "12:00 PM – 3:00 PM", municipio: "Carolina" },
+
+  { fecha: "04.DEC.2025", establecimiento: "Walgreens San Patricio", horario: "12:00 PM – 3:00 PM", municipio: "San Juan" },
+  { fecha: "04.DEC.2025", establecimiento: "Pueblo Montemall", horario: "2:00 PM – 5:00 PM", municipio: "San Juan" },
+
+  { fecha: "05.DEC.2025", establecimiento: "Econo Altamira", horario: "2:00 PM – 5:00 PM", municipio: "San Juan" },
+  { fecha: "05.DEC.2025", establecimiento: "Pueblo Señorial", horario: "2:00 PM – 5:00 PM", municipio: "San Juan" },
+
+  { fecha: "13.DEC.2025", establecimiento: "Mr. Special Mayagüez Balboa", horario: "10:00 AM – 1:00 PM", municipio: "Mayagüez" },
+
+  { fecha: "14.DEC.2025", establecimiento: "Mr. Special Cabo Rojo", horario: "10:00 AM – 1:00 PM", municipio: "Cabo Rojo" },
+
+  { fecha: "20.DEC.2025", establecimiento: "Pueblo Isla Verde", horario: "11:00 AM – 2:00 PM", municipio: "Carolina" }
 ];
 
 const premiosData = [

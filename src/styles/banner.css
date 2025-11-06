@@ -62,25 +62,43 @@
 .banner-gradient { display: none; }
 
 /* ---------- Schedule (unchanged) ---------- */
-.schedule-container {
-  @apply w-full bg-[#f7f5e7];
-  width: 100% !important;
-  max-width: none !important;
-  align-self: stretch !important;
-  justify-self: stretch !important;
+@import "tailwindcss";
+
+/* --- Match Banner Layout --- */
+.schedule-wrap {
+  @apply w-full px-3 sm:px-4 md:px-6;
 }
+
+.schedule-wrap {
+    margin-top: 1.25rem; /* same gap that already exists visually */
+  }
+
+.schedule-inner {
+  @apply w-full mx-auto;
+  max-width: 1200px; /* Same width behavior as banner */
+}
+
+/* --- Make schedule card match banner card --- */
+.schedule-card {
+  @apply relative rounded-3xl border border-black/10 shadow-lg overflow-hidden;
+  background: #0D7A43; /* Current Starbucks Green background */
+}
+
+/* --- Scroll container inside the card --- */
 .schedule-scrollbox {
-  @apply w-full mx-0 shadow-lg;
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
   max-height: 420px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  align-self: stretch !important;
-  justify-self: stretch !important;
+  @apply w-full px-4 py-5 md:px-6 md:py-6;
 }
+
+/* Remove accidental width restrictions */
 .schedule-scrollbox > * {
   width: 100% !important;
   max-width: none !important;
+}
+
+/* Smooth scrolling on mobile */
+.schedule-scrollbox::-webkit-scrollbar {
+  width: 0;
 }

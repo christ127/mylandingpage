@@ -5,77 +5,56 @@ export default function StickyBanner({
   desktopImage = "/starbucks-banner.jpg",
   mobileImage = "/starbucks-banner-mobile.jpg",
   alt = "Starbucks Contest Banner",
-  maxHeightPx,            // optional cap; defaults to viewport height
-  minHeightPx = 220,      // allow smaller height on narrow screens
+  minHeightPx = 260,
   mobileBreakpointPx = 768,
 }) {
   const containerRef = useRef(null);
   const imgRef = useRef(null);
 
-  const [imgRatio, setImgRatio] = useState(null); // width / height
+  const [imgRatio, setImgRatio] = useState(null);
   const [height, setHeight] = useState(minHeightPx);
 
-  const readNaturalRatio = () => {
+  const getRatio = () => {
     if (!imgRef.current) return null;
     const { naturalWidth, naturalHeight } = imgRef.current;
-    return naturalWidth && naturalHeight ? naturalWidth / naturalHeight : null;
+    if (!naturalWidth || !naturalHeight) return null;
+    return naturalWidth / naturalHeight;
   };
 
-  const handleImgLoad = () => {
-    const ratio = readNaturalRatio();
-    if (ratio) setImgRatio(ratio);
-    resizeToFit(ratio ?? imgRatio);
-  };
+  const resize = (ratioOverride) => {
+    const ratio = ratioOverride ?? imgRatio ?? getRatio();
+    if (!ratio) return;
 
-  const resizeToFit = (ratioParam) => {
     const el = containerRef.current;
     if (!el) return;
 
-    const ratio = ratioParam ?? imgRatio;
-    const vw = el.clientWidth || (typeof window !== "undefined" ? window.innerWidth : 1280);
-    const vh = typeof window !== "undefined" ? window.innerHeight : 800;
-    const clampMax = maxHeightPx ?? vh;
+    const vw = el.clientWidth;
+    const neededHeight = vw / ratio; // height needed to show full image (contain)
 
-    // If we still don't know the ratio, fallback to viewport clamp
-    if (!ratio) {
-      setHeight(Math.max(minHeightPx, Math.min(clampMax, vh)));
-      return;
-    }
+    setHeight(Math.max(minHeightPx, neededHeight));
+  };
 
-    // Height so the full image is visible within available width (object-contain behavior)
-    const neededHeight = vw / ratio;
-
-    // Respect min and max caps
-    const finalH = Math.max(minHeightPx, Math.min(clampMax, neededHeight));
-    setHeight(finalH);
+  const handleLoad = () => {
+    const ratio = getRatio();
+    if (ratio) setImgRatio(ratio);
+    resize(ratio);
   };
 
   useEffect(() => {
-    const onResize = () => {
-      // ratio never changes after load, but recompute if source swapped (<picture> at breakpoint)
-      const ratio = readNaturalRatio() ?? imgRatio;
-      if (ratio && ratio !== imgRatio) setImgRatio(ratio);
-      resizeToFit(ratio ?? imgRatio);
-    };
+    resize();
 
-    // Initial layout
-    resizeToFit();
-
-    // Observe container size changes (layout shifts)
-    const ro = new ResizeObserver(() => onResize());
+    const ro = new ResizeObserver(() => resize());
     if (containerRef.current) ro.observe(containerRef.current);
 
-    // Listen to window resizes/orientation changes
-    window.addEventListener("resize", onResize);
-    window.addEventListener("orientationchange", onResize);
+    window.addEventListener("resize", resize);
+    window.addEventListener("orientationchange", resize);
 
     return () => {
       ro.disconnect();
-      window.removeEventListener("resize", onResize);
-      window.removeEventListener("orientationchange", onResize);
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("orientationchange", resize);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [imgRatio, maxHeightPx, minHeightPx, mobileBreakpointPx]);
+  }, [imgRatio]);
 
   return (
     <section
@@ -85,7 +64,6 @@ export default function StickyBanner({
       aria-label="sticky-hero"
     >
       <picture>
-        {/* Use mobile asset below breakpoint; desktop above */}
         <source media={`(max-width: ${mobileBreakpointPx - 1}px)`} srcSet={mobileImage} />
         <img
           ref={imgRef}
@@ -93,11 +71,10 @@ export default function StickyBanner({
           alt={alt}
           className="banner-image"
           draggable="false"
-          onLoad={handleImgLoad}
+          onLoad={handleLoad}
           sizes="100vw"
         />
       </picture>
-      <div className="banner-gradient" aria-hidden="true" />
     </section>
   );
 }

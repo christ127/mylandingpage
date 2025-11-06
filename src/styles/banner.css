@@ -1,37 +1,26 @@
 @import "tailwindcss";
 
-/* === Banner Layout === */
-
-.banner-wrap {
-  @apply w-full px-3 sm:px-4 md:px-6;
-}
-
-.banner-inner {
-  @apply w-full mx-auto;
-}
-
-/* The card is the visual shape */
+/* ---------------- Card Wrapper (rounded shape) ---------------- */
 .banner-card {
   @apply relative rounded-3xl border border-black/10 shadow-lg overflow-hidden;
   background: #f7f5e7;
 }
 
-/* The section's height is set dynamically via JS */
+/* Banner section fills width, height controlled in JS */
 .banner-section {
   @apply w-full flex items-center justify-center;
   background-color: #f7f5e7;
 }
 
-/* === Image Behavior === */
-/* Desktop & default: show FULL IMAGE, no cropping */
+/* ---------------- Image Behavior ---------------- */
+/* Desktop (default): show ENTIRE image — no crop */
 .banner-image {
   @apply w-full h-full object-contain object-center select-none transition-all duration-500;
   background-color: #f7f5e7;
   image-rendering: auto;
-  transform: none !important;
 }
 
-/* Mobile: fill the card (allow crop) */
+/* Mobile: fill card edge-to-edge */
 @media (max-width: 767px) {
   .banner-image {
     @apply object-cover object-center;
@@ -40,14 +29,19 @@
   }
 }
 
-/* Remove gradient (not needed) */
-.banner-gradient {
-  display: none;
+/* No gradient */
+.banner-gradient { display: none; }
+
+/* ---------------- Layout Helpers ---------------- */
+.banner-wrap {
+  @apply w-full px-3 sm:px-4 md:px-6;
 }
 
+.banner-inner {
+  @apply w-full mx-auto;
+}
 
-/* === Schedule Section (unchanged) === */
-
+/* Schedule styles unchanged */
 .schedule-container {
   @apply w-full bg-[#f7f5e7];
   width: 100% !important;

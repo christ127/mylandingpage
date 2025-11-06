@@ -20,7 +20,6 @@ export default function LandingPage() {
               desktopImage="/starbucks-banner.jpg"
               mobileImage="/starbucks-banner-mobile.jpg"
               minHeightPx={260}
-              maxHeightPx={550}
               mobileBreakpointPx={768}
             />
           </div>

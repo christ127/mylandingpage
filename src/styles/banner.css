@@ -65,24 +65,6 @@
 @import "tailwindcss";
 
 /* --- Match Banner Layout --- */
-.schedule-wrap {
-  @apply w-full px-3 sm:px-4 md:px-6;
-}
-
-.schedule-wrap {
-    margin-top: 1.25rem; /* same gap that already exists visually */
-  }
-
-.schedule-inner {
-  @apply w-full mx-auto;
-  max-width: 1200px; /* Same width behavior as banner */
-}
-
-/* --- Make schedule card match banner card --- */
-.schedule-card {
-  @apply relative rounded-3xl border border-black/10 shadow-lg overflow-hidden;
-  background: #0D7A43; /* Current Starbucks Green background */
-}
 
 /* --- Scroll container inside the card --- */
 .schedule-scrollbox {

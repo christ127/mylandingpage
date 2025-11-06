@@ -7,7 +7,6 @@ const establecimientosData = [
   { fecha: "02.NOV.2025", establecimiento: "Econo Levittown", horario: "11:00 AM – 2:00 PM", municipio: "Toa Baja" },
   { fecha: "07.NOV.2025", establecimiento: "Econo Condado Moderno", horario: "3:00 PM – 6:00 PM", municipio: "San Juan" },
   { fecha: "07.NOV.2025", establecimiento: "Selectos Guaynabo", horario: "2:00 PM – 5:00 PM", municipio: "Guaynabo" },
-  // ...agrega más filas según necesites
 ];
 
 const premiosData = [
@@ -222,13 +221,6 @@ export default function RulesPage() {
                   </p>
                 </section>
               </div>
-            </div>
-
-            <div className="rules-actions">
-              <Link to="/" className="rules-btn rules-btn--ghost">← Volver</Link>
-              <a href="/assets/reglas.pdf" target="_blank" rel="noopener" className="rules-btn rules-btn--primary">
-                Descargar PDF
-              </a>
             </div>
           </article>
         </div>

@@ -1,90 +1,57 @@
 @import "tailwindcss";
 
-
+/* SECTION stays the same */
 .banner-section {
-	@apply sticky top-0 z-20 relative w-full overflow-hidden flex items-center justify-center;
-	background-color: #f7f5e7;
-	;
-	/* match landing background */
+  @apply sticky top-0 z-20 relative w-full overflow-hidden flex items-center justify-center;
+  background-color: #f7f5e7;
 }
 
-/* IMAGE — shows entire image with no crop */
+/* FILL the card on all sizes (cover + full stretch) */
 .banner-image {
-	@apply w-full h-full object-contain object-center select-none transition-all duration-500;
-	image-rendering: auto;
-	background-color: #f7f5e7;
-	;
-	/* ensures consistent color in letterbox areas */
+  @apply w-full h-full object-cover object-center select-none transition-all duration-500;
+  image-rendering: auto;
+  background-color: #f7f5e7;
+  transform: none !important; /* remove older scaling */
 }
 
-.banner-image {
-	transform: scale(0.9);
-	transform-origin: center;
-}
+/* Hide gradient (optional) */
+.banner-gradient { display: none; }
 
-/* even smaller on big screens */
-/* @media (min-width: 1024px) { .banner-image { transform: scale(0.85); } } */
-/* GRADIENT — smooth fade to cream at bottom */
-.banner-gradient {
-	display: none;
-}
-
-/* Wrap + inner match schedule spacing/width */
-.banner-wrap {
-	@apply w-full px-3 sm:px-4 md:px-6;
-	/* same as .schedule-wrap */
-}
-
-.banner-inner {
-	@apply w-full mx-auto;
-	/* same as .schedule-inner */
-}
-
-/* Card frame matches schedule-card radius/border/shadow */
+/* Keep your existing wrap/inner/card styles */
+.banner-wrap { @apply w-full px-3 sm:px-4 md:px-6; }
+.banner-inner { @apply w-full mx-auto; }
 .banner-card {
-	@apply relative rounded-3xl overflow-hidden shadow-lg border border-black/10;
-	background: #f7f5e7;
-	/* cream to match page */
+  @apply relative rounded-3xl overflow-hidden shadow-lg border border-black/10;
+  background: #f7f5e7;
 }
 
-/* Image: no crop, no dark edges, fills card width */
+/* Optional “non-cropping image” utility (unused here but safe to keep) */
 .banner-img {
-	@apply block w-full h-auto select-none transition-all duration-500;
-	object-fit: contain;
-	/* show full image */
-	background-color: #f7f5e7;
+  @apply block w-full h-auto select-none transition-all duration-500;
+  object-fit: contain;
+  background-color: #f7f5e7;
 }
 
-/* (Optional) remove previous scaling to avoid side gaps */
-.banner-image {
-	transform: none !important;
-}
-
+/* Schedule styles remain unchanged */
 .schedule-container {
-	@apply w-full bg-[#f7f5e7];
-	/* break out of any centered parent */
-	width: 100% !important;
-	max-width: none !important;
-	align-self: stretch !important;
-	justify-self: stretch !important;
+  @apply w-full bg-[#f7f5e7];
+  width: 100% !important;
+  max-width: none !important;
+  align-self: stretch !important;
+  justify-self: stretch !important;
 }
-
 .schedule-scrollbox {
-	/* remove max-width caps and centering */
-	@apply w-full mx-0 shadow-lg;
-	max-width: none !important;
-	margin-left: 0 !important;
-	margin-right: 0 !important;
-	/* preserve vertical scroll & height limit */
-	max-height: 420px;
-	overflow-y: auto;
-	scroll-behavior: smooth;
-	/* make it fill horizontally even inside grid/flex layouts */
-	align-self: stretch !important;
-	justify-self: stretch !important;
+  @apply w-full mx-0 shadow-lg;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-height: 420px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  align-self: stretch !important;
+  justify-self: stretch !important;
 }
-
-.schedule-scrollbox>* {
-	width: 100% !important;
-	max-width: none !important;
+.schedule-scrollbox > * {
+  width: 100% !important;
+  max-width: none !important;
 }

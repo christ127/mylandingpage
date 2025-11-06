@@ -2,10 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import "../styles/banner.css";
 
 export default function StickyBanner({
-  image = "/starbucks-banner.jpg",
+  desktopImage = "/starbucks-banner.jpg",
+  mobileImage = "/starbucks-banner-mobile.jpg",
   alt = "Starbucks Contest Banner",
   maxHeightPx,
   minHeightPx = 300,
+  mobileBreakpointPx = 768,
 }) {
   const containerRef = useRef(null);
   const imgRef = useRef(null);
@@ -24,7 +26,7 @@ export default function StickyBanner({
     const el = containerRef.current;
     if (!el) return;
 
-    const vw = el.clientWidth || window.innerWidth;
+    const vw = el.clientWidth || (typeof window !== "undefined" ? window.innerWidth : 1280);
     const vh = typeof window !== "undefined" ? window.innerHeight : 800;
     const clampMax = maxHeightPx ?? vh;
 
@@ -33,18 +35,27 @@ export default function StickyBanner({
       return;
     }
 
+    // We still compute a reasonable height for the sticky hero,
+    // even though the image itself will "cover" the container.
     const neededHeight = vw / imgRatio;
     const finalH = Math.max(minHeightPx, Math.min(clampMax, neededHeight));
     setHeight(finalH);
   };
 
   useEffect(() => {
+    const onResize = () => {
+      if (imgRef.current) {
+        const { naturalWidth, naturalHeight } = imgRef.current;
+        if (naturalWidth && naturalHeight) setImgRatio(naturalWidth / naturalHeight);
+      }
+      resizeToFit();
+    };
+
     resizeToFit();
 
     const ro = new ResizeObserver(resizeToFit);
     if (containerRef.current) ro.observe(containerRef.current);
 
-    const onResize = () => resizeToFit();
     window.addEventListener("resize", onResize);
     window.addEventListener("orientationchange", onResize);
 
@@ -53,7 +64,7 @@ export default function StickyBanner({
       window.removeEventListener("resize", onResize);
       window.removeEventListener("orientationchange", onResize);
     };
-  }, [imgRatio, maxHeightPx, minHeightPx]);
+  }, [imgRatio, maxHeightPx, minHeightPx, mobileBreakpointPx]);
 
   return (
     <section
@@ -62,15 +73,24 @@ export default function StickyBanner({
       style={{ height }}
       aria-label="sticky-hero"
     >
-      <img
-        ref={imgRef}
-        src={image}
-        alt={alt}
-        className="banner-image"
-        draggable="false"
-        onLoad={handleImgLoad}
-        sizes="100vw"
-      />
+      <picture>
+        {/* Mobile first source up to breakpoint */}
+        <source
+          media={`(max-width: ${mobileBreakpointPx - 1}px)`}
+          srcSet={mobileImage}
+        />
+        {/* Desktop fallback */}
+        <img
+          ref={imgRef}
+          src={desktopImage}
+          alt={alt}
+          className="banner-image"
+          draggable="false"
+          onLoad={handleImgLoad}
+          sizes="100vw"
+        />
+      </picture>
+
       <div className="banner-gradient" aria-hidden="true" />
     </section>
   );

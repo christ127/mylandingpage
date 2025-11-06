@@ -1,58 +1,53 @@
 @import "tailwindcss";
 
-/* SECTION stays the same */
-/* Banner container (sticky hero stays the same) */
+/* === Banner Layout === */
+
+.banner-wrap {
+  @apply w-full px-3 sm:px-4 md:px-6;
+}
+
+.banner-inner {
+  @apply w-full mx-auto;
+}
+
+/* The card is the visual shape */
 .banner-card {
-    @apply relative rounded-3xl border border-black/10 shadow-lg overflow-hidden;
-    background: #f7f5e7;
-  }
-  
-  /* The inner sticky/hero container — fills the rounded card and adapts dynamically */
-  .banner-section {
-    @apply w-full flex items-center justify-center;
-    background-color: #f7f5e7;
-  }
-  
-  /* Always CONTAIN the image so it fully fits inside the rounded section.
-     Width/height stretch to the section; height is driven by the component. */
-  .banner-image {
-    @apply w-full h-full object-contain object-center select-none transition-all duration-500;
-    image-rendering: auto;
-    background-color: #f7f5e7;
-    transform: none !important;
-  }
-  
+  @apply relative rounded-3xl border border-black/10 shadow-lg overflow-hidden;
+  background: #f7f5e7;
+}
 
-  /* Remove the old forced scaling */
-  .banner-image {
-    transform: none !important;
-  }
-  
-  /* Mobile: fill the card completely (allow cropping) */
-  @media (max-width: 767px) {
-    .banner-image {
-      @apply object-cover object-center;
-      width: 100% !important;
-      height: 100% !important;
-    }
-  }
-  
-  
-/* Hide gradient (optional) */
-.banner-gradient { display: none; }
-
-/* Wrap spacing stays the same */
-.banner-wrap { @apply w-full px-3 sm:px-4 md:px-6; }
-.banner-inner { @apply w-full mx-auto; }
-
-/* Optional “non-cropping image” utility (unused here but safe to keep) */
-.banner-img {
-  @apply block w-full h-auto select-none transition-all duration-500;
-  object-fit: contain;
+/* The section's height is set dynamically via JS */
+.banner-section {
+  @apply w-full flex items-center justify-center;
   background-color: #f7f5e7;
 }
 
-/* Schedule styles remain unchanged */
+/* === Image Behavior === */
+/* Desktop & default: show FULL IMAGE, no cropping */
+.banner-image {
+  @apply w-full h-full object-contain object-center select-none transition-all duration-500;
+  background-color: #f7f5e7;
+  image-rendering: auto;
+  transform: none !important;
+}
+
+/* Mobile: fill the card (allow crop) */
+@media (max-width: 767px) {
+  .banner-image {
+    @apply object-cover object-center;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/* Remove gradient (not needed) */
+.banner-gradient {
+  display: none;
+}
+
+
+/* === Schedule Section (unchanged) === */
+
 .schedule-container {
   @apply w-full bg-[#f7f5e7];
   width: 100% !important;
@@ -60,6 +55,7 @@
   align-self: stretch !important;
   justify-self: stretch !important;
 }
+
 .schedule-scrollbox {
   @apply w-full mx-0 shadow-lg;
   max-width: none !important;
@@ -71,6 +67,7 @@
   align-self: stretch !important;
   justify-self: stretch !important;
 }
+
 .schedule-scrollbox > * {
   width: 100% !important;
   max-width: none !important;

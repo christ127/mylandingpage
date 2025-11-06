@@ -8,11 +8,26 @@
 
 /* FILL the card on all sizes (cover + full stretch) */
 .banner-image {
-  @apply w-full h-full object-cover object-center select-none transition-all duration-500;
-  image-rendering: auto;
-  background-color: #f7f5e7;
-  transform: none !important; /* remove older scaling */
-}
+    @apply w-full h-full object-contain object-center select-none transition-all duration-500;
+    image-rendering: auto;
+    background-color: #f7f5e7;
+    transform: none !important; /* ensure no leftover scaling */
+  }
+  
+  /* Mobile: fill the card completely (allow cropping) */
+  @media (max-width: 767px) {
+    .banner-image {
+      @apply object-cover object-center;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+  
+  /* Ensure the card clips edges on all sizes */
+  .banner-card {
+    @apply relative rounded-3xl overflow-hidden shadow-lg border border-black/10;
+    background: #f7f5e7;
+  }
 
 /* Hide gradient (optional) */
 .banner-gradient { display: none; }
@@ -20,10 +35,6 @@
 /* Keep your existing wrap/inner/card styles */
 .banner-wrap { @apply w-full px-3 sm:px-4 md:px-6; }
 .banner-inner { @apply w-full mx-auto; }
-.banner-card {
-  @apply relative rounded-3xl overflow-hidden shadow-lg border border-black/10;
-  background: #f7f5e7;
-}
 
 /* Optional “non-cropping image” utility (unused here but safe to keep) */
 .banner-img {

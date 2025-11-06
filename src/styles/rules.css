@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/* ---- Page + Header ---- */
+.rules-page {
+  @apply min-h-screen bg-[#F7F5E7] flex flex-col;
+}
+
+.rules-header {
+  @apply bg-white/90 backdrop-blur border-b border-black/10;
+}
+
+.rules-header-inner {
+  @apply mx-auto max-w-6xl px-4 py-4 flex items-center justify-between;
+}
+
+.rules-title {
+  color: #00704A;
+  @apply text-xl md:text-2xl font-extrabold;
+}
+
+/* Optional: reuse your existing .btn-top-return from form styles if shared globally */
+/* If not shared, uncomment to include it here
+.btn-top-return {
+  @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition duration-200;
+  background-color: #00704A;
+  color: #fff;
+}
+.btn-top-return:hover { background-color: #005f3e; }
+*/
+
+/* ---- Layout ---- */
+.rules-wrap {
+  @apply mx-auto w-full max-w-6xl px-3 sm:px-4 md:px-6 py-6 md:py-10;
+}
+
+.rules-grid {
+  @apply grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8;
+}
+
+/* ---- TOC (Sidebar / Mobile Accordion) ---- */
+.toc-card {
+  @apply rounded-2xl md:rounded-3xl bg-white border border-black/10 p-4 md:p-5 shadow-sm;
+}
+
+.toc-heading {
+  color: #00704A;
+  @apply text-base font-bold mb-3;
+}
+
+.toc-list {
+  @apply space-y-2 text-sm leading-6;
+}
+
+.toc-link {
+  color: #00704A;
+  @apply hover:underline underline-offset-2;
+}
+
+/* ---- Content Card ---- */
+.rules-card {
+  @apply bg-white border border-black/10 rounded-2xl md:rounded-3xl shadow-sm;
+}
+
+.rules-body {
+  @apply px-4 md:px-8 py-6 md:py-8;
+}
+
+/* ---- Prose tweaks (works even without @tailwind/typography) ---- */
+.rules-prose {
+  @apply max-w-none;
+}
+
+.rules-prose h2 {
+  color: #00704A;
+  @apply text-2xl font-bold mb-2;
+}
+
+.rules-prose h3 {
+  color: #2C1810;
+  @apply text-lg font-semibold mt-4 mb-2;
+}
+
+.rules-prose p {
+  @apply text-[15px] leading-7 text-neutral-900;
+}
+
+.rules-prose ul {
+  @apply list-disc pl-6 space-y-1 text-[15px] leading-7 text-neutral-900;
+}
+
+.rules-prose ol {
+  @apply list-decimal pl-6 space-y-1 text-[15px] leading-7 text-neutral-900;
+}
+
+.rules-prose hr {
+  @apply my-6 border-t border-black/10;
+}
+
+.rules-prose a {
+  color: #00704A;
+  @apply underline underline-offset-2;
+}
+
+/* ---- Tables ---- */
+.rules-table {
+  @apply w-full text-sm border-collapse my-4;
+}
+
+.rules-table th,
+.rules-table td {
+  @apply border border-black/10 px-3 py-2 text-left align-top;
+}
+
+.rules-table thead th {
+  @apply font-semibold bg-neutral-50;
+}
+
+/* ---- Section anchors (offset for sticky header) ---- */
+.rules-section {
+  @apply scroll-mt-24;
+}
+
+/* ---- Footer Actions ---- */
+.rules-actions {
+  @apply mt-6 flex items-center justify-between;
+}
+
+.rules-btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold shadow-sm;
+}
+
+.rules-btn--ghost {
+  @apply bg-white border border-black/10;
+  color: #00704A;
+}
+
+.rules-btn--primary {
+  background: #00704A;
+  color: #fff;
+}
+
+/* ---- Mobile details summary (TOC) ---- */
+.rules-mobile-toc {
+  @apply lg:hidden rounded-2xl border border-black/10 bg-white overflow-hidden;
+}
+
+.rules-mobile-toc summary {
+  color: #00704A;
+  @apply list-none cursor-pointer px-4 py-3 font-semibold;
+}
+
+.rules-mobile-toc nav {
+  @apply px-4 pb-3;
+}
+
+/* ---- Print (optional) ---- */
+@media print {
+  .rules-header,
+  .rules-mobile-toc,
+  .rules-actions,
+  .toc-card { display: none !important; }
+  .rules-wrap { @apply px-0 py-0 max-w-none; }
+  .rules-card { @apply border-0 shadow-none rounded-none; }
+  .rules-body { @apply px-0 py-0; }
+}

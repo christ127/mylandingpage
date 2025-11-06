@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import StickyBanner from "../components/StickyBanner";
-import VisitSchedule from "../components/VisitSchedule"; // ← make sure this path matches your project
+import VisitSchedule from "../components/VisitSchedule";
 
 import "../styles/buttons.css";
 import "../styles/footer.css";
-import "../styles/schedule.css"; // styles for VisitSchedule
+import "../styles/schedule.css";
 
 export default function LandingPage() {
   const nav = useNavigate();
@@ -19,13 +19,14 @@ export default function LandingPage() {
             <StickyBanner
               desktopImage="/starbucks-banner.jpg"
               mobileImage="/starbucks-banner-mobile.jpg"
-              minHeightPx={260} // close to native mobile height
-              maxHeightPx={550} // cap for large screens
+              minHeightPx={260}
+              maxHeightPx={550}
               mobileBreakpointPx={768}
-            />{" "}
+            />
           </div>
         </div>
       </section>
+
       {/* Schedule section */}
       <div className="schedule-container">
         <div className="schedule-scrollbox">
@@ -33,14 +34,24 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Floating button */}
+      {/* Floating buttons */}
       <main className="participa-container">
         <button
-          onClick={() => nav("/Form")}
+          onClick={() => nav("/form")}
           type="button"
           className="participa-btn"
         >
           Participa
+        </button>
+
+        {/* New Rules Button */}
+        <button
+          onClick={() => nav("/reglas")}
+          type="button"
+          className="participa-btn mt-3"
+          style={{ backgroundColor: "#2C1810" }} // Coffee brown for contrast
+        >
+          Reglas
         </button>
       </main>
 
@@ -48,11 +59,10 @@ export default function LandingPage() {
       <footer className="footer">
         <div className="footer-content">
           <p className="footer-text">
-            © {new Date().getFullYear()} Válido del 1 de noviembre al 15 de
-            diciembre de 2025. Participación sin obligación de compra.
-            Participación limitada a mayores de edad y residentes legales de
-            Puerto Rico, con excepción de las personas descritas en las
-            reglas.Reglas completas en www.ganaconstarbucks.com
+            © {new Date().getFullYear()} Válido del 1 de noviembre al 15 de diciembre de 2025. 
+            Participación sin obligación de compra. Participación limitada a mayores de edad y 
+            residentes legales de Puerto Rico, con excepción de las personas descritas en las reglas. 
+            Reglas completas en www.ganaconstarbucks.com
           </p>
         </div>
       </footer>

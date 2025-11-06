@@ -1,47 +1,67 @@
 @import "tailwindcss";
 
-/* ---------------- Card Wrapper (rounded shape) ---------------- */
+/* ---------- Layout wrappers ---------- */
+.banner-wrap { @apply w-full px-3 sm:px-4 md:px-6; }
+.banner-inner { @apply w-full mx-auto; }
+
+/* ---------- Card: rounded shape + clipping ---------- */
 .banner-card {
   @apply relative rounded-3xl border border-black/10 shadow-lg overflow-hidden;
   background: #f7f5e7;
 }
 
-/* Banner section fills width, height controlled in JS */
+/* ---------- Banner section (height set by component) ---------- */
 .banner-section {
   @apply w-full flex items-center justify-center;
   background-color: #f7f5e7;
+  padding: 0;
 }
 
-/* ---------------- Image Behavior ---------------- */
-/* Desktop (default): show ENTIRE image — no crop */
+/* Ensure picture doesn't introduce gaps */
+.banner-section picture { display: block; width: 100%; height: 100%; }
+
+/* ---------- Desktop (default): show full image, no crop ---------- */
 .banner-image {
   @apply w-full h-full object-contain object-center select-none transition-all duration-500;
   background-color: #f7f5e7;
   image-rendering: auto;
+  transform: none !important;
+  display: block;
 }
 
-/* Mobile: fill card edge-to-edge */
+/* ---------- Mobile: FILL the card & clip to rounded edges ---------- */
 @media (max-width: 767px) {
-  .banner-image {
-    @apply object-cover object-center;
+  /* remove any accidental padding that creates inner gaps */
+  .banner-wrap,
+  .banner-inner,
+  .banner-section {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* the card already has overflow-hidden + rounded */
+  .banner-card { @apply rounded-3xl overflow-hidden; }
+
+  /* force full fill */
+  .banner-section,
+  .banner-section picture,
+  .banner-card .banner-image {
     width: 100% !important;
     height: 100% !important;
   }
+
+  .banner-card .banner-image {
+    object-fit: cover !important;   /* <-- fill the damn card */
+    object-position: center;
+  }
 }
 
-/* No gradient */
+/* ---------- Optional gradient disabled ---------- */
 .banner-gradient { display: none; }
 
-/* ---------------- Layout Helpers ---------------- */
-.banner-wrap {
-  @apply w-full px-3 sm:px-4 md:px-6;
-}
-
-.banner-inner {
-  @apply w-full mx-auto;
-}
-
-/* Schedule styles unchanged */
+/* ---------- Schedule (unchanged) ---------- */
 .schedule-container {
   @apply w-full bg-[#f7f5e7];
   width: 100% !important;
@@ -49,7 +69,6 @@
   align-self: stretch !important;
   justify-self: stretch !important;
 }
-
 .schedule-scrollbox {
   @apply w-full mx-0 shadow-lg;
   max-width: none !important;
@@ -61,7 +80,6 @@
   align-self: stretch !important;
   justify-self: stretch !important;
 }
-
 .schedule-scrollbox > * {
   width: 100% !important;
   max-width: none !important;

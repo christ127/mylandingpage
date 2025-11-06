@@ -1,17 +1,30 @@
 @import "tailwindcss";
 
 /* SECTION stays the same */
+/* Banner container (sticky hero stays the same) */
 .banner-section {
-  @apply sticky top-0 z-20 relative w-full overflow-hidden flex items-center justify-center;
-  background-color: #f7f5e7;
-}
+    @apply sticky top-0 z-20 relative w-full flex items-center justify-center;
+    background-color: #f7f5e7;
+  }
+  
+  /* Card — REMOVE overflow-hidden so image won't be cropped */
+  .banner-card {
+    @apply relative rounded-3xl shadow-lg border border-black/10;
+    background: #f7f5e7;
+    /* no overflow-hidden */
+  }
 
 /* FILL the card on all sizes (cover + full stretch) */
 .banner-image {
     @apply w-full h-full object-contain object-center select-none transition-all duration-500;
-    image-rendering: auto;
     background-color: #f7f5e7;
-    transform: none !important; /* ensure no leftover scaling */
+    border-radius: 1.5rem; /* matches rounded-3xl */
+    transform: none !important;
+  }
+  
+  /* Remove the old forced scaling */
+  .banner-image {
+    transform: none !important;
   }
   
   /* Mobile: fill the card completely (allow cropping) */
@@ -23,19 +36,18 @@
     }
   }
   
-  /* Ensure the card clips edges on all sizes */
-  .banner-card {
-    @apply relative rounded-3xl overflow-hidden shadow-lg border border-black/10;
-    background: #f7f5e7;
-  }
-
+  
 /* Hide gradient (optional) */
 .banner-gradient { display: none; }
 
-/* Keep your existing wrap/inner/card styles */
-.banner-wrap { @apply w-full px-3 sm:px-4 md:px-6; }
-.banner-inner { @apply w-full mx-auto; }
-
+/* Wrap spacing stays the same */
+.banner-wrap {
+    @apply w-full px-3 sm:px-4 md:px-6;
+  }
+  
+  .banner-inner {
+    @apply w-full mx-auto;
+  }
 /* Optional “non-cropping image” utility (unused here but safe to keep) */
 .banner-img {
   @apply block w-full h-auto select-none transition-all duration-500;

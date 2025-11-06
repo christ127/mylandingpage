@@ -10,6 +10,6 @@
   }
   
   .participa-container {
-    @apply w-full flex items-center justify-center py-12 bg-[#F7F5E7];
+    @apply w-full flex items-center justify-center py-12 bg-[#F7F5E7] gap-[5px];
   }
 

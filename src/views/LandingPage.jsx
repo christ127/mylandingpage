@@ -46,9 +46,9 @@ export default function LandingPage() {
 
         {/* New Rules Button */}
         <button
-          onClick={() => nav("/reglas")}
+          onClick={() => nav("/rules")}
           type="button"
-          className="participa-btn mt-3"
+          className="participa-btn"
           style={{ backgroundColor: "#2C1810" }} // Coffee brown for contrast
         >
           Reglas

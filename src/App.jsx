@@ -4,6 +4,7 @@ import LandingPage from "./views/LandingPage";
 import FormPage from "./views/FormPage";
 import SuccessPage from "./views/SuccessPage";
 import RulesPage from "./views/RulesPage";
+import SubmissionsPage from "./views/SubmissionsPage";
 
 function App() {
   return (

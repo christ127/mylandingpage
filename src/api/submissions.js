@@ -11,9 +11,15 @@ export function listSubmissions({ contestSlug, page = 1, pageSize = 50 }) {
   return api.get(`/api/submissions?${q.toString()}`);
 }
 
-export async function exportSubmissionsCsv(contestSlug) {
-  // start a browser download by navigating to the CSV export endpoint
-  const href = `${api.baseUrl}/api/submissions/export?contestSlug=${encodeURIComponent(contestSlug)}`;
-  // trigger download in a new tab to preserve current UI
-  window.open(href, "_blank", "noopener");
-}
+export async function exportSubmissionsCsv(contestSlug, adminKey) {
+    const q = new URLSearchParams({
+      contestSlug,
+    });
+  
+    if (adminKey) {
+      q.append("adminKey", adminKey); // only if your backend supports this
+    }
+  
+    const href = `${api.baseUrl}/api/submissions/export?${q.toString()}`;
+    window.open(href, "_blank", "noopener");
+  }

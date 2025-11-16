@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/submissions.css";
 import { api } from "../api/client";
+import { exportSubmissionsCsv } from "../api/submissions";
 
 const DEFAULT_CONTEST_SLUG = "photo-contest-2026"; // change to your slug
 
@@ -249,8 +250,8 @@ export default function SubmissionsPage() {
           <div className="admin-meta-row">
             <div className="admin-meta-left">
               <span>
-                Mostrando{" "}
-                <span className="font-semibold">{pageSize}</span> por página
+                Mostrando <span className="font-semibold">{pageSize}</span> por
+                página
               </span>
               {loading && <span>· Cargando…</span>}
             </div>
@@ -263,18 +264,24 @@ export default function SubmissionsPage() {
               >
                 Refrescar
               </button>
+
+              <button
+                type="button"
+                className="btn-primary"
+                disabled={loading || total === 0}
+                onClick={() => exportSubmissionsCsv(contestSlug, adminKey)}
+              >
+                Exportar CSV
+              </button>
             </div>
           </div>
 
-          {loadError && (
-            <div className="admin-alert-error">{loadError}</div>
-          )}
+          {loadError && <div className="admin-alert-error">{loadError}</div>}
 
           <div className="admin-table-wrap">
             <table className="admin-table">
               <thead>
                 <tr>
-                  <th className="admin-th">ID</th>
                   <th className="admin-th">Nombre</th>
                   <th className="admin-th">Email</th>
                   <th className="admin-th">Consent</th>
@@ -284,8 +291,9 @@ export default function SubmissionsPage() {
               </thead>
               <tbody>
                 {items.map((s) => (
-                  <tr key={s.submissionId} className="admin-row">
-                    <td className="admin-td">{s.submissionId}</td>
+                  <tr key={s.email} className="admin-row">
+                    {" "}
+                    {/* use email as key now */}
                     <td className="admin-td">
                       {s.firstName} {s.lastName}
                     </td>

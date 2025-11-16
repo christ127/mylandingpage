@@ -1,6 +1,7 @@
 // src/pages/SubmissionsPage.jsx
 import React, { useEffect, useState } from "react";
 import "../styles/submissions.css";
+import { api } from "../api/client";
 
 const DEFAULT_CONTEST_SLUG = "photo-contest-2026"; // change to your slug
 
@@ -11,21 +12,12 @@ async function fetchSubmissions({ contestSlug, page, pageSize, adminKey }) {
     pageSize: String(pageSize),
   });
 
-  const res = await fetch(`/api/submissions?${params.toString()}`, {
+  // Use the shared api client instead of raw fetch
+  return api.get(`/api/submissions?${params.toString()}`, {
     headers: {
       "x-admin-key": adminKey,
     },
   });
-
-  if (res.status === 401) {
-    throw new Error("unauthorized");
-  }
-
-  if (!res.ok) {
-    throw new Error(`Error ${res.status}`);
-  }
-
-  return res.json();
 }
 
 export default function SubmissionsPage() {
@@ -77,11 +69,14 @@ export default function SubmissionsPage() {
     } catch (err) {
       console.error(err);
       setLoading(false);
-      if (err.message === "unauthorized") {
+
+      // err.status comes from your client.js request() helper
+      if (err.status === 401) {
         setAuthError("Clave de administrador incorrecta.");
       } else {
         setAuthError("Error al intentar cargar los datos.");
       }
+
       setIsAuthenticated(false);
     }
   };
@@ -105,7 +100,8 @@ export default function SubmissionsPage() {
     } catch (err) {
       console.error(err);
       setLoading(false);
-      if (err.message === "unauthorized") {
+
+      if (err.status === 401) {
         setIsAuthenticated(false);
         setAuthError("Tu sesión de admin expiró. Ingresa la clave nuevamente.");
       } else {
@@ -146,7 +142,8 @@ export default function SubmissionsPage() {
               <div>
                 <h2 className="admin-login-title">Ingresar al panel</h2>
                 <p className="admin-login-subtitle">
-                  Introduce la clave de administrador para ver las participaciones.
+                  Introduce la clave de administrador para ver las
+                  participaciones.
                 </p>
               </div>
 
@@ -235,7 +232,8 @@ export default function SubmissionsPage() {
             <div className="admin-card-title-wrap">
               <h2 className="admin-card-title">Submissions del concurso</h2>
               <p className="admin-card-subtitle">
-                Contest slug: <span className="font-semibold">{contestSlug}</span>
+                Contest slug:{" "}
+                <span className="font-semibold">{contestSlug}</span>
               </p>
             </div>
             <div className="flex flex-col items-start md:items-end gap-1">

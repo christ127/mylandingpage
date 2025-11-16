@@ -15,6 +15,8 @@ function App() {
         <Route path="/form" element={<FormPage />} />{" "}
         <Route path="/success" element={<SuccessPage />} />{" "}
         <Route path="/rules" element={<RulesPage />} />{" "}
+        <Route path="/submissions" element={<SubmissionsPage />} />
+
 
       </Routes>{" "}
     </BrowserRouter>

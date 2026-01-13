@@ -7,7 +7,7 @@ import "../styles/form.css"; // reuses .btn-primary / .btn-secondary from your f
 import "../styles/schedule.css"; // styles for VisitSchedule
 
 export default function SuccessPage() {
-    const nav = useNavigate();
+  const nav = useNavigate();
 
   return (
     <div className="success-page">
@@ -15,7 +15,7 @@ export default function SuccessPage() {
       <div className="success-card">
         <div className="success-icon">
           <svg
-            className="h-7 w-7 text-green-600"
+            className="h-7 w-7 text-[#EBB351]"
             viewBox="0 0 24 24"
             fill="none"
             aria-hidden="true"
@@ -37,21 +37,21 @@ export default function SuccessPage() {
         </p>
 
         <div className="success-actions">
-        <button
-        onClick={() => nav("/")}
-        className="btn-secondary"
-        type="button"
-      >
-        Volver al inicio
-      </button>
+          <button
+            onClick={() => nav("/")}
+            className="btn-secondary"
+            type="button"
+          >
+            Volver al inicio
+          </button>
 
-      <button
-        onClick={() => nav("/form")}
-        className="btn-primary"
-        type="button"
-      >
-        Enviar otra participación
-      </button>
+          <button
+            onClick={() => nav("/form")}
+            className="btn-primary"
+            type="button"
+          >
+            Enviar otra participación
+          </button>
         </div>
       </div>
 

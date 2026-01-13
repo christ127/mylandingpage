@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
 .participa-btn {
-  @apply bg-[#13955A] text-white font-semibold text-lg md:text-xl
-         rounded-full px-12 py-5 shadow-lg hover:bg-[#0C5E37]
+  @apply bg-[#0B80C1] text-white font-semibold text-lg md:text-xl
+         rounded-full px-12 py-5 shadow-lg hover:bg-[#062D5B]
          hover:shadow-xl transition-all duration-300 transform
          hover:-translate-y-[2px] focus:outline-none focus:ring-4
-         focus:ring-[#13955A]/40;
+         focus:ring-[#0B80C1]/40;
 }
 
 .participa-container {
-  @apply w-full flex items-center justify-center py-12 bg-[#EAEEEC] gap-[5px];
+  @apply w-full flex items-center justify-center py-12 bg-[#055190] gap-[5px];
 }
 
+.btn-secondary-yellow {
+  background: #EBB351;
+  color: #061225;
+}

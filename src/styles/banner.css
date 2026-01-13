@@ -13,14 +13,20 @@
 .banner-card {
   @apply relative rounded-3xl border border-black/10 shadow-xl overflow-hidden;
 
-  /* Blue background to mesh with hero image */
-  background: #055190;
+  /* 🔥 Enhanced blue background */
+  background:
+    radial-gradient(
+      120% 80% at 50% 40%,
+      #0B80C1 0%,
+      #055190 45%,
+      #061225 100%
+    );
 }
 
-/* ---------- Banner section (height set by component) ---------- */
+/* ---------- Banner section ---------- */
 .banner-section {
   @apply w-full flex items-center justify-center;
-  background-color: #055190;
+  background: transparent;
   padding: 0;
 }
 
@@ -31,32 +37,40 @@
   height: 100%;
 }
 
-/* ---------- Desktop (default): show full image, no crop ---------- */
+/* ---------- Image ---------- */
 .banner-image {
   @apply w-full h-full object-contain object-center select-none transition-all duration-500;
-  background-color: #055190;
+  background: transparent;
   image-rendering: auto;
   transform: none !important;
   display: block;
 }
 
-/* ---------- Subtle yellow accent line (campaign touch) ---------- */
+/* ---------- Yellow campaign accent ---------- */
 .banner-accent {
   @apply absolute top-0 left-0 w-full h-[4px];
   background: #EBB351;
+  z-index: 2;
 }
 
-/* ---------- Optional overlay for contrast (very subtle) ---------- */
+/* ---------- Contrast overlay (very subtle) ---------- */
 .banner-overlay {
   @apply absolute inset-0 pointer-events-none;
   background: linear-gradient(
     to bottom,
-    rgba(6, 18, 37, 0.15),
+    rgba(6, 18, 37, 0.20),
     rgba(6, 18, 37, 0.05)
   );
+  z-index: 1;
 }
 
-/* ---------- Mobile: FILL the card & clip to rounded edges ---------- */
+/* Ensure banner content stays above overlay */
+.banner-card > :not(.banner-accent):not(.banner-overlay) {
+  position: relative;
+  z-index: 3;
+}
+
+/* ---------- Mobile ---------- */
 @media (max-width: 767px) {
   .banner-wrap,
   .banner-inner,
@@ -84,7 +98,7 @@
   }
 }
 
-/* ---------- Optional gradient disabled ---------- */
+/* ---------- Disabled ---------- */
 .banner-gradient {
   display: none;
 }

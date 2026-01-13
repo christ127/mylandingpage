@@ -2,7 +2,7 @@
 
 /* ---- Page + Header ---- */
 .rules-page {
-  @apply min-h-screen bg-[#EAEEEC] flex flex-col;
+  @apply min-h-screen bg-[#055190] flex flex-col;
 }
 
 .rules-header {
@@ -14,7 +14,7 @@
 }
 
 .rules-title {
-  color: #13955A;
+  color: #0B80C1;
   @apply text-xl md:text-2xl font-extrabold;
 }
 
@@ -22,10 +22,10 @@
 /* If not shared, uncomment to include it here
 .btn-top-return {
   @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition duration-200;
-  background-color: #13955A;
+  background-color: #0B80C1;
   color: #fff;
 }
-.btn-top-return:hover { background-color: #0C5E37; }
+.btn-top-return:hover { background-color: #062D5B; }
 */
 
 /* ---- Layout ---- */
@@ -43,7 +43,7 @@
 }
 
 .toc-heading {
-  color: #13955A;
+  color: #0B80C1;
   @apply text-base font-bold mb-3;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .toc-link {
-  color: #13955A;
+  color: #0B80C1;
   @apply hover:underline underline-offset-2;
 }
 
@@ -65,13 +65,13 @@
   @apply px-4 md:px-8 py-6 md:py-8;
 }
 
-/* ---- Prose tweaks (works even without @tailwind/typography) ---- */
+/* ---- Prose tweaks ---- */
 .rules-prose {
   @apply max-w-none;
 }
 
 .rules-prose h2 {
-  color: #13955A;
+  color: #0B80C1;
   @apply text-2xl font-bold mb-2;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .rules-prose a {
-  color: #13955A;
+  color: #0B80C1;
   @apply underline underline-offset-2;
 }
 
@@ -131,11 +131,11 @@
 
 .rules-btn--ghost {
   @apply bg-white border border-black/10;
-  color: #13955A;
+  color: #0B80C1;
 }
 
 .rules-btn--primary {
-  background: #13955A;
+  background: #0B80C1;
   color: #fff;
 }
 
@@ -145,7 +145,7 @@
 }
 
 .rules-mobile-toc summary {
-  color: #13955A;
+  color: #0B80C1;
   @apply list-none cursor-pointer px-4 py-3 font-semibold;
 }
 

@@ -54,7 +54,7 @@ export default function LandingPage() {
           onClick={() => nav("/rules")}
           type="button"
           className="participa-btn"
-          style={{ backgroundColor: "#2C1810" }} // Coffee brown for contrast
+          style={{ backgroundColor: "#EBB351" }}
         >
           Reglas
         </button>
@@ -64,11 +64,11 @@ export default function LandingPage() {
       <footer className="footer">
         <div className="footer-content">
           <p className="footer-text">
-            © {new Date().getFullYear()} Válido del 1 de noviembre al 15 de
-            diciembre de 2025. Participación sin obligación de compra.
+            © {new Date().getFullYear()} Válido del 15 de enero al 15 de
+            febrero de 2026. Participación sin obligación de compra.
             Participación limitada a mayores de edad y residentes legales de
             Puerto Rico, con excepción de las personas descritas en las reglas.
-            Reglas completas en www.ganaconstarbucks.com
+            Reglas completas en www.ganaconwishbone.com
           </p>
         </div>
       </footer>

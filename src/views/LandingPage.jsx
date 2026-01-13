@@ -16,6 +16,8 @@ export default function LandingPage() {
       <section className="banner-wrap">
         <div className="banner-inner">
           <div className="banner-card">
+            <div className="banner-accent" />
+            <div className="banner-overlay" />
             <StickyBanner
               desktopImage="/starbucks-banner.jpg"
               mobileImage="/starbucks-banner-mobile.jpg"
@@ -27,11 +29,15 @@ export default function LandingPage() {
       </section>
 
       {/* Schedule section */}
-      <div className="schedule-container">
-        <div className="schedule-scrollbox">
-          <VisitSchedule />
+      <section className="schedule-wrap">
+        <div className="schedule-inner">
+          <div className="schedule-card">
+            <div className="schedule-scrollbox">
+              <VisitSchedule />
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Floating buttons */}
       <main className="participa-container">

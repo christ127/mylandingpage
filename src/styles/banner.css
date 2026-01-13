@@ -1,37 +1,63 @@
 @import "tailwindcss";
 
 /* ---------- Layout wrappers ---------- */
-.banner-wrap { @apply w-full px-3 sm:px-4 md:px-6; }
-.banner-inner { @apply w-full mx-auto; }
+.banner-wrap {
+  @apply w-full px-3 sm:px-4 md:px-6;
+}
+
+.banner-inner {
+  @apply w-full mx-auto;
+}
 
 /* ---------- Card: rounded shape + clipping ---------- */
 .banner-card {
-  @apply relative rounded-3xl border border-black/10 shadow-lg overflow-hidden;
-  background: #EAEEEC;
+  @apply relative rounded-3xl border border-black/10 shadow-xl overflow-hidden;
+
+  /* Blue background to mesh with hero image */
+  background: #055190;
 }
 
 /* ---------- Banner section (height set by component) ---------- */
 .banner-section {
   @apply w-full flex items-center justify-center;
-  background-color: #EAEEEC;
+  background-color: #055190;
   padding: 0;
 }
 
 /* Ensure picture doesn't introduce gaps */
-.banner-section picture { display: block; width: 100%; height: 100%; }
+.banner-section picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
 /* ---------- Desktop (default): show full image, no crop ---------- */
 .banner-image {
   @apply w-full h-full object-contain object-center select-none transition-all duration-500;
-  background-color: #EAEEEC;
+  background-color: #055190;
   image-rendering: auto;
   transform: none !important;
   display: block;
 }
 
+/* ---------- Subtle yellow accent line (campaign touch) ---------- */
+.banner-accent {
+  @apply absolute top-0 left-0 w-full h-[4px];
+  background: #EBB351;
+}
+
+/* ---------- Optional overlay for contrast (very subtle) ---------- */
+.banner-overlay {
+  @apply absolute inset-0 pointer-events-none;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 18, 37, 0.15),
+    rgba(6, 18, 37, 0.05)
+  );
+}
+
 /* ---------- Mobile: FILL the card & clip to rounded edges ---------- */
 @media (max-width: 767px) {
-  /* remove any accidental padding that creates inner gaps */
   .banner-wrap,
   .banner-inner,
   .banner-section {
@@ -41,10 +67,10 @@
     max-width: none !important;
   }
 
-  /* the card already has overflow-hidden + rounded */
-  .banner-card { @apply rounded-3xl overflow-hidden; }
+  .banner-card {
+    @apply rounded-3xl overflow-hidden;
+  }
 
-  /* force full fill */
   .banner-section,
   .banner-section picture,
   .banner-card .banner-image {
@@ -53,34 +79,12 @@
   }
 
   .banner-card .banner-image {
-    object-fit: cover !important;   /* <-- fill the damn card */
+    object-fit: cover !important;
     object-position: center;
   }
 }
 
 /* ---------- Optional gradient disabled ---------- */
-.banner-gradient { display: none; }
-
-/* ---------- Schedule (unchanged) ---------- */
-@import "tailwindcss";
-
-/* --- Match Banner Layout --- */
-
-/* --- Scroll container inside the card --- */
-.schedule-scrollbox {
-  max-height: 420px;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  @apply w-full px-4 py-5 md:px-6 md:py-6;
-}
-
-/* Remove accidental width restrictions */
-.schedule-scrollbox > * {
-  width: 100% !important;
-  max-width: none !important;
-}
-
-/* Smooth scrolling on mobile */
-.schedule-scrollbox::-webkit-scrollbar {
-  width: 0;
+.banner-gradient {
+  display: none;
 }

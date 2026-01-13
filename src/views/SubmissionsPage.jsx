@@ -4,7 +4,7 @@ import "../styles/submissions.css";
 import { api } from "../api/client";
 import { exportSubmissionsCsv } from "../api/submissions";
 
-const DEFAULT_CONTEST_SLUG = "photo-contest-2026"; // change to your slug
+const DEFAULT_CONTEST_SLUG = "wishbone-2026";
 
 async function fetchSubmissions({ contestSlug, page, pageSize, adminKey }) {
   const params = new URLSearchParams({
@@ -126,7 +126,7 @@ export default function SubmissionsPage() {
         <header className="admin-header">
           <div className="admin-header-inner">
             <div>
-              <h1 className="admin-title">Panel de Submissions</h1>
+              <h1 className="admin-title">Panel de formularios</h1>
               <p className="text-xs text-neutral-600 mt-1">
                 Solo para uso interno del equipo de la promoción.
               </p>

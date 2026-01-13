@@ -11,7 +11,7 @@ export default function LandingPage() {
   const nav = useNavigate();
 
   return (
-    <div className="relative min-h-screen bg-[#F7F5E7] flex flex-col overflow-hidden">
+    <div className="relative min-h-screen bg-[#055190] flex flex-col overflow-hidden">
       {/* Banner */}
       <section className="banner-wrap">
         <div className="banner-inner">

@@ -16,3 +16,39 @@
   background: #EBB351;
   color: #061225;
 }
+
+.btn-row {
+  @apply flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-2;
+}
+
+.btn-primary {
+  @apply w-full sm:w-auto rounded-full text-white px-8 py-3
+         font-semibold shadow-md hover:shadow-lg
+         focus:outline-none focus:ring-4 transition;
+  background: #13955A;
+}
+
+.btn-primary:hover {
+  background: #0C5E37;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 4px rgba(19, 149, 90, 0.30);
+}
+
+.btn-secondary {
+  @apply w-full sm:w-auto rounded-full bg-neutral-200 px-6 py-2.5
+         hover:bg-neutral-300 transition;
+}
+
+/* Optional: secondary “highlight” button using yellow (if you have 2 CTAs) */
+.btn-secondary-yellow {
+  @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
+  background: #fff;
+  color: #061225;
+  border: 2px solid #EBB351;
+}
+
+.btn-secondary-yellow:hover {
+  background: #FFF7E6; /* warm tint */
+}

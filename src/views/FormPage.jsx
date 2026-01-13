@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/form.css";
+import "../styles/buttons.css";
 import { presignUpload, uploadToBlob } from "../api/uploads";
 import { createSubmission } from "../api/submissions";
 
-const CONTEST_SLUG = "photo-contest-2026";
+const CONTEST_SLUG = "wishbone-2026";
 
 export default function FormPage() {
   const nav = useNavigate();

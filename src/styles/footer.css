@@ -15,7 +15,8 @@
 
 /* Compact footer links */
 .footer-links {
-  @apply mt-1 flex flex-col sm:flex-row justify-center items-center gap-2 text-[0.6rem] sm:text-[0.7rem] opacity-80;
+  @apply mt-1 flex flex-col sm:flex-row justify-center items-center gap-2
+         text-[0.6rem] sm:text-[0.7rem] opacity-80;
 }
 
 .footer-link {

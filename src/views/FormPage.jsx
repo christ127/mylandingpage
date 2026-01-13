@@ -132,7 +132,8 @@ export default function FormPage() {
               </label>
 
               <label className="form-label">
-                <span className="form-label-text">Teléfono</span>
+                <span className="form-label-text">
+                  Teléfono <span className="required-star">*</span> </span>
                 <input name="phone" className="form-input" placeholder="(787) 555-1234" />
               </label>
             </div>

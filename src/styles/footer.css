@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .footer {
-  @apply w-full bg-[#00704A] text-white text-center py-3 mt-auto shadow-inner;
+  @apply w-full bg-[#13955A] text-white text-center py-3 mt-auto shadow-inner;
 }
 
 .footer-content {

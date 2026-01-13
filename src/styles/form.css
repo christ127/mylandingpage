@@ -2,119 +2,120 @@
 
 /* ---- Page + Header ---- */
 .form-page {
-    @apply min-h-screen bg-[#F7F5E7] flex flex-col;
-  }
-  
-  .form-header {
-    @apply bg-white/90 backdrop-blur border-b border-black/10;
-  }
-  
-  .form-header-inner {
-    @apply mx-auto max-w-6xl px-4 py-4 flex items-center justify-between;
-  }
-  
-  /* ---- Header ---- */
+  @apply min-h-screen bg-[#EAEEEC] flex flex-col;
+}
+
+.form-header {
+  @apply bg-white/90 backdrop-blur border-b border-black/10;
+}
+
+.form-header-inner {
+  @apply mx-auto max-w-6xl px-4 py-4 flex items-center justify-between;
+}
+
+/* ---- Header ---- */
 .form-title {
-    /* Choose one depending on style preference */
-    /* Green title (matches brand) */
-    color: #00704A;
-    /* OR Brown accent (coffee tone) */
-    /* color: #2C1810; */
-  
-    @apply text-xl md:text-2xl font-extrabold;
-  }
-  
-  /* ---- Volver al inicio button ---- */
-  .btn-top-return {
-    @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium
-           transition duration-200;
-    background-color: #00704A;
-    color: #fff;
-  }
-  .btn-top-return:hover {
-    background-color: #005f3e;
-  }
-  
-  /* ---- Card ---- */
-  .form-wrap {
-    @apply mx-auto w-full max-w-2xl px-4 py-8;
-  }
-  
-  .form-card {
-    @apply bg-white border border-black/10 rounded-2xl shadow-sm p-6 md:p-8 space-y-6;
-  }
-  
-  .card-accent {
-    @apply h-1 w-20 bg-[#00704A] rounded-full;
-  }
-  
-  .form-hint {
-    @apply text-sm text-neutral-700;
-  }
-  
-  /* ---- Labels / Inputs ---- */
-  .form-label {
-    @apply block;
-  }
-  
-  .form-label-text {
-    @apply text-sm text-[#2C1810] font-medium;
-  }
-  
-  .form-input {
-    @apply mt-1 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-[15px]
-           placeholder-neutral-400 focus:outline-none focus:ring-4 focus:ring-[#00704A]/20
-           focus:border-[#00704A] transition;
-  }
-  
-  /* ---- Upload ---- */
-  .upload-box {
-    @apply mt-2 rounded-xl border-2 border-dashed border-neutral-300 p-5 text-center cursor-pointer
-           hover:bg-neutral-50 transition;
-  }
-  
-  .upload-hint {
-    @apply text-sm text-neutral-600;
-  }
-  
-  .upload-sub {
-    @apply text-xs text-neutral-500;
-  }
-  
-  .upload-preview {
-    @apply h-28 w-28 object-cover rounded-lg shadow;
-  }
-  
-  /* ---- Consent ---- */
-  .checkbox {
-    /* if accent-* isn’t working, Tailwind forms plugin may be needed.
-       This uses native accent color. */
-    accent-color: #00704A;
-  }
-  .consent-text {
-    @apply text-sm text-neutral-800;
-  }
-  .link-green {
-    @apply text-[#00704A] hover:underline;
-  }
-  
-  /* ---- Buttons ---- */
-  .btn-row {
-    @apply flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-2;
-  }
-  
-  .btn-primary {
-    @apply w-full sm:w-auto rounded-full bg-[#00704A] text-white px-8 py-3
-           font-semibold shadow-md hover:bg-[#005f3e] hover:shadow-lg
-           focus:outline-none focus:ring-4 focus:ring-[#00704A]/30 transition;
-  }
-  
-  .btn-secondary {
-    @apply w-full sm:w-auto rounded-full bg-neutral-200 px-6 py-2.5
-           hover:bg-neutral-300 transition;
-  }
-  
-  /* ---- Legal ---- */
-  .legal {
-    @apply mt-6 text-center text-xs text-neutral-600;
-  }
+  /* Choose one depending on style preference */
+  /* Green title (matches brand) */
+  color: #13955A;
+  /* OR Blue accent */
+  /* color: #061225; */
+
+  @apply text-xl md:text-2xl font-extrabold;
+}
+
+/* ---- Volver al inicio button ---- */
+.btn-top-return {
+  @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium
+         transition duration-200;
+  background-color: #13955A;
+  color: #fff;
+}
+
+.btn-top-return:hover {
+  background-color: #0C5E37;
+}
+
+/* ---- Card ---- */
+.form-wrap {
+  @apply mx-auto w-full max-w-2xl px-4 py-8;
+}
+
+.form-card {
+  @apply bg-white border border-black/10 rounded-2xl shadow-sm p-6 md:p-8 space-y-6;
+}
+
+.card-accent {
+  @apply h-1 w-20 bg-[#13955A] rounded-full;
+}
+
+.form-hint {
+  @apply text-sm text-neutral-700;
+}
+
+/* ---- Labels / Inputs ---- */
+.form-label {
+  @apply block;
+}
+
+.form-label-text {
+  @apply text-sm text-[#061225] font-medium;
+}
+
+.form-input {
+  @apply mt-1 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-[15px]
+         placeholder-neutral-400 focus:outline-none focus:ring-4 focus:ring-[#13955A]/20
+         focus:border-[#13955A] transition;
+}
+
+/* ---- Upload ---- */
+.upload-box {
+  @apply mt-2 rounded-xl border-2 border-dashed border-neutral-300 p-5 text-center cursor-pointer
+         hover:bg-neutral-50 transition;
+}
+
+.upload-hint {
+  @apply text-sm text-neutral-600;
+}
+
+.upload-sub {
+  @apply text-xs text-neutral-500;
+}
+
+.upload-preview {
+  @apply h-28 w-28 object-cover rounded-lg shadow;
+}
+
+/* ---- Consent ---- */
+.checkbox {
+  accent-color: #13955A;
+}
+
+.consent-text {
+  @apply text-sm text-neutral-800;
+}
+
+.link-green {
+  @apply text-[#13955A] hover:underline;
+}
+
+/* ---- Buttons ---- */
+.btn-row {
+  @apply flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-2;
+}
+
+.btn-primary {
+  @apply w-full sm:w-auto rounded-full bg-[#13955A] text-white px-8 py-3
+         font-semibold shadow-md hover:bg-[#0C5E37] hover:shadow-lg
+         focus:outline-none focus:ring-4 focus:ring-[#13955A]/30 transition;
+}
+
+.btn-secondary {
+  @apply w-full sm:w-auto rounded-full bg-neutral-200 px-6 py-2.5
+         hover:bg-neutral-300 transition;
+}
+
+/* ---- Legal ---- */
+.legal {
+  @apply mt-6 text-center text-xs text-neutral-600;
+}

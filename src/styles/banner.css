@@ -7,13 +7,13 @@
 /* ---------- Card: rounded shape + clipping ---------- */
 .banner-card {
   @apply relative rounded-3xl border border-black/10 shadow-lg overflow-hidden;
-  background: #f7f5e7;
+  background: #EAEEEC;
 }
 
 /* ---------- Banner section (height set by component) ---------- */
 .banner-section {
   @apply w-full flex items-center justify-center;
-  background-color: #f7f5e7;
+  background-color: #EAEEEC;
   padding: 0;
 }
 
@@ -23,7 +23,7 @@
 /* ---------- Desktop (default): show full image, no crop ---------- */
 .banner-image {
   @apply w-full h-full object-contain object-center select-none transition-all duration-500;
-  background-color: #f7f5e7;
+  background-color: #EAEEEC;
   image-rendering: auto;
   transform: none !important;
   display: block;

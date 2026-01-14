@@ -28,7 +28,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Schedule section */}
+      {/* Schedule section
       <section className="schedule-wrap">
         <div className="schedule-inner">
           <div className="schedule-card">
@@ -37,7 +37,7 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Floating buttons */}
       <main className="participa-container">

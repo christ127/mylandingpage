@@ -19,8 +19,8 @@ export default function LandingPage() {
             <div className="banner-accent" />
             <div className="banner-overlay" />
             <StickyBanner
-              desktopImage="/wishbone.jpg"
-              mobileImage="/starbucks-banner-mobile.jpg"
+              desktopImage="/wishbone-banner.png"
+              mobileImage="/wishbone-banner-mobile.png"
               minHeightPx={260}
               mobileBreakpointPx={768}
             />

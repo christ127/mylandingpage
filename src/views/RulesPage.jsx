@@ -209,8 +209,8 @@ export default function RulesPage() {
                     </li>
                     <li>
                       Los ganadores se seleccionarán al azar mediante sorteo en
-                      las oficinas del administrador del concurso el <strong>3 de
-                      febrero de 2026;</strong>
+                      las oficinas del administrador del concurso el{" "}
+                      <strong>3 de febrero de 2026;</strong>
                     </li>
                     <li>
                       Ningún ganador ni ganador alterno podrá resultar ganador
@@ -239,10 +239,11 @@ export default function RulesPage() {
                   <ul>
                     <li>
                       Los ganadores serán notificados en un plazo no mayor de
-                      cinco <strong>(5) días hábiles </strong> luego del sorteo del 23 de febrero
-                      de 2026. Esta notificación se efectuará mediante correo
-                      certificado con acuse de recibo, correo electrónico de los
-                      participantes, teléfono, o todas las anteriores;
+                      cinco <strong>(5) días hábiles </strong> luego del sorteo
+                      del 23 de febrero de 2026. Esta notificación se efectuará
+                      mediante correo certificado con acuse de recibo, correo
+                      electrónico de los participantes, teléfono, o todas las
+                      anteriores;
                     </li>
                     <li>
                       Los ganadores tendrán un periodo de siete (7) días desde
@@ -340,18 +341,14 @@ export default function RulesPage() {
 
                 {/* UPDATED SECTION */}
                 <section id="contacto" className="rules-section">
-                  <h2>Contacto</h2>
+                  {" "}
+                  <h2>Contacto</h2>{" "}
                   <p>
-                    Cualquier pregunta, reclamación o petición de reglas y/o
-                    lista de ganadores debe ser dirigida, por escrito a la
-                    siguiente dirección:
-                    <br />
-                    <br />
-                    <strong>“Fanáticos del Sabor Wish-Bone”</strong>
-                    <br />
-                    <br />
-                    San Juan, Puerto Rico 00
-                  </p>
+                    {" "}
+                    Dudas o reclamaciones por escrito a: <br />{" "}
+                    <strong>Loud And Live Puerto Rico Inc.</strong>, 255 Calle
+                    Matadero, City Outlets Park STE 6, San Juan, PR 00918.{" "}
+                  </p>{" "}
                 </section>
               </div>
             </div>

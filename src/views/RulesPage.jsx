@@ -209,8 +209,8 @@ export default function RulesPage() {
                     </li>
                     <li>
                       Los ganadores se seleccionarán al azar mediante sorteo en
-                      las oficinas del administrador del concurso el 23 de
-                      febrero de 2026;
+                      las oficinas del administrador del concurso el <strong>3 de
+                      febrero de 2026;</strong>
                     </li>
                     <li>
                       Ningún ganador ni ganador alterno podrá resultar ganador
@@ -239,7 +239,7 @@ export default function RulesPage() {
                   <ul>
                     <li>
                       Los ganadores serán notificados en un plazo no mayor de
-                      cinco (5) días hábiles luego del sorteo del 23 de febrero
+                      cinco <strong>(5) días hábiles </strong> luego del sorteo del 23 de febrero
                       de 2026. Esta notificación se efectuará mediante correo
                       certificado con acuse de recibo, correo electrónico de los
                       participantes, teléfono, o todas las anteriores;

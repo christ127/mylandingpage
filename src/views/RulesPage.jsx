@@ -86,7 +86,7 @@ export default function RulesPage() {
                   <h2>Duración</h2>
                   <p>
                     Este concurso comienza el <strong>15 de enero</strong> y
-                    finaliza el <strong>19 de febrero de 2026</strong> a las
+                    finaliza el <strong>15 de febrero de 2026</strong> a las
                     12:00 am. La selección de los ganadores se llevará a cabo
                     mediante sorteo el <strong>23 de febrero de 2026</strong>.
                   </p>
@@ -96,6 +96,8 @@ export default function RulesPage() {
 
                 <section id="productos" className="rules-section">
                   <h2>Productos participantes</h2>
+                  <p>Los productos participantes son los siguientes, en toda la variedad de
+                  productos WB:</p>
                   <ul>
                     <li>Wish-Bone Thosand Island bottle</li>
                     <li>Wish-Bone Chunky Blue Cheese bottle</li>
@@ -210,7 +212,7 @@ export default function RulesPage() {
                     <li>
                       Los ganadores se seleccionarán al azar mediante sorteo en
                       las oficinas del administrador del concurso el{" "}
-                      <strong>3 de febrero de 2026;</strong>
+                      <strong>23 de febrero de 2026;</strong>
                     </li>
                     <li>
                       Ningún ganador ni ganador alterno podrá resultar ganador

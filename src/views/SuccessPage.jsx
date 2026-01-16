@@ -56,11 +56,11 @@ export default function SuccessPage() {
       </div>
 
       {/* Schedule below card, scrollable */}
-      <div className="schedule-container">
+      {/* <div className="schedule-container">
         <div className="schedule-scrollbox">
           <VisitSchedule />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

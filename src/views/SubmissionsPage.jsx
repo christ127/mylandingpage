@@ -284,6 +284,7 @@ export default function SubmissionsPage() {
                 <tr>
                   <th className="admin-th">Nombre</th>
                   <th className="admin-th">Email</th>
+                  <th className="admin-th">Teléfono</th>
                   <th className="admin-th">Perro</th>
                   <th className="admin-th">Recibo</th>
                   <th className="admin-th">Foto del perro</th>
@@ -299,6 +300,7 @@ export default function SubmissionsPage() {
                       {s.firstName} {s.lastName}
                     </td>
                     <td className="admin-td">{s.email}</td>
+                    <td className="admin-td">{s.phone}</td>
                     <td className="admin-td">
                       {s.dogName ? (
                         <span title={s.dogStory ?? ""}>{s.dogName}</span>
@@ -355,7 +357,7 @@ export default function SubmissionsPage() {
                 ))}
                 {items.length === 0 && !loading && (
                   <tr>
-                    <td colSpan={8} className="admin-td">
+                    <td colSpan={9} className="admin-td">
                       <div className="admin-empty">No hay submissions.</div>
                     </td>
                   </tr>

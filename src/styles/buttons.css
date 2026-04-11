@@ -95,3 +95,10 @@
   background: var(--color-brand-yellow);
   color: var(--color-brand-black);
 }
+
+@font-face {
+  font-family: 'Antihero';
+  src: url('../assets/Antihero.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

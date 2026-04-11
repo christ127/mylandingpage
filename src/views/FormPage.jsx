@@ -50,7 +50,7 @@ export default function FormPage() {
       const noPurchase = !!form.get("noPurchase");
 
       if (!consent) throw new Error("Debes aceptar las reglas oficiales.");
-      if (!receiptFile)
+      if (!noPurchase && !receiptFile)
         throw new Error("Debes seleccionar un archivo de imagen.");
 
       const { uploadUrl, blobName } = await presignUpload({
@@ -83,9 +83,9 @@ export default function FormPage() {
         consentGiven: true,
         consentVersion: "v1",
         noPurchase,
-        blobName,
-        contentType: receiptFile.type || "image/jpeg",
-        sizeBytes: receiptFile.size,
+        blobName:     receiptFile ? blobName : null,
+        contentType:  receiptFile ? receiptFile.type || "image/jpeg" : null,
+        sizeBytes:    receiptFile ? receiptFile.size : null,
         dogPhotoBlobName,
       });
 

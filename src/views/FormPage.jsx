@@ -53,13 +53,16 @@ export default function FormPage() {
       if (!noPurchase && !receiptFile)
         throw new Error("Debes seleccionar un archivo de imagen.");
 
-      const { uploadUrl, blobName } = await presignUpload({
-        fileName: receiptFile.name,
-        contentType: receiptFile.type || "image/jpeg",
-        bytes: receiptFile.size,
-      });
-
-      await uploadToBlob(uploadUrl, receiptFile);
+      let blobName = null;
+      if (receiptFile) {
+        const { uploadUrl, blobName: rb } = await presignUpload({
+          fileName: receiptFile.name,
+          contentType: receiptFile.type || "image/jpeg",
+          bytes: receiptFile.size,
+        });
+        await uploadToBlob(uploadUrl, receiptFile);
+        blobName = rb;
+      }
 
       let dogPhotoBlobName = null;
       if (dogPhotoFile) {

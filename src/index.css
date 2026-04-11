@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* ── Antihero font ──────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Antihero';
+  src: url('./assets/Antihero-Accented.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ── ALPO Brand Palette ─────────────────────────────────────────── */
 @theme {
   --color-brand-red:      #C41230;

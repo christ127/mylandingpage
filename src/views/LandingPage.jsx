@@ -123,7 +123,26 @@ export default function LandingPage() {
                 className="font-black uppercase text-[4.5rem] md:text-[6.5rem] leading-none tracking-tight drop-shadow-lg"
                 style={{ color: B.white, fontFamily: "'Antihero', sans-serif" }}
               >
-                HEROE
+                H<span style={{ position: "relative", display: "inline-block" }}>
+                  E
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      top: "-0.32em",
+                      left: "70%",
+                      transform: "translateX(-50%) rotate(20deg)",
+                      fontFamily: "'Antihero', sans-serif",
+                      fontWeight: "normal",
+                      fontSize: "0.30em",
+                      lineHeight: 1,
+                      color: B.white,
+                      pointerEvents: "none",
+                    }}
+                  >
+                    /
+                  </span>
+                </span>ROE
               </p>
               <div className="flex items-center gap-3 mt-1">
                 <p className="text-white text-xl md:text-3xl font-semibold italic">

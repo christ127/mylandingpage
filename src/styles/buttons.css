@@ -1,20 +1,58 @@
 @import "tailwindcss";
 
+/* ── ALPO Brand Palette ─────────────────────────────────────────── */
+@theme {
+  --color-brand-red:      #C41230;
+  --color-brand-burgundy: #82141C;
+  --color-brand-deep-red: #8B0A1A;
+  --color-brand-yellow:   #F5C518;
+  --color-brand-amber:    #E8A020;
+  --color-brand-tan:      #C0762A;
+  --color-brand-white:    #FFFFFF;
+  --color-brand-black:    #1A1A1A;
+}
+
 .participa-btn {
-  @apply bg-[#0B80C1] text-white font-semibold text-lg md:text-xl
-         rounded-full px-12 py-5 shadow-lg hover:bg-[#062D5B]
-         hover:shadow-xl transition-all duration-300 transform
-         hover:-translate-y-[2px] focus:outline-none focus:ring-4
-         focus:ring-[#0B80C1]/40;
+  @apply font-semibold text-lg md:text-xl rounded-full px-12 py-5
+         shadow-lg hover:shadow-xl transition-all duration-300 transform
+         hover:-translate-y-[2px] focus:outline-none focus:ring-4;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
+  focus-ring-color: var(--color-brand-yellow);
+}
+.participa-btn:hover {
+  background: var(--color-brand-white);
+  color: var(--color-brand-black);
+}
+.participa-btn:focus {
+  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.40);
+}
+
+.participa-btn--outline {
+  background: var(--color-brand-white);
+  color: var(--color-brand-deep-red);
+  border: 2px solid var(--color-brand-white);
+}
+.participa-btn--outline:hover {
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
+  border-color: var(--color-brand-yellow);
 }
 
 .participa-container {
-  @apply w-full flex items-center justify-center py-12 bg-[#055190] gap-[5px];
+  @apply w-full flex items-center justify-center py-12 gap-[5px];
+  background: var(--color-brand-red);
 }
 
-.btn-secondary-yellow {
-  background: #EBB351;
-  color: #061225;
+.btn-top-return {
+  @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium
+         transition duration-200;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
+}
+.btn-top-return:hover {
+  background: var(--color-brand-amber);
+  color: var(--color-brand-black);
 }
 
 .btn-row {
@@ -22,33 +60,38 @@
 }
 
 .btn-primary {
-  @apply w-full sm:w-auto rounded-full text-white px-8 py-3
+  @apply w-full sm:w-auto rounded-full px-8 py-3
          font-semibold shadow-md hover:shadow-lg
          focus:outline-none focus:ring-4 transition;
-  background: #13955A;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
 }
-
 .btn-primary:hover {
-  background: #0C5E37;
+  background: var(--color-brand-amber);
+  color: var(--color-brand-black);
 }
-
 .btn-primary:focus {
-  box-shadow: 0 0 0 4px rgba(19, 149, 90, 0.30);
+  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.35);
 }
 
 .btn-secondary {
-  @apply w-full sm:w-auto rounded-full bg-neutral-200 px-6 py-2.5
-         hover:bg-neutral-300 transition;
+  @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
+  background: transparent;
+  color: var(--color-brand-deep-red);
+  border: 2px solid var(--color-brand-tan);
+}
+.btn-secondary:hover {
+  background: var(--color-brand-tan);
+  color: var(--color-brand-white);
 }
 
-/* Optional: secondary “highlight” button using yellow (if you have 2 CTAs) */
 .btn-secondary-yellow {
   @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
-  background: #fff;
-  color: #061225;
-  border: 2px solid #EBB351;
+  background: var(--color-brand-white);
+  color: var(--color-brand-deep-red);
+  border: 2px solid var(--color-brand-yellow);
 }
-
 .btn-secondary-yellow:hover {
-  background: #FFF7E6; /* warm tint */
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-black);
 }

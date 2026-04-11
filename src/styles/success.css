@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 .success-page {
-  @apply min-h-screen bg-[#055190] flex flex-col items-center px-4 py-10;
+  @apply min-h-screen flex flex-col items-center px-4 py-10;
+  background: var(--color-brand-red);
 }
 
 .success-card {
@@ -9,11 +10,14 @@
 }
 
 .success-icon {
-  @apply mx-auto mb-4 h-14 w-14 rounded-full bg-green-100 grid place-items-center;
+  @apply mx-auto mb-4 h-14 w-14 rounded-full grid place-items-center;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
 }
 
 .success-title {
-  @apply text-2xl font-extrabold text-[#061225];
+  @apply text-2xl font-extrabold;
+  color: var(--color-brand-black);
 }
 
 .success-text {
@@ -24,22 +28,41 @@
   @apply mt-6 flex items-center justify-center gap-3;
 }
 
-/* Schedule below the card with its own scroll area */
+/* ---- Buttons (matching form) ---- */
+.btn-primary {
+  @apply w-full sm:w-auto rounded-full px-8 py-3
+         font-semibold shadow-md hover:shadow-lg
+         focus:outline-none focus:ring-4 transition;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
+}
+.btn-primary:hover {
+  background: var(--color-brand-amber);
+  color: var(--color-brand-black);
+}
+.btn-primary:focus {
+  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.35);
+}
+
+.btn-secondary {
+  @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
+  background: transparent;
+  color: var(--color-brand-deep-red);
+  border: 2px solid var(--color-brand-tan);
+}
+.btn-secondary:hover {
+  background: var(--color-brand-tan);
+  color: var(--color-brand-white);
+}
+
+/* ---- Schedule ---- */
 .schedule-container {
   @apply w-full mt-10;
 }
 
 .schedule-scrollbox {
-  /* fill the parent width, no cap, no auto-centering */
-  @apply w-full max-w-none mx-0;
-
-  /* keep your existing behavior */
-  @apply max-h-[420px] overflow-y-auto rounded-2xl shadow-lg;
-
-  /* smoother scroll (optional) */
+  @apply w-full max-w-none mx-0 max-h-[420px] overflow-y-auto rounded-2xl shadow-lg;
   scroll-behavior: smooth;
-
-  /* if the parent is flex/grid and centers children, stretch anyway */
   align-self: stretch;
   justify-self: stretch;
 }

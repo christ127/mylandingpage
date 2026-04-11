@@ -1,20 +1,18 @@
 @import "tailwindcss";
 
-
 /* Full-bleed section with responsive gutters */
 .schedule-wrap {
-  @apply w-full px-3 sm:px-4 md:px-6; /* side padding at small sizes */
+  @apply w-full px-3 sm:px-4 md:px-6;
 }
 
-/* Match landing/footer content width */
 .schedule-inner {
-  @apply w-full mx-auto; /* same cap as .footer-content */
+  @apply w-full mx-auto;
 }
 
-/* Card stays fluid within the inner width */
+/* Card */
 .schedule-card {
   @apply relative rounded-3xl shadow-lg overflow-hidden border border-black/10;
-  background: #0C7A52;
+  background: var(--color-brand-deep-red);
   background-image:
     radial-gradient(80% 50% at 20% 20%, rgba(255,255,255,0.06) 0%, transparent 60%),
     radial-gradient(60% 80% at 70% 60%, rgba(0,0,0,0.08) 0%, transparent 60%);
@@ -22,10 +20,11 @@
 
 /* Ribbon */
 .schedule-ribbon {
-  @apply relative inline-flex items-center px-5 md:px-7 py-2 md:py-3 text-white font-extrabold text-lg md:text-xl;
-  background: #D61F26;
+  @apply relative inline-flex items-center px-5 md:px-7 py-2 md:py-3 font-extrabold text-lg md:text-xl;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
   border-radius: 10px;
-  border: 2px dotted #fff;
+  border: 2px dotted var(--color-brand-deep-red);
   box-shadow: 0 6px 0 rgba(0,0,0,0.12);
 }
 .schedule-ribbon::after {
@@ -33,15 +32,9 @@
   position: absolute;
   right: -22px; top: 0;
   width: 0; height: 0;
-  /* border: 2px dotted #fff; */
-  /* border-top: 22px solid transparent;
-  border-bottom: 22px solid transparent;
-  border-left: 22px solid #D61F26; */
 }
 
-
-
-/* Header / table / rows (unchanged) */
+/* Header / table / rows */
 .schedule-head { @apply flex items-center justify-between px-4 md:px-6 pt-5 md:pt-6 pb-4; }
 .schedule-table { @apply w-full px-4 md:px-6 pb-6; }
 .schedule-row { @apply grid grid-cols-12 gap-3 md:gap-4 py-3 md:py-4 border-t border-white/20; }
@@ -49,10 +42,14 @@
 .schedule-date { @apply col-span-4 sm:col-span-3 md:col-span-3 text-white font-extrabold; }
 .schedule-places { @apply col-span-5 sm:col-span-6 md:col-span-6 text-white/95; }
 .schedule-times { @apply col-span-3 sm:col-span-3 md:col-span-3 text-white text-right font-semibold; }
-.schedule-date .date-badge { @apply inline-block bg-white/10 rounded-md px-2 py-1 tracking-wide text-sm md:text-base; }
+.schedule-date .date-badge {
+  @apply inline-block rounded-md px-2 py-1 tracking-wide text-sm md:text-base;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
+}
 
-@media (max-width: 640px) { /* sm breakpoint */
-    .schedule-date  { @apply col-span-3 text-sm; }  /* take 1 less column */
-    .schedule-places { @apply col-span-5 text-[0.95rem]; } /* same space */
-    .schedule-times  { @apply col-span-4 text-sm text-right; } /* extra column for time */
-  }
+@media (max-width: 640px) {
+  .schedule-date   { @apply col-span-3 text-sm; }
+  .schedule-places { @apply col-span-5 text-[0.95rem]; }
+  .schedule-times  { @apply col-span-4 text-sm text-right; }
+}

@@ -8,20 +8,16 @@ import SubmissionsPage from "./views/SubmissionsPage";
 
 function App() {
   return (
-    <BrowserRouter>
-      {" "}
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
-        {" "}
-        <Route path="/" element={<LandingPage />} />{" "}
-        <Route path="/form" element={<FormPage />} />{" "}
-        <Route path="/success" element={<SuccessPage />} />{" "}
-        <Route path="/rules" element={<RulesPage />} />{" "}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/form" element={<FormPage />} />
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/rules" element={<RulesPage />} />
         <Route path="/submissions" element={<SubmissionsPage />} />
-
-
-      </Routes>{" "}
+      </Routes>
     </BrowserRouter>
   );
 }
 
-export default App
+export default App;

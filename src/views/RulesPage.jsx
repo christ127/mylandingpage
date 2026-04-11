@@ -1,24 +1,21 @@
 import { Link } from "react-router-dom";
 import "../styles/rules.css";
 
-// const premiosData = [
-//   { premio: "Premio de efectivo", cantidad: 1, valor: "$500" },
-//   { premio: "Premios de efectivo", cantidad: 4, valor: "$100" },
-// ];
-
 export default function RulesPage() {
   const sections = [
-    { id: "organizador", title: "Organizador" },
-    { id: "duracion", title: "Duración" },
-    { id: "productos", title: "Productos participantes" },
-    { id: "establecimientos", title: "Establecimientos participantes" },
-    { id: "elegibilidad", title: "Requisitos de participación" },
-    { id: "mecanica", title: "Mecánica / Participación sin compra" },
-    { id: "premios", title: "Premios y selección de ganadores" },
-    { id: "notificacion", title: "Notificación y entrega de premios" },
-    { id: "responsabilidad", title: "Limitaciones y responsabilidades" },
-    { id: "transparencia", title: "Transparencia y legalidad" },
-    { id: "contacto", title: "Contacto" },
+    { id: "patrocinador", title: "1. Patrocinador" },
+    { id: "duracion", title: "2. Duración de la plataforma" },
+    { id: "elegibilidad", title: "3. Elegibilidad" },
+    { id: "participacion", title: "4. Cómo participar" },
+    { id: "seleccion", title: "5. Selección de participaciones destacadas" },
+    { id: "usoParticipaciones", title: "6. Uso de las participaciones" },
+    { id: "derechosContenido", title: "7. Derechos de uso de contenido" },
+    { id: "contenidoPermitido", title: "8. Contenido permitido" },
+    { id: "responsabilidad", title: "9. Limitación de responsabilidad" },
+    { id: "aceptacionReglas", title: "10. Aceptación de reglas" },
+    { id: "modificaciones", title: "11. Modificaciones" },
+    { id: "leyAplicable", title: "12. Ley aplicable" },
+    { id: "contacto", title: "13. Información de contacto" },
   ];
 
   return (
@@ -71,286 +68,201 @@ export default function RulesPage() {
           <article className="lg:col-span-8 xl:col-span-9">
             <div className="rules-card">
               <div className="rules-body rules-prose">
-                <section id="organizador" className="rules-section">
-                  <h2>Organizador</h2>
+                <section id="patrocinador" className="rules-section">
+                  <h2>1. Patrocinador</h2>
                   <p>
-                    Este concurso es organizado por{" "}
-                    <strong>V. Suárez Inc. </strong>y administrado por{" "}
-                    <strong>Loud And Live Puerto Rico Inc.</strong>
+                    "Mi héroe se alimenta con Alpo" (en adelante, la
+                    "Plataforma") es organizada por{" "}
+                    <strong>
+                      Purina Alpo Dog Food / V. Suárez & Co., Inc.
+                    </strong>
+                    , distribuidor autorizado en Puerto Rico (en adelante, el
+                    "Patrocinador").
                   </p>
                 </section>
 
                 <hr />
 
                 <section id="duracion" className="rules-section">
-                  <h2>Duración</h2>
+                  <h2>2. Duración de la plataforma</h2>
                   <p>
-                    Este concurso comienza el <strong>15 de enero</strong> y
-                    finaliza el <strong>15 de febrero de 2026</strong> a las
-                    12:00 am. La selección de los ganadores se llevará a cabo
-                    mediante sorteo el <strong>23 de febrero de 2026</strong>.
+                    La Plataforma es una comunidad digital creada para celebrar
+                    a los héroes del hogar, donde los participantes podrán
+                    compartir la historia de sus perros y destacar su rol en su
+                    día a día. Estará vigente desde el{" "}
+                    <strong>10 de abril de 2026</strong> hasta el{" "}
+                    <strong>10 de mayo de 2026</strong> (en adelante, el
+                    "Período de Participación"). Durante este período se
+                    realizarán dos (2) selecciones semanales de las historias
+                    que los participantes suben a la plataforma.
                   </p>
                 </section>
 
                 <hr />
 
-                <section id="productos" className="rules-section">
-                  <h2>Productos participantes</h2>
-                  <p>Los productos participantes son los siguientes, en toda la variedad de
-                  productos WB:</p>
-                  <ul>
-                    <li>Wish-Bone Thosand Island bottle</li>
-                    <li>Wish-Bone Chunky Blue Cheese bottle</li>
-                    <li>Wish-Bone Creamy French bottle</li>
-                    <li>Wish-Bone Ranch bottle</li>
-                    <li>Wish-Bone Ranch bottle</li>
-                  </ul>
-                </section>
-
-                <hr />
-
                 <section id="elegibilidad" className="rules-section">
-                  <h2>Requisitos de participación</h2>
-                  <ul>
-                    <li>
-                      Solamente podrán participar residentes bona fide (legales)
-                      de Puerto Rico y que a la fecha de la participación tengan
-                      18 años o más;
-                    </li>
-                    <li>
-                      Para participar, el concursante deberá subir una foto o
-                      imagen del recibo de compra de 2 productos o más de la
-                      marca Wish-Bone antes indicados o facsímiles razonables.
-                      No se requiere compra para participar;
-                    </li>
-                    <li>
-                      La participación será confirmada una vez recibida por el
-                      administrador;
-                    </li>
-                    <li>
-                      Cada participante podrá registrar una sola participación
-                      por recibo;
-                    </li>
-                    <li>
-                      Cada persona podrá participar más de una vez siempre y
-                      cuando cumpla con los requisitos de participación.
-                    </li>
-                  </ul>
-                </section>
-
-                <hr />
-
-                <section id="mecanica" className="rules-section">
-                  <h2>Participación por Correo y Gratuita Alterna</h2>
-
-                  <ul>
-                    <li>
-                      Las personas que cumplan con los requisitos de
-                      participación podrán hacerlo también por correo. Para
-                      ello, deberán enviar el recibo de compra para que sea
-                      recibido en o antes del
-                      <strong> 19 de febrero de 2026 a la media noche</strong>,
-                      con su nombre completo, dirección y número de teléfono a
-                      la siguiente dirección:
-                    </li>
-
-                    <li className="list-none mt-2 mb-2">
-                      <strong>
-                        #255 Calle Matadero
-                        <br />
-                        City Outlet Park STE 6
-                        <br />
-                        San Juan PR, 00920
-                      </strong>
-                    </li>
-
-                    <li>
-                      Para participar sin compra y de manera gratuita, el
-                      participante deberá enviar por correo, para que sea
-                      recibido en o antes del 19 de febrero a la media noche, un
-                      papel con su nombre, dirección y número de teléfono a la
-                      dirección antes indicada;
-                    </li>
-
-                    <li>
-                      Solo se permitirá una participación gratuita por persona.
-                      Es un requisito esencial que toda la información
-                      solicitada sea legible y esté completa para participar. De
-                      lo contrario, la participación quedará automáticamente
-                      descalificada.
-                    </li>
-                  </ul>
-                </section>
-
-                <hr />
-
-                {/* UPDATED SECTION */}
-                <section id="premios" className="rules-section">
-                  <h2>Premios y Selección de Ganadores</h2>
-                  <ul>
-                    <li>
-                      Los premios consistirán en un{" "}
-                      <strong>
-                        (2) BBQ marca Webber con cover para almacenaje;
-                      </strong>{" "}
-                      un <strong>(3) Air Fryer marca Ninja</strong> y un{" "}
-                      <strong>(5) Bullet Blender marca Nutribullet;</strong>
-                    </li>
-                    <li>
-                      Todas las participaciones válidas recibidas durante el
-                      periodo del concurso serán elegibles para participar;
-                    </li>
-                    <li>
-                      Los premios otorgados en el presente concurso no son
-                      transferibles ni canjeables por ningún otro producto y/o
-                      servicio.
-                    </li>
-                    <li>
-                      Se seleccionará un ganador y dos ganadores alternos para
-                      cada uno de los premios antes indicados;
-                    </li>
-                    <li>
-                      Los ganadores se seleccionarán al azar mediante sorteo en
-                      las oficinas del administrador del concurso el{" "}
-                      <strong>23 de febrero de 2026;</strong>
-                    </li>
-                    <li>
-                      Ningún ganador ni ganador alterno podrá resultar ganador
-                      en más de una ocasión.
-                    </li>
-                    <li>
-                      Cada participación válida tendrá igual probabilidad de
-                      resultar ganadora. La probabilidad de ganar dependerá de
-                      la cantidad de participaciones recibidas;
-                    </li>
-                    <li>
-                      Los sorteos y sus ganadores quedarán documentados en el
-                      expediente del administrador de conformidad a la Regla 13
-                      del Reglamento Sobre Sorteos promulgado por el
-                      Departamento de Asuntos al Consumidor, DACO por sus
-                      siglas.
-                    </li>
-                  </ul>
-                </section>
-
-                <hr />
-
-                {/* UPDATED SECTION */}
-                <section id="notificacion" className="rules-section">
-                  <h2>Notificación y Entrega de Premios</h2>
-                  <ul>
-                    <li>
-                      Los ganadores serán notificados en un plazo no mayor de
-                      cinco <strong>(5) días hábiles </strong> luego del sorteo
-                      del 23 de febrero de 2026. Esta notificación se efectuará
-                      mediante correo certificado con acuse de recibo, correo
-                      electrónico de los participantes, teléfono, o todas las
-                      anteriores;
-                    </li>
-                    <li>
-                      Los ganadores tendrán un periodo de siete (7) días desde
-                      que reciba la notificación por parte del administrador del
-                      concurso para someter mediante el mecanismo que sea
-                      requerido los documentos acreditativos de su identidad;
-                    </li>
-                    <li>
-                      No se publicarán los nombres de los ganadores hasta el
-                      envío de la notificación oficial por parte del
-                      administrador;
-                    </li>
-                    <li>
-                      Si no se logra efectuar la notificación a los que han
-                      resultado ganadores, no se pudo comprobar su identidad,
-                      que los mismos cumplan con los requisitos de participación
-                      o si transcurre el término de siete (7) días desde la
-                      notificación oficial sin recibir respuesta alguna por
-                      parte de los ganadores, estos se entenderán descalificados
-                      y no podrán reclamar su premio posteriormente;
-                    </li>
-                    <li>
-                      Ante tal evento, se efectuará la notificación oficial al
-                      ganador alterno con los mismos términos y condiciones
-                      antes indicados;
-                    </li>
-                  </ul>
-                </section>
-
-                <hr />
-
-                {/* UPDATED SECTION */}
-                <section id="responsabilidad" className="rules-section">
-                  <h2>Responsabilidad</h2>
-                  <ul>
-                    <li>
-                      El organizador no asume responsabilidad alguna por
-                      problemas y/o situaciones técnicas que impidan la
-                      participación de los concursantes. Es decir, no se hace
-                      responsable de fallas en la comunicación de internet o
-                      cualquier otro mecanismo que se determine será utilizado
-                      el cual pueda impedir de forma efectiva la participación
-                      de los concursantes;
-                    </li>
-                    <li>
-                      Tampoco ni el organizador ni el administrador del presente
-                      concurso asumen responsabilidad alguna por nombres,
-                      direcciones, teléfonos y/o cualquier otra información
-                      provista por los participantes que resulte incompleta,
-                      incorrecta o no legible.
-                    </li>
-                  </ul>
-                </section>
-
-                <hr />
-
-                {/* UPDATED SECTION */}
-                <section id="transparencia" className="rules-section">
-                  <h2>Transparencia y Legalidad</h2>
-                  <ul>
-                    <li>
-                      Este concurso es un sorteo promocional el cual{" "}
-                      <strong>NO</strong> requiere compra para participar;
-                    </li>
-                    <li>
-                      La participación implica la aceptación integra de estas
-                      reglas;
-                    </li>
-                    <li>
-                      El organizador mantendrá un “récord” sobre los sorteos
-                      efectuados de conformidad a la Regla 13 del Reglamento
-                      Sobre Sorteos promulgado por el Departamento de Asuntos al
-                      Consumidor, DACO por sus siglas luego de concluido el
-                      presente concurso;
-                    </li>
-                    <li>
-                      El organizador ni ninguna de sus empresas y/o agencias de
-                      publicidad asumen responsabilidad alguna, expresa o tácita
-                      frente a los participantes otra que no sea garantizar la
-                      participación de estos en el concurso siempre y cuando
-                      estos cumplan, de forma íntegra, con las reglas del mismo.
-                    </li>
-                    <li>
-                      En este concurso podrán participar todas aquellas personas
-                      que cumplan con los{" "}
-                      <strong>Requisitos de Participación, excepto</strong>{" "}
-                      aquellas que sean empleados o familiares de la empresa V.
-                      Suárez Inc. y Loud And Live sus subsidiarias, agencias
-                      publicitarias o el administrador del presente concurso;
-                    </li>
-                  </ul>
-                </section>
-
-                <hr />
-
-                {/* UPDATED SECTION */}
-                <section id="contacto" className="rules-section">
-                  {" "}
-                  <h2>Contacto</h2>{" "}
+                  <h2>3. Elegibilidad</h2>
                   <p>
-                    {" "}
-                    Dudas o reclamaciones por escrito a: <br />{" "}
-                    <strong>Loud And Live Puerto Rico Inc.</strong>, 255 Calle
-                    Matadero, City Outlets Park STE 6, San Juan, PR 00918.{" "}
-                  </p>{" "}
+                    Podrán participar personas residentes legales de Puerto
+                    Rico, mayores de <strong>dieciocho (18) años</strong> al
+                    momento de participar. Se requiere acceso a internet y un
+                    dispositivo para completar la participación. No podrán
+                    participar empleados del Patrocinador, sus afiliadas,
+                    agencias de publicidad o relaciones públicas, ni sus
+                    familiares inmediatos.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="participacion" className="rules-section">
+                  <h2>4. Cómo participar</h2>
+                  <h3>Método con compra</h3>
+                  <p>
+                    El participante deberá tomar una foto de su perro, acceder a{" "}
+                    <strong>miheroealpo.com</strong>, completar el formulario
+                    con su nombre, nombre del perro y una breve historia
+                    explicando por qué su perro es su héroe del día a día, subir
+                    la foto y adjuntar evidencia válida de compra de un producto
+                    Alpo.
+                  </p>
+                  <h3>Método sin compra</h3>
+                  <p>
+                    Para participar sin compra, el participante deberá acceder a{" "}
+                    <strong>miheroealpo.com</strong>, completar el formulario,
+                    subir la foto y la historia, e incluir una nota indicando
+                    "Participación sin compra". Las participaciones sin compra
+                    tendrán las mismas oportunidades de ser seleccionadas.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="seleccion" className="rules-section">
+                  <h2>5. Selección de participaciones destacadas</h2>
+                  <p>
+                    Todas las participaciones serán evaluadas por un panel
+                    designado por el Patrocinador, tomando en consideración
+                    criterios como creatividad, autenticidad, conexión emocional
+                    y calidad del contenido. Se seleccionarán{" "}
+                    <strong>
+                      dos (2) participaciones destacadas por semana
+                    </strong>{" "}
+                    durante la vigencia de la Plataforma. Las decisiones del
+                    Patrocinador serán finales.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="usoParticipaciones" className="rules-section">
+                  <h2>6. Uso de las participaciones</h2>
+                  <p>
+                    Las participaciones seleccionadas podrán ser usadas en
+                    plataformas digitales de la marca, incluyendo redes
+                    sociales, medios digitales y materiales promocionales.
+                    Asimismo, podrán formar parte de ejecuciones publicitarias
+                    de alto impacto, incluyendo medios exteriores (OOH) como
+                    billboards y otras piezas de comunicación.
+                  </p>
+                  <p>
+                    Este uso no conlleva compensación económica ni remuneración
+                    de ningún tipo, ni para el participante ni para su mascota.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="derechosContenido" className="rules-section">
+                  <h2>7. Derechos de uso de contenido</h2>
+                  <p>
+                    Al participar, el participante declara que es titular de los
+                    derechos sobre el contenido enviado y autoriza al
+                    Patrocinador, sin compensación alguna, a utilizar,
+                    reproducir, adaptar y publicar la foto, el nombre del perro
+                    y el testimonio en cualquier medio, incluyendo publicidad,
+                    redes sociales y medios exteriores. El participante
+                    garantiza que el contenido no infringe derechos de terceros.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="contenidoPermitido" className="rules-section">
+                  <h2>8. Contenido permitido</h2>
+                  <p>
+                    El Patrocinador se reserva el derecho de descalificar
+                    cualquier participación que contenga material ofensivo,
+                    inapropiado o ilegal, o que infrinja derechos de terceros o
+                    incumpla con estas reglas.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="responsabilidad" className="rules-section">
+                  <h2>9. Limitación de responsabilidad</h2>
+                  <p>
+                    El Patrocinador no será responsable por fallas técnicas,
+                    errores de transmisión, problemas de conectividad, ni por
+                    participaciones incompletas, tardías o no recibidas, ni por
+                    cualquier daño o pérdida relacionada con la participación en
+                    la Plataforma.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="aceptacionReglas" className="rules-section">
+                  <h2>10. Aceptación de reglas</h2>
+                  <p>
+                    La participación en esta Plataforma constituye la aceptación
+                    total de estas reglas.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="modificaciones" className="rules-section">
+                  <h2>11. Modificaciones</h2>
+                  <p>
+                    El Patrocinador se reserva el derecho de modificar,
+                    suspender o cancelar la Plataforma en caso de circunstancias
+                    fuera de su control.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="leyAplicable" className="rules-section">
+                  <h2>12. Ley aplicable</h2>
+                  <p>
+                    Esta Plataforma se regirá por las leyes del Estado Libre
+                    Asociado de Puerto Rico.
+                  </p>
+                </section>
+
+                <hr />
+
+                <section id="contacto" className="rules-section">
+                  <h2>13. Información de contacto</h2>
+                  <p>
+                    Para dudas o información adicional, los participantes pueden
+                    comunicarse a:{" "}
+                    <a
+                      href="mailto:ltirado@loudlive.com"
+                      className="link-green link-underline-yellow"
+                    >
+                      ltirado@loudlive.com
+                    </a>{" "}
+                    &{" "}
+                    <a
+                      href="mailto:yaretsie.cruz@vsuarez.com"
+                      className="link-green link-underline-yellow"
+                    >
+                      yaretsie.cruz@vsuarez.com
+                    </a>
+                  </p>
                 </section>
               </div>
             </div>

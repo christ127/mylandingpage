@@ -2,7 +2,8 @@
 
 /* ---- Page + Header ---- */
 .admin-page {
-  @apply min-h-screen bg-[#055190] flex flex-col;
+  @apply min-h-screen flex flex-col;
+  background: var(--color-brand-red);
 }
 
 .admin-header {
@@ -14,13 +15,15 @@
 }
 
 .admin-title {
-  color: #0B80C1;
+  color: var(--color-brand-red);
   @apply text-xl md:text-2xl font-extrabold tracking-tight;
 }
 
 .admin-tag {
-  @apply inline-flex items-center rounded-full border border-[#0B80C1]/30
-         bg-[#0B80C1]/5 px-3 py-1 text-xs font-medium text-[#0B80C1] uppercase;
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium uppercase;
+  border: 1px solid rgba(196, 18, 48, 0.30);
+  background: rgba(196, 18, 48, 0.05);
+  color: var(--color-brand-red);
 }
 
 /* ---- Top-right action ---- */
@@ -53,7 +56,8 @@
 }
 
 .admin-card-title {
-  @apply text-lg md:text-xl font-bold text-[#061225];
+  color: var(--color-brand-black);
+  @apply text-lg md:text-xl font-bold;
 }
 
 .admin-card-subtitle {
@@ -79,7 +83,9 @@
 
 .admin-input-sm {
   @apply rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-xs sm:text-sm
-         focus:outline-none focus:ring-2 focus:ring-[#0B80C1]/30 focus:border-[#0B80C1];
+         focus:outline-none transition;
+  --tw-ring-color: rgba(196, 18, 48, 0.30);
+  @apply focus:ring-2 focus:border-[--color-brand-red];
 }
 
 /* ---- Alerts ---- */
@@ -88,7 +94,10 @@
 }
 
 .admin-alert-info {
-  @apply rounded-lg bg-blue-50 border border-blue-200 px-3 py-2 text-sm text-blue-700;
+  @apply rounded-lg px-3 py-2 text-sm;
+  background: rgba(196, 18, 48, 0.05);
+  border: 1px solid rgba(196, 18, 48, 0.20);
+  color: var(--color-brand-deep-red);
 }
 
 /* ---- Table ---- */
@@ -119,8 +128,9 @@
 
 /* ---- Status / consent badges ---- */
 .badge-yes {
-  @apply inline-flex items-center rounded-full bg-[#0B80C1]/10 px-2.5 py-1
-         text-xs font-semibold text-[#0B80C1];
+  @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
+  background: rgba(196, 18, 48, 0.10);
+  color: var(--color-brand-red);
 }
 
 .badge-no {
@@ -131,6 +141,12 @@
 /* ---- Date ---- */
 .admin-date {
   @apply text-xs text-neutral-600;
+}
+
+/* ---- Photo thumbnails ---- */
+.admin-thumb {
+  @apply w-14 h-14 object-cover rounded cursor-pointer
+         border border-neutral-200 hover:opacity-80 transition;
 }
 
 /* ---- Empty state ---- */
@@ -158,7 +174,9 @@
 }
 
 .admin-page-btn-active {
-  @apply bg-[#0B80C1] text-white border-[#0B80C1];
+  @apply text-white;
+  background: var(--color-brand-red);
+  border-color: var(--color-brand-red);
 }
 
 /* ---- Login card ---- */
@@ -171,7 +189,8 @@
 }
 
 .admin-login-title {
-  @apply text-lg font-bold text-[#061225];
+  color: var(--color-brand-black);
+  @apply text-lg font-bold;
 }
 
 .admin-login-subtitle {
@@ -188,8 +207,11 @@
 
 .admin-input {
   @apply mt-1 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm
-         placeholder-neutral-400 focus:outline-none focus:ring-4 focus:ring-[#0B80C1]/20
-         focus:border-[#0B80C1] transition;
+         placeholder-neutral-400 focus:outline-none focus:ring-4 transition;
+  --tw-ring-color: rgba(196, 18, 48, 0.20);
+}
+.admin-input:focus {
+  border-color: var(--color-brand-red);
 }
 
 .admin-login-actions {
@@ -202,12 +224,28 @@
 
 /* ---- Buttons ---- */
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-[#0B80C1] text-white px-6 py-2.5
-         text-sm font-semibold shadow-md hover:bg-[#062D5B] hover:shadow-lg
-         focus:outline-none focus:ring-4 focus:ring-[#0B80C1]/30 transition;
+  @apply inline-flex items-center justify-center rounded-full px-6 py-2.5
+         text-sm font-semibold shadow-md hover:shadow-lg
+         focus:outline-none focus:ring-4 transition;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
+}
+.btn-primary:hover {
+  background: var(--color-brand-amber);
+  color: var(--color-brand-black);
+}
+.btn-primary:focus {
+  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.35);
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full bg-neutral-200 px-4 py-2
-         text-xs sm:text-sm font-medium text-neutral-800 hover:bg-neutral-300 transition;
+  @apply inline-flex items-center justify-center rounded-full px-4 py-2
+         text-xs sm:text-sm font-medium transition;
+  background: transparent;
+  color: var(--color-brand-deep-red);
+  border: 2px solid var(--color-brand-tan);
+}
+.btn-secondary:hover {
+  background: var(--color-brand-tan);
+  color: var(--color-brand-white);
 }

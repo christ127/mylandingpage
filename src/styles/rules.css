@@ -2,7 +2,8 @@
 
 /* ---- Page + Header ---- */
 .rules-page {
-  @apply min-h-screen bg-[#055190] flex flex-col;
+  @apply min-h-screen flex flex-col;
+  background: var(--color-brand-red);
 }
 
 .rules-header {
@@ -14,19 +15,9 @@
 }
 
 .rules-title {
-  color: #0B80C1;
+  color: var(--color-brand-red);
   @apply text-xl md:text-2xl font-extrabold;
 }
-
-/* Optional: reuse your existing .btn-top-return from form styles if shared globally */
-/* If not shared, uncomment to include it here
-.btn-top-return {
-  @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition duration-200;
-  background-color: #0B80C1;
-  color: #fff;
-}
-.btn-top-return:hover { background-color: #062D5B; }
-*/
 
 /* ---- Layout ---- */
 .rules-wrap {
@@ -43,7 +34,7 @@
 }
 
 .toc-heading {
-  color: #0B80C1;
+  color: var(--color-brand-deep-red);
   @apply text-base font-bold mb-3;
 }
 
@@ -52,7 +43,7 @@
 }
 
 .toc-link {
-  color: #0B80C1;
+  color: var(--color-brand-red);
   @apply hover:underline underline-offset-2;
 }
 
@@ -71,12 +62,12 @@
 }
 
 .rules-prose h2 {
-  color: #0B80C1;
+  color: var(--color-brand-red);
   @apply text-2xl font-bold mb-2;
 }
 
 .rules-prose h3 {
-  color: #061225;
+  color: var(--color-brand-deep-red);
   @apply text-lg font-semibold mt-4 mb-2;
 }
 
@@ -97,7 +88,7 @@
 }
 
 .rules-prose a {
-  color: #0B80C1;
+  color: var(--color-brand-red);
   @apply underline underline-offset-2;
 }
 
@@ -112,7 +103,9 @@
 }
 
 .rules-table thead th {
-  @apply font-semibold bg-neutral-50;
+  @apply font-semibold;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
 }
 
 /* ---- Section anchors (offset for sticky header) ---- */
@@ -131,12 +124,17 @@
 
 .rules-btn--ghost {
   @apply bg-white border border-black/10;
-  color: #0B80C1;
+  color: var(--color-brand-red);
 }
 
 .rules-btn--primary {
-  background: #0B80C1;
-  color: #fff;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
+}
+
+.rules-btn--primary:hover {
+  background: var(--color-brand-amber);
+  color: var(--color-brand-black);
 }
 
 /* ---- Mobile details summary (TOC) ---- */
@@ -145,7 +143,7 @@
 }
 
 .rules-mobile-toc summary {
-  color: #0B80C1;
+  color: var(--color-brand-red);
   @apply list-none cursor-pointer px-4 py-3 font-semibold;
 }
 

@@ -2,8 +2,8 @@
 
 /* ---- Page + Header ---- */
 .form-page {
-  /* Blue page background that meshes with the banner */
-  @apply min-h-screen bg-[#055190] flex flex-col;
+  @apply min-h-screen flex flex-col;
+  background: var(--color-brand-red);
 }
 
 .form-header {
@@ -16,8 +16,7 @@
 
 /* ---- Header ---- */
 .form-title {
-  /* Primary UI blue */
-  color: #0B80C1;
+  color: var(--color-brand-red);
   @apply text-xl md:text-2xl font-extrabold;
 }
 
@@ -25,11 +24,12 @@
 .btn-top-return {
   @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium
          transition duration-200;
-  background-color: #0B80C1;
-  color: #fff;
+  background-color: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
 }
 .btn-top-return:hover {
-  background-color: #062D5B;
+  background-color: var(--color-brand-amber);
+  color: var(--color-brand-black);
 }
 
 /* ---- Card ---- */
@@ -41,10 +41,10 @@
   @apply bg-white border border-black/10 rounded-2xl shadow-sm p-6 md:p-8 space-y-6;
 }
 
-/* Yellow accent bar (recommended slot #1) */
+/* Yellow accent bar */
 .card-accent {
   @apply h-1 w-20 rounded-full;
-  background: #EBB351;
+  background: var(--color-brand-yellow);
 }
 
 .form-hint {
@@ -56,26 +56,23 @@
   @apply block;
 }
 
-/* Use navy for label text (readability) */
 .form-label-text {
   @apply text-sm font-medium;
-  color: #061225;
+  color: var(--color-brand-black);
 }
 
-/* Yellow for required marker (recommended) */
 .required-star {
-  color: #EBB351;
+  color: var(--color-brand-amber);
 }
 
 .form-input {
   @apply mt-1 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-[15px]
-         placeholder-neutral-400 focus:outline-none focus:ring-4 focus:ring-[#0B80C1]/20
-         transition;
-  /* Keep focus border consistent */
-  border-color: #D1D5DB; /* neutral-300 equivalent */
+         placeholder-neutral-400 focus:outline-none focus:ring-4
+         focus:ring-[--color-brand-red]/20 transition;
+  border-color: #D1D5DB;
 }
 .form-input:focus {
-  border-color: #0B80C1;
+  border-color: var(--color-brand-red);
 }
 
 /* ---- Upload ---- */
@@ -84,9 +81,8 @@
          hover:bg-neutral-50 transition;
 }
 
-/* Yellow hint icon / small emphasis (recommended slot) */
 .upload-hint-icon {
-  color: #EBB351;
+  color: var(--color-brand-amber);
 }
 
 .upload-hint {
@@ -103,23 +99,20 @@
 
 /* ---- Consent ---- */
 .checkbox {
-  /* keep accent consistent with primary */
-  accent-color: #0B80C1;
+  accent-color: var(--color-brand-red);
 }
 
 .consent-text {
   @apply text-sm text-neutral-800;
 }
 
-/* Keep link blue; optional yellow underline via separate helper */
 .link-green {
   @apply hover:underline;
-  color: #0B80C1;
+  color: var(--color-brand-red);
 }
 
-/* Optional: yellow underline style for links */
 .link-underline-yellow {
-  text-decoration-color: #EBB351;
+  text-decoration-color: var(--color-brand-yellow);
   text-underline-offset: 3px;
 }
 
@@ -129,32 +122,40 @@
 }
 
 .btn-primary {
-  @apply w-full sm:w-auto rounded-full text-white px-8 py-3
+  @apply w-full sm:w-auto rounded-full px-8 py-3
          font-semibold shadow-md hover:shadow-lg
          focus:outline-none focus:ring-4 transition;
-  background: #0B80C1;
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-deep-red);
 }
 .btn-primary:hover {
-  background: #062D5B;
+  background: var(--color-brand-amber);
+  color: var(--color-brand-black);
 }
 .btn-primary:focus {
-  box-shadow: 0 0 0 4px rgba(11, 128, 193, 0.30);
+  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.35);
 }
 
 .btn-secondary {
-  @apply w-full sm:w-auto rounded-full bg-neutral-200 px-6 py-2.5
-         hover:bg-neutral-300 transition;
+  @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
+  background: transparent;
+  color: var(--color-brand-deep-red);
+  border: 2px solid var(--color-brand-tan);
+}
+.btn-secondary:hover {
+  background: var(--color-brand-tan);
+  color: var(--color-brand-white);
 }
 
-/* Optional: secondary “highlight” button using yellow (if you have 2 CTAs) */
 .btn-secondary-yellow {
   @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
-  background: #fff;
-  color: #061225;
-  border: 2px solid #EBB351;
+  background: var(--color-brand-white);
+  color: var(--color-brand-deep-red);
+  border: 2px solid var(--color-brand-yellow);
 }
 .btn-secondary-yellow:hover {
-  background: #FFF7E6; /* warm tint */
+  background: var(--color-brand-yellow);
+  color: var(--color-brand-black);
 }
 
 /* ---- Legal ---- */

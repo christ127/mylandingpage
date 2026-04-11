@@ -4,7 +4,7 @@ import "../styles/submissions.css";
 import { api } from "../api/client";
 import { exportSubmissionsCsv } from "../api/submissions";
 
-const DEFAULT_CONTEST_SLUG = "wishbone-2026";
+const DEFAULT_CONTEST_SLUG = "alpo-2026";
 
 async function fetchSubmissions({ contestSlug, page, pageSize, adminKey }) {
   const params = new URLSearchParams({
@@ -284,20 +284,61 @@ export default function SubmissionsPage() {
                 <tr>
                   <th className="admin-th">Nombre</th>
                   <th className="admin-th">Email</th>
+                  <th className="admin-th">Perro</th>
+                  <th className="admin-th">Recibo</th>
+                  <th className="admin-th">Foto del perro</th>
+                  <th className="admin-th">Sin compra</th>
                   <th className="admin-th">Consent</th>
-                  <th className="admin-th">Versión</th>
                   <th className="admin-th">Creado</th>
                 </tr>
               </thead>
               <tbody>
                 {items.map((s) => (
                   <tr key={s.email} className="admin-row">
-                    {" "}
-                    {/* use email as key now */}
                     <td className="admin-td">
                       {s.firstName} {s.lastName}
                     </td>
                     <td className="admin-td">{s.email}</td>
+                    <td className="admin-td">
+                      {s.dogName ? (
+                        <span title={s.dogStory ?? ""}>{s.dogName}</span>
+                      ) : (
+                        <span className="text-neutral-400">—</span>
+                      )}
+                    </td>
+                    <td className="admin-td">
+                      {s.receiptImageUrl ? (
+                        <a href={s.receiptImageUrl} target="_blank" rel="noreferrer">
+                          <img
+                            src={s.receiptImageUrl}
+                            alt="Recibo"
+                            className="admin-thumb"
+                          />
+                        </a>
+                      ) : (
+                        <span className="text-neutral-400">—</span>
+                      )}
+                    </td>
+                    <td className="admin-td">
+                      {s.dogPhotoUrl ? (
+                        <a href={s.dogPhotoUrl} target="_blank" rel="noreferrer">
+                          <img
+                            src={s.dogPhotoUrl}
+                            alt="Foto del perro"
+                            className="admin-thumb"
+                          />
+                        </a>
+                      ) : (
+                        <span className="text-neutral-400">—</span>
+                      )}
+                    </td>
+                    <td className="admin-td">
+                      {s.noPurchase ? (
+                        <span className="badge-yes">Sí</span>
+                      ) : (
+                        <span className="badge-no">No</span>
+                      )}
+                    </td>
                     <td className="admin-td">
                       {s.consentGiven ? (
                         <span className="badge-yes">Sí</span>
@@ -305,7 +346,6 @@ export default function SubmissionsPage() {
                         <span className="badge-no">No</span>
                       )}
                     </td>
-                    <td className="admin-td">{s.consentVersion}</td>
                     <td className="admin-td">
                       <span className="admin-date">
                         {new Date(s.createdAtUtc).toLocaleString()}
@@ -315,7 +355,7 @@ export default function SubmissionsPage() {
                 ))}
                 {items.length === 0 && !loading && (
                   <tr>
-                    <td colSpan={6} className="admin-td">
+                    <td colSpan={8} className="admin-td">
                       <div className="admin-empty">No hay submissions.</div>
                     </td>
                   </tr>

@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
 .footer {
-  @apply w-full bg-[#13955A] text-white text-center py-3 mt-auto shadow-inner;
+  @apply w-full text-white text-center py-3 mt-auto shadow-inner;
+  background: var(--color-brand-black);
 }
 
 .footer-content {
   @apply max-w-7xl mx-auto px-2;
 }
 
-/* Smaller footer text */
 .footer-text {
   @apply text-[0.65rem] sm:text-xs font-medium tracking-wide leading-tight;
 }
 
-/* Compact footer links */
 .footer-links {
   @apply mt-1 flex flex-col sm:flex-row justify-center items-center gap-2
          text-[0.6rem] sm:text-[0.7rem] opacity-80;
 }
 
 .footer-link {
-  @apply hover:underline hover:text-white/90 transition-colors duration-200;
+  @apply hover:underline transition-colors duration-200;
+  color: var(--color-brand-yellow);
+}
+
+.footer-link:hover {
+  color: var(--color-brand-amber);
 }
 
 .footer-separator {

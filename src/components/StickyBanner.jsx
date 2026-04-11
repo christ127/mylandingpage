@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import "../styles/banner.css";
 
 export default function StickyBanner({
-  desktopImage = "/wishbone-banner.png",
-  mobileImage = "/wishbone-banner-mobile.png",
-  alt = "Wishbone Contest Banner",
+  desktopImage = `${import.meta.env.BASE_URL}/alpo-banner-desktop.jpg`,
+  mobileImage = `${import.meta.env.BASE_URL}/alpo-banner-mobile.jpg`,
+  alt = "Alpo Contest Banner",
   minHeightPx = 260,
   mobileBreakpointPx = 768,
 }) {

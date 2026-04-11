@@ -8,6 +8,7 @@ import "../styles/footer.css";
 import alpoLogo from "../assets/alpo-logo.png";
 import dogBruno from "../assets/dog-bruno.png";
 import dogMolly from "../assets/dog-molly.png";
+import heroePortrait from "../assets/heroe-portrait.jpg";
 
 /* ── Brand helpers ──────────────────────────────────────────────────────── */
 const B = {
@@ -260,7 +261,7 @@ export default function LandingPage() {
                 style={{ borderColor: "rgba(255,255,255,0.25)" }}
               >
                 <img
-                  src={`${import.meta.env.BASE_URL}/heroe-portrait.jpg`}
+                  src={heroePortrait}
                   alt="Mi héroe"
                   className="w-full h-full object-cover object-center"
                 />

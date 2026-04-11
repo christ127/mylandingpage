@@ -196,7 +196,7 @@ export default function FormPage() {
 
             <label className="form-label">
               <span className="form-label-text">
-                ¿Cuál es su historia? <span className="required-star">*</span>
+              ¿Por qué es tu héroe? <span className="required-star">*</span>
               </span>
               <textarea
                 name="dogStory"

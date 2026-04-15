@@ -1,5 +1,5 @@
 // src/views/LandingPage.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/buttons.css";
 import "../styles/footer.css";
@@ -9,6 +9,16 @@ import alpoLogo from "../assets/alpo-logo.png";
 import dogBruno from "../assets/dog-bruno.png";
 import dogMolly from "../assets/dog-molly.png";
 import heroePortrait from "../assets/heroe-portrait.jpg";
+
+// Event photo previews for carousel
+import evPhoto1 from "../assets/event-photos/1I7GSUPROVNBSN8U.jpeg";
+import evPhoto2 from "../assets/event-photos/1O079KI9TI6UCP47.jpeg";
+import evPhoto3 from "../assets/event-photos/2U60X6PE8V26P93Q.jpeg";
+import evPhoto4 from "../assets/event-photos/31GLPT778D5RSYMZ.jpeg";
+import evPhoto5 from "../assets/event-photos/39AHKEPIXHAG2AWI.jpeg";
+import evPhoto6 from "../assets/event-photos/3JCV73I02B9BBIYW.jpeg";
+
+const CAROUSEL_PHOTOS = [evPhoto1, evPhoto2, evPhoto3, evPhoto4, evPhoto5, evPhoto6];
 
 /* ── Brand helpers ──────────────────────────────────────────────────────── */
 const B = {
@@ -78,6 +88,20 @@ function UploadIcon() {
 /* ════════════════════════════════════════════════════════════════════════ */
 export default function LandingPage() {
   const nav = useNavigate();
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  // Auto-advance carousel every 3.5 s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % CAROUSEL_PHOTOS.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const prevSlide = () =>
+    setActiveSlide((prev) => (prev - 1 + CAROUSEL_PHOTOS.length) % CAROUSEL_PHOTOS.length);
+  const nextSlide = () =>
+    setActiveSlide((prev) => (prev + 1) % CAROUSEL_PHOTOS.length);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ background: B.red }}>
@@ -358,6 +382,101 @@ export default function LandingPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ══ EVENT PHOTOS CAROUSEL ════════════════════════════════════════ */}
+      <section
+        className="py-12 px-4"
+        style={{
+          background: `linear-gradient(160deg, ${B.burgundy} 0%, ${B.deepRed} 100%)`,
+        }}
+      >
+        <div className="max-w-4xl mx-auto">
+          {/* Heading */}
+          <div className="flex items-center gap-3 mb-6 justify-center">
+            <CameraIcon />
+            <h2
+              className="text-2xl md:text-3xl font-black uppercase tracking-tight"
+              style={{ color: B.white, fontFamily: "'Antihero', sans-serif" }}
+            >
+              Fotos del Evento
+            </h2>
+          </div>
+
+          {/* Carousel */}
+          <div className="relative">
+            {/* Main image — each file is 3 square photos stacked vertically (1200×3600).
+                 A square container + object-top shows only the first photo. */}
+            <div
+              className="w-full rounded-2xl overflow-hidden shadow-2xl"
+              style={{ aspectRatio: "1/1", maxWidth: "480px", margin: "0 auto" }}
+            >
+              <img
+                key={activeSlide}
+                src={CAROUSEL_PHOTOS[activeSlide]}
+                alt={`Foto del evento ${activeSlide + 1}`}
+                className="w-full h-full object-cover object-top transition-opacity duration-500"
+              />
+            </div>
+
+            {/* Arrow: prev */}
+            <button
+              onClick={prevSlide}
+              aria-label="Foto anterior"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full
+                         flex items-center justify-center shadow-lg
+                         transition hover:opacity-90 active:scale-95"
+              style={{ background: "rgba(0,0,0,0.45)", color: B.white }}
+            >
+              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+
+            {/* Arrow: next */}
+            <button
+              onClick={nextSlide}
+              aria-label="Foto siguiente"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full
+                         flex items-center justify-center shadow-lg
+                         transition hover:opacity-90 active:scale-95"
+              style={{ background: "rgba(0,0,0,0.45)", color: B.white }}
+            >
+              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center gap-2 mt-4">
+            {CAROUSEL_PHOTOS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveSlide(i)}
+                aria-label={`Ir a foto ${i + 1}`}
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: i === activeSlide ? 24 : 8,
+                  height: 8,
+                  background: i === activeSlide ? B.yellow : "rgba(255,255,255,0.35)",
+                }}
+              />
+            ))}
+          </div>
+
+          {/* CTA button */}
+          <div className="flex justify-center mt-7">
+            <button
+              type="button"
+              onClick={() => nav("/event-photos")}
+              className="participa-btn flex items-center gap-2"
+            >
+              <CameraIcon />
+              Ver todas las fotos
+            </button>
+          </div>
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import FormPage from "./views/FormPage";
 import SuccessPage from "./views/SuccessPage";
 import RulesPage from "./views/RulesPage";
 import SubmissionsPage from "./views/SubmissionsPage";
+import EventPhotosPage from "./views/EventPhotosPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/success" element={<SuccessPage />} />
         <Route path="/rules" element={<RulesPage />} />
         <Route path="/submissions" element={<SubmissionsPage />} />
+        <Route path="/event-photos" element={<EventPhotosPage />} />
       </Routes>
     </BrowserRouter>
   );

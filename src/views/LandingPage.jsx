@@ -484,7 +484,7 @@ export default function LandingPage() {
       <footer className="footer">
         <div className="footer-content">
           <p className="footer-text">
-            © {new Date().getFullYear()} Válido del 10 de abril al 10 de mayo de
+            © {new Date().getFullYear()} Válido del 10 de abril al 30 de mayo de
             2026. Participación sin obligación de compra. Limitada a mayores de
             edad y residentes legales de Puerto Rico.{" "}
             <button

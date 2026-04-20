@@ -91,7 +91,7 @@ export default function RulesPage() {
                     compartir la historia de sus perros y destacar su rol en su
                     día a día. Estará vigente desde el{" "}
                     <strong>10 de abril de 2026</strong> hasta el{" "}
-                    <strong>10 de mayo de 2026</strong> (en adelante, el
+                    <strong>30 de mayo de 2026</strong> (en adelante, el
                     "Período de Participación"). Durante este período se
                     realizarán dos (2) selecciones semanales de las historias
                     que los participantes suben a la plataforma.

@@ -143,6 +143,25 @@
   @apply text-xs text-neutral-600;
 }
 
+/* ---- Dog story cell ---- */
+.admin-td-story {
+  max-width: 360px;
+  min-width: 220px;
+}
+
+.admin-story {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-word;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: #374151;
+}
+
 /* ---- Photo thumbnails ---- */
 .admin-thumb {
   @apply w-14 h-14 object-cover rounded cursor-pointer

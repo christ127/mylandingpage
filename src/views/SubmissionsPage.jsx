@@ -286,10 +286,10 @@ export default function SubmissionsPage() {
                   <th className="admin-th">Email</th>
                   <th className="admin-th">Teléfono</th>
                   <th className="admin-th">Perro</th>
+                  <th className="admin-th">Historia</th>
                   <th className="admin-th">Recibo</th>
                   <th className="admin-th">Foto del perro</th>
                   <th className="admin-th">Sin compra</th>
-                  <th className="admin-th">Consent</th>
                   <th className="admin-th">Creado</th>
                 </tr>
               </thead>
@@ -303,7 +303,16 @@ export default function SubmissionsPage() {
                     <td className="admin-td">{s.phone}</td>
                     <td className="admin-td">
                       {s.dogName ? (
-                        <span title={s.dogStory ?? ""}>{s.dogName}</span>
+                        <span>{s.dogName}</span>
+                      ) : (
+                        <span className="text-neutral-400">—</span>
+                      )}
+                    </td>
+                    <td className="admin-td admin-td-story">
+                      {s.dogStory ? (
+                        <span className="admin-story" title={s.dogStory}>
+                          {s.dogStory}
+                        </span>
                       ) : (
                         <span className="text-neutral-400">—</span>
                       )}
@@ -336,13 +345,6 @@ export default function SubmissionsPage() {
                     </td>
                     <td className="admin-td">
                       {s.noPurchase ? (
-                        <span className="badge-yes">Sí</span>
-                      ) : (
-                        <span className="badge-no">No</span>
-                      )}
-                    </td>
-                    <td className="admin-td">
-                      {s.consentGiven ? (
                         <span className="badge-yes">Sí</span>
                       ) : (
                         <span className="badge-no">No</span>

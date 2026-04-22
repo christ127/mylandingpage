@@ -11,12 +11,12 @@ import dogMolly from "../assets/dog-molly.png";
 import heroePortrait from "../assets/heroe-portrait.jpg";
 
 // Event photo previews for carousel
-import evPhoto1 from "../assets/event-photos/1I7GSUPROVNBSN8U.jpeg";
-import evPhoto2 from "../assets/event-photos/1O079KI9TI6UCP47.jpeg";
-import evPhoto3 from "../assets/event-photos/2U60X6PE8V26P93Q.jpeg";
-import evPhoto4 from "../assets/event-photos/31GLPT778D5RSYMZ.jpeg";
-import evPhoto5 from "../assets/event-photos/39AHKEPIXHAG2AWI.jpeg";
-import evPhoto6 from "../assets/event-photos/3JCV73I02B9BBIYW.jpeg";
+import evPhoto1 from "../assets/event-photos/Alpo_0010_photo.jpeg";
+import evPhoto2 from "../assets/event-photos/Alpo_0020_photo.jpeg";
+import evPhoto3 from "../assets/event-photos/Alpo_0030_photo.jpeg";
+import evPhoto4 from "../assets/event-photos/Alpo_0040_photo.jpeg";
+import evPhoto5 from "../assets/event-photos/Alpo_0050_photo.jpeg";
+import evPhoto6 from "../assets/event-photos/Alpo_0060_photo.jpeg";
 
 const CAROUSEL_PHOTOS = [evPhoto1, evPhoto2, evPhoto3, evPhoto4, evPhoto5, evPhoto6];
 

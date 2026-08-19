@@ -11,8 +11,8 @@
 
 .success-icon {
   @apply mx-auto mb-4 h-14 w-14 rounded-full grid place-items-center;
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 
 .success-title {
@@ -33,25 +33,25 @@
   @apply w-full sm:w-auto rounded-full px-8 py-3
          font-semibold shadow-md hover:shadow-lg
          focus:outline-none focus:ring-4 transition;
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 .btn-primary:hover {
-  background: var(--color-brand-amber);
-  color: var(--color-brand-black);
+  background: var(--color-brand-deep-red);
+  color: var(--color-brand-white);
 }
 .btn-primary:focus {
-  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.35);
+  box-shadow: 0 0 0 4px rgba(228, 32, 43, 0.35);
 }
 
 .btn-secondary {
   @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
   background: transparent;
-  color: var(--color-brand-deep-red);
-  border: 2px solid var(--color-brand-tan);
+  color: var(--color-brand-red);
+  border: 2px solid var(--color-brand-red);
 }
 .btn-secondary:hover {
-  background: var(--color-brand-tan);
+  background: var(--color-brand-red);
   color: var(--color-brand-white);
 }
 

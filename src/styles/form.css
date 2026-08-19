@@ -24,12 +24,12 @@
 .btn-top-return {
   @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium
          transition duration-200;
-  background-color: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
+  background-color: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 .btn-top-return:hover {
-  background-color: var(--color-brand-amber);
-  color: var(--color-brand-black);
+  background-color: var(--color-brand-deep-red);
+  color: var(--color-brand-white);
 }
 
 /* ---- Card ---- */
@@ -41,10 +41,10 @@
   @apply bg-white border border-black/10 rounded-2xl shadow-sm p-6 md:p-8 space-y-6;
 }
 
-/* Yellow accent bar */
+/* Accent bar */
 .card-accent {
   @apply h-1 w-20 rounded-full;
-  background: var(--color-brand-yellow);
+  background: var(--color-brand-red);
 }
 
 .form-hint {
@@ -62,7 +62,7 @@
 }
 
 .required-star {
-  color: var(--color-brand-amber);
+  color: var(--color-brand-red);
 }
 
 .form-input {
@@ -82,7 +82,7 @@
 }
 
 .upload-hint-icon {
-  color: var(--color-brand-amber);
+  color: var(--color-brand-red);
 }
 
 .upload-hint {
@@ -112,7 +112,7 @@
 }
 
 .link-underline-yellow {
-  text-decoration-color: var(--color-brand-yellow);
+  text-decoration-color: var(--color-brand-red);
   text-underline-offset: 3px;
 }
 
@@ -121,41 +121,43 @@
   @apply flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-2;
 }
 
+/* These render on the white form/success card, not directly on the red page
+   background, so they need to be solid/outline red rather than white-on-white. */
 .btn-primary {
   @apply w-full sm:w-auto rounded-full px-8 py-3
          font-semibold shadow-md hover:shadow-lg
          focus:outline-none focus:ring-4 transition;
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 .btn-primary:hover {
-  background: var(--color-brand-amber);
-  color: var(--color-brand-black);
+  background: var(--color-brand-deep-red);
+  color: var(--color-brand-white);
 }
 .btn-primary:focus {
-  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.35);
+  box-shadow: 0 0 0 4px rgba(228, 32, 43, 0.35);
 }
 
 .btn-secondary {
   @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
   background: transparent;
-  color: var(--color-brand-deep-red);
-  border: 2px solid var(--color-brand-tan);
+  color: var(--color-brand-red);
+  border: 2px solid var(--color-brand-red);
 }
 .btn-secondary:hover {
-  background: var(--color-brand-tan);
+  background: var(--color-brand-red);
   color: var(--color-brand-white);
 }
 
 .btn-secondary-yellow {
   @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
   background: var(--color-brand-white);
-  color: var(--color-brand-deep-red);
-  border: 2px solid var(--color-brand-yellow);
+  color: var(--color-brand-red);
+  border: 2px solid var(--color-brand-red);
 }
 .btn-secondary-yellow:hover {
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-black);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 
 /* ---- Legal ---- */

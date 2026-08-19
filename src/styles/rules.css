@@ -104,8 +104,8 @@
 
 .rules-table thead th {
   @apply font-semibold;
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 
 /* ---- Section anchors (offset for sticky header) ---- */
@@ -128,13 +128,13 @@
 }
 
 .rules-btn--primary {
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 
 .rules-btn--primary:hover {
-  background: var(--color-brand-amber);
-  color: var(--color-brand-black);
+  background: var(--color-brand-deep-red);
+  color: var(--color-brand-white);
 }
 
 /* ---- Mobile details summary (TOC) ---- */

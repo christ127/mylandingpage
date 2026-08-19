@@ -188,7 +188,7 @@ export default function SubmissionsPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="btn-primary"
+                    className="admin-btn-primary"
                   >
                     {loading ? "Verificando..." : "Entrar"}
                   </button>
@@ -258,7 +258,7 @@ export default function SubmissionsPage() {
             <div className="admin-meta-right">
               <button
                 type="button"
-                className="btn-secondary"
+                className="admin-btn-secondary"
                 disabled={loading}
                 onClick={() => loadPage(page)}
               >
@@ -267,7 +267,7 @@ export default function SubmissionsPage() {
 
               <button
                 type="button"
-                className="btn-primary"
+                className="admin-btn-primary"
                 disabled={loading || total === 0}
                 onClick={() => exportSubmissionsCsv(contestSlug, adminKey)}
               >
@@ -285,11 +285,7 @@ export default function SubmissionsPage() {
                   <th className="admin-th">Nombre</th>
                   <th className="admin-th">Email</th>
                   <th className="admin-th">Teléfono</th>
-                  <th className="admin-th">Perro</th>
-                  <th className="admin-th">Historia</th>
                   <th className="admin-th">Recibo</th>
-                  <th className="admin-th">Foto del perro</th>
-                  <th className="admin-th">Sin compra</th>
                   <th className="admin-th">Creado</th>
                 </tr>
               </thead>
@@ -301,22 +297,6 @@ export default function SubmissionsPage() {
                     </td>
                     <td className="admin-td">{s.email}</td>
                     <td className="admin-td">{s.phone}</td>
-                    <td className="admin-td">
-                      {s.dogName ? (
-                        <span>{s.dogName}</span>
-                      ) : (
-                        <span className="text-neutral-400">—</span>
-                      )}
-                    </td>
-                    <td className="admin-td admin-td-story">
-                      {s.dogStory ? (
-                        <span className="admin-story" title={s.dogStory}>
-                          {s.dogStory}
-                        </span>
-                      ) : (
-                        <span className="text-neutral-400">—</span>
-                      )}
-                    </td>
                     <td className="admin-td">
                       {s.receiptImageUrl ? (
                         <a href={s.receiptImageUrl} target="_blank" rel="noreferrer">
@@ -331,26 +311,6 @@ export default function SubmissionsPage() {
                       )}
                     </td>
                     <td className="admin-td">
-                      {s.dogPhotoUrl ? (
-                        <a href={s.dogPhotoUrl} target="_blank" rel="noreferrer">
-                          <img
-                            src={s.dogPhotoUrl}
-                            alt="Foto del perro"
-                            className="admin-thumb"
-                          />
-                        </a>
-                      ) : (
-                        <span className="text-neutral-400">—</span>
-                      )}
-                    </td>
-                    <td className="admin-td">
-                      {s.noPurchase ? (
-                        <span className="badge-yes">Sí</span>
-                      ) : (
-                        <span className="badge-no">No</span>
-                      )}
-                    </td>
-                    <td className="admin-td">
                       <span className="admin-date">
                         {new Date(s.createdAtUtc).toLocaleString()}
                       </span>
@@ -359,7 +319,7 @@ export default function SubmissionsPage() {
                 ))}
                 {items.length === 0 && !loading && (
                   <tr>
-                    <td colSpan={9} className="admin-td">
+                    <td colSpan={5} className="admin-td">
                       <div className="admin-empty">No hay submissions.</div>
                     </td>
                   </tr>

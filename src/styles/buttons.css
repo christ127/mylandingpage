@@ -1,42 +1,68 @@
 @import "tailwindcss";
 
-/* ── ALPO Brand Palette ─────────────────────────────────────────── */
+/* ── Energizer Brand Palette ────────────────────────────────────── */
 @theme {
-  --color-brand-red:      #C41230;
-  --color-brand-burgundy: #82141C;
-  --color-brand-deep-red: #8B0A1A;
+  --color-brand-red:      #E4202B;
+  --color-brand-burgundy: #8B1218;
+  --color-brand-deep-red: #5C0E14;
   --color-brand-yellow:   #F5C518;
   --color-brand-amber:    #E8A020;
   --color-brand-tan:      #C0762A;
   --color-brand-white:    #FFFFFF;
-  --color-brand-black:    #1A1A1A;
+  --color-brand-black:    #0D0D0D;
 }
 
 .participa-btn {
   @apply font-semibold text-lg md:text-xl rounded-full px-12 py-5
          shadow-lg hover:shadow-xl transition-all duration-300 transform
          hover:-translate-y-[2px] focus:outline-none focus:ring-4;
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
-  focus-ring-color: var(--color-brand-yellow);
+  background: var(--color-brand-white);
+  color: var(--color-brand-red);
+  focus-ring-color: var(--color-brand-red);
 }
 .participa-btn:hover {
-  background: var(--color-brand-white);
-  color: var(--color-brand-black);
+  background: var(--color-brand-black);
+  color: var(--color-brand-white);
 }
 .participa-btn:focus {
-  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.40);
+  box-shadow: 0 0 0 4px rgba(228, 32, 43, 0.40);
 }
 
 .participa-btn--outline {
-  background: var(--color-brand-white);
-  color: var(--color-brand-deep-red);
+  background: transparent;
+  color: var(--color-brand-white);
   border: 2px solid var(--color-brand-white);
 }
 .participa-btn--outline:hover {
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
-  border-color: var(--color-brand-yellow);
+  background: var(--color-brand-white);
+  color: var(--color-brand-red);
+  border-color: var(--color-brand-white);
+}
+
+.cta-float-btn {
+  @apply font-semibold text-xs sm:text-sm rounded-full px-4 sm:px-6 py-2 sm:py-2.5
+         shadow-md transition-all duration-200 whitespace-nowrap
+         focus:outline-none focus:ring-4;
+  background: var(--color-brand-white);
+  color: var(--color-brand-red);
+}
+.cta-float-btn:hover {
+  background: var(--color-brand-black);
+  color: var(--color-brand-white);
+}
+.cta-float-btn:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.45);
+}
+
+.cta-float-btn--outline {
+  background: transparent;
+  color: var(--color-brand-white);
+  border: 2px solid var(--color-brand-white);
+}
+.cta-float-btn--outline:hover {
+  background: var(--color-brand-white);
+  color: var(--color-brand-red);
+  border-color: var(--color-brand-white);
 }
 
 .participa-container {
@@ -47,12 +73,12 @@
 .btn-top-return {
   @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium
          transition duration-200;
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 .btn-top-return:hover {
-  background: var(--color-brand-amber);
-  color: var(--color-brand-black);
+  background: var(--color-brand-deep-red);
+  color: var(--color-brand-white);
 }
 
 .btn-row {
@@ -63,37 +89,37 @@
   @apply w-full sm:w-auto rounded-full px-8 py-3
          font-semibold shadow-md hover:shadow-lg
          focus:outline-none focus:ring-4 transition;
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 .btn-primary:hover {
-  background: var(--color-brand-amber);
-  color: var(--color-brand-black);
+  background: var(--color-brand-deep-red);
+  color: var(--color-brand-white);
 }
 .btn-primary:focus {
-  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.35);
+  box-shadow: 0 0 0 4px rgba(228, 32, 43, 0.35);
 }
 
 .btn-secondary {
   @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
   background: transparent;
-  color: var(--color-brand-deep-red);
-  border: 2px solid var(--color-brand-tan);
+  color: var(--color-brand-red);
+  border: 2px solid var(--color-brand-red);
 }
 .btn-secondary:hover {
-  background: var(--color-brand-tan);
+  background: var(--color-brand-red);
   color: var(--color-brand-white);
 }
 
 .btn-secondary-yellow {
   @apply w-full sm:w-auto rounded-full px-6 py-2.5 font-semibold transition;
   background: var(--color-brand-white);
-  color: var(--color-brand-deep-red);
-  border: 2px solid var(--color-brand-yellow);
+  color: var(--color-brand-red);
+  border: 2px solid var(--color-brand-red);
 }
 .btn-secondary-yellow:hover {
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-black);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 
 @font-face {

@@ -1,21 +1,17 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/form.css";
 import "../styles/buttons.css";
 import { presignUpload, uploadToBlob } from "../api/uploads";
 import { createSubmission } from "../api/submissions";
 
-const CONTEST_SLUG = "alpo-2026";
+const CONTEST_SLUG = "energizer-2026"; // TODO: must match the real Contest.Slug once seeded in the DB
 
 export default function FormPage() {
   const nav = useNavigate();
   const receiptRef = useRef(null);
-  const dogPhotoRef = useRef(null);
   const [receiptPreview, setReceiptPreview] = useState(null);
   const [receiptFile, setReceiptFile] = useState(null);
-  const [dogPhotoPreview, setDogPhotoPreview] = useState(null);
-  const [dogPhotoFile, setDogPhotoFile] = useState(null);
-  const [noPurchase, setNoPurchase] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
@@ -24,13 +20,6 @@ export default function FormPage() {
     if (!f) return;
     setReceiptFile(f);
     setReceiptPreview(URL.createObjectURL(f));
-  }
-
-  function handleDogPhotoFile(e) {
-    const f = e.target.files?.[0];
-    if (!f) return;
-    setDogPhotoFile(f);
-    setDogPhotoPreview(URL.createObjectURL(f));
   }
 
   async function onSubmit(e) {
@@ -44,14 +33,10 @@ export default function FormPage() {
       const lastName = form.get("lastName")?.toString() ?? "";
       const email = form.get("email")?.toString() ?? "";
       const phone = form.get("phone")?.toString() ?? "";
-      const dogName = form.get("dogName")?.toString() ?? "";
-      const dogStory = form.get("dogStory")?.toString() ?? "";
       const consent = !!form.get("consent");
-      const noPurchase = !!form.get("noPurchase");
 
       if (!consent) throw new Error("Debes aceptar las reglas oficiales.");
-      if (!noPurchase && !receiptFile)
-        throw new Error("Debes seleccionar un archivo de imagen.");
+      if (!receiptFile) throw new Error("Debes seleccionar un archivo de imagen.");
 
       let blobName = null;
       if (receiptFile) {
@@ -64,32 +49,17 @@ export default function FormPage() {
         blobName = rb;
       }
 
-      let dogPhotoBlobName = null;
-      if (dogPhotoFile) {
-        const { uploadUrl: dogUrl, blobName: dogBlob } = await presignUpload({
-          fileName: dogPhotoFile.name,
-          contentType: dogPhotoFile.type || "image/jpeg",
-          bytes: dogPhotoFile.size,
-        });
-        await uploadToBlob(dogUrl, dogPhotoFile);
-        dogPhotoBlobName = dogBlob;
-      }
-
       await createSubmission({
         contestSlug: CONTEST_SLUG,
         firstName,
         lastName,
         email,
         phone,
-        dogName,
-        dogStory,
         consentGiven: true,
         consentVersion: "v1",
-        noPurchase,
         blobName:     receiptFile ? blobName : null,
         contentType:  receiptFile ? receiptFile.type || "image/jpeg" : null,
         sizeBytes:    receiptFile ? receiptFile.size : null,
-        dogPhotoBlobName,
       });
 
       nav("/success");
@@ -184,103 +154,32 @@ export default function FormPage() {
               </label>
             </div>
 
-            {/* Dog info */}
-            <label className="form-label">
-              <span className="form-label-text">
-                Nombre de tu héroe <span className="required-star">*</span>
-              </span>
-              <input
-                name="dogName"
-                required
-                className="form-input"
-                placeholder="Nombre de tu héroe"
-              />
-            </label>
-
-            <label className="form-label">
-              <span className="form-label-text">
-              ¿Por qué es tu héroe? <span className="required-star">*</span>
-              </span>
-              <textarea
-                name="dogStory"
-                required
-                rows={4}
-                className="form-input"
-                placeholder="Cuéntanos la historia de tu héroe..."
-                style={{ resize: "vertical" }}
-              />
-            </label>
-
             {/* Receipt upload */}
-            {!noPurchase && (
-              <div>
-                <span className="form-label-text">
-                  Sube tu foto/recibo <span className="required-star">*</span>
-                </span>
-                <div
-                  onClick={() => receiptRef.current?.click()}
-                  className="upload-box"
-                >
-                  {receiptPreview ? (
-                    <div className="flex items-center gap-4 justify-center">
-                      <img
-                        src={receiptPreview}
-                        alt="preview recibo"
-                        className="upload-preview"
-                      />
-                      <span className="upload-hint">
-                        <span className="upload-hint-icon">●</span> Haz clic
-                        para cambiar el archivo
-                      </span>
-                    </div>
-                  ) : (
-                    <div className="space-y-1">
-                      <p className="upload-hint">
-                        <span className="upload-hint-icon">●</span> Haz clic
-                        para seleccionar archivo (JPG/PNG)
-                      </p>
-                      <p className="upload-sub">
-                        Tamaño máx. recomendado: 5&nbsp;MB
-                      </p>
-                    </div>
-                  )}
-                </div>
-                <input
-                  ref={receiptRef}
-                  type="file"
-                  accept="image/*"
-                  hidden
-                  onChange={handleReceiptFile}
-                />
-              </div>
-            )}
-
-            {/* Dog photo upload */}
             <div>
               <span className="form-label-text">
-                Foto del perro <span className="required-star">*</span>
+                Sube tu foto/recibo <span className="required-star">*</span>
               </span>
               <div
-                onClick={() => dogPhotoRef.current?.click()}
+                onClick={() => receiptRef.current?.click()}
                 className="upload-box"
               >
-                {dogPhotoPreview ? (
+                {receiptPreview ? (
                   <div className="flex items-center gap-4 justify-center">
                     <img
-                      src={dogPhotoPreview}
-                      alt="preview perro"
+                      src={receiptPreview}
+                      alt="preview recibo"
                       className="upload-preview"
                     />
                     <span className="upload-hint">
-                      <span className="upload-hint-icon">●</span> Haz clic para
-                      cambiar la foto
+                      <span className="upload-hint-icon">●</span> Haz clic
+                      para cambiar el archivo
                     </span>
                   </div>
                 ) : (
                   <div className="space-y-1">
                     <p className="upload-hint">
-                      <span className="upload-hint-icon">●</span> Haz clic para
-                      seleccionar foto de tu perro (JPG/PNG)
+                      <span className="upload-hint-icon">●</span> Haz clic
+                      para seleccionar archivo (JPG/PNG)
                     </p>
                     <p className="upload-sub">
                       Tamaño máx. recomendado: 5&nbsp;MB
@@ -289,11 +188,11 @@ export default function FormPage() {
                 )}
               </div>
               <input
-                ref={dogPhotoRef}
+                ref={receiptRef}
                 type="file"
                 accept="image/*"
                 hidden
-                onChange={handleDogPhotoFile}
+                onChange={handleReceiptFile}
               />
             </div>
 
@@ -307,22 +206,11 @@ export default function FormPage() {
               />
               <span className="consent-text">
                 Confirmo que acepto las{" "}
-                <a href="/rules" className="link-green link-underline-yellow">
+                <Link to="/rules" className="link-green link-underline-yellow">
                   reglas oficiales
-                </a>{" "}
+                </Link>{" "}
                 y el consentimiento.
               </span>
-            </label>
-
-            <label className="flex items-start gap-3">
-              <input
-                type="checkbox"
-                name="noPurchase"
-                className="checkbox mt-[3px] h-4 w-4"
-                checked={noPurchase}
-                onChange={(e) => setNoPurchase(e.target.checked)}
-              />
-              <span className="consent-text">Participación sin compra.</span>
             </label>
 
             {/* Actions */}

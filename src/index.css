@@ -9,16 +9,16 @@
   font-display: swap;
 }
 
-/* ── ALPO Brand Palette ─────────────────────────────────────────── */
+/* ── Energizer Brand Palette ────────────────────────────────────── */
 @theme {
-  --color-brand-red:      #C41230;
-  --color-brand-burgundy: #6E141E;
-  --color-brand-deep-red: #8B0A1A;
+  --color-brand-red:      #E4202B;
+  --color-brand-burgundy: #8B1218;
+  --color-brand-deep-red: #5C0E14;
   --color-brand-yellow:   #F5C518;
   --color-brand-amber:    #E8A020;
   --color-brand-tan:      #C0762A;
   --color-brand-white:    #FFFFFF;
-  --color-brand-black:    #1A1A1A;
+  --color-brand-black:    #0D0D0D;
 }
 
 html, body, #root {

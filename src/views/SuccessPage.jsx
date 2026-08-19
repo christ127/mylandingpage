@@ -15,7 +15,7 @@ export default function SuccessPage() {
       <div className="success-card">
         <div className="success-icon">
           <svg
-            className="h-7 w-7 text-[#EBB351]"
+            className="h-7 w-7 text-white"
             viewBox="0 0 24 24"
             fill="none"
             aria-hidden="true"

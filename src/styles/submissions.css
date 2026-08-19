@@ -242,29 +242,29 @@
 }
 
 /* ---- Buttons ---- */
-.btn-primary {
+.admin-btn-primary {
   @apply inline-flex items-center justify-center rounded-full px-6 py-2.5
          text-sm font-semibold shadow-md hover:shadow-lg
          focus:outline-none focus:ring-4 transition;
   background: var(--color-brand-yellow);
   color: var(--color-brand-deep-red);
 }
-.btn-primary:hover {
+.admin-btn-primary:hover {
   background: var(--color-brand-amber);
   color: var(--color-brand-black);
 }
-.btn-primary:focus {
+.admin-btn-primary:focus {
   box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.35);
 }
 
-.btn-secondary {
+.admin-btn-secondary {
   @apply inline-flex items-center justify-center rounded-full px-4 py-2
          text-xs sm:text-sm font-medium transition;
   background: transparent;
   color: var(--color-brand-deep-red);
   border: 2px solid var(--color-brand-tan);
 }
-.btn-secondary:hover {
+.admin-btn-secondary:hover {
   background: var(--color-brand-tan);
   color: var(--color-brand-white);
 }

@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+.htp-section {
+  @apply py-14 px-4;
+  background: var(--color-brand-white);
+}
+
+.htp-title {
+  @apply text-2xl sm:text-3xl font-black text-center mb-10;
+  color: var(--color-brand-black);
+}
+
+.htp-grid {
+  @apply max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8;
+}
+
+.htp-step {
+  @apply flex flex-col items-center gap-3 text-center;
+}
+
+.htp-card {
+  @apply relative w-full max-w-[130px] aspect-[4/3] rounded-2xl shadow-lg
+         flex items-center justify-center;
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
+}
+
+.htp-badge {
+  @apply absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center
+         justify-center text-sm font-black shadow-md;
+  background: var(--color-brand-black);
+  color: var(--color-brand-white);
+}
+
+.htp-text {
+  @apply text-sm font-medium max-w-[10rem];
+  color: var(--color-brand-black);
+}

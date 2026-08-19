@@ -21,8 +21,8 @@
 
 .admin-tag {
   @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium uppercase;
-  border: 1px solid rgba(196, 18, 48, 0.30);
-  background: rgba(196, 18, 48, 0.05);
+  border: 1px solid rgba(228, 32, 43, 0.30);
+  background: rgba(228, 32, 43, 0.05);
   color: var(--color-brand-red);
 }
 
@@ -81,23 +81,9 @@
   @apply flex items-center gap-2;
 }
 
-.admin-input-sm {
-  @apply rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-xs sm:text-sm
-         focus:outline-none transition;
-  --tw-ring-color: rgba(196, 18, 48, 0.30);
-  @apply focus:ring-2 focus:border-[--color-brand-red];
-}
-
 /* ---- Alerts ---- */
 .admin-alert-error {
   @apply rounded-lg bg-red-50 border border-red-200 px-3 py-2 text-sm text-red-700;
-}
-
-.admin-alert-info {
-  @apply rounded-lg px-3 py-2 text-sm;
-  background: rgba(196, 18, 48, 0.05);
-  border: 1px solid rgba(196, 18, 48, 0.20);
-  color: var(--color-brand-deep-red);
 }
 
 /* ---- Table ---- */
@@ -126,40 +112,9 @@
   @apply bg-neutral-50/80;
 }
 
-/* ---- Status / consent badges ---- */
-.badge-yes {
-  @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
-  background: rgba(196, 18, 48, 0.10);
-  color: var(--color-brand-red);
-}
-
-.badge-no {
-  @apply inline-flex items-center rounded-full bg-neutral-200 px-2.5 py-1
-         text-xs font-semibold text-neutral-700;
-}
-
 /* ---- Date ---- */
 .admin-date {
   @apply text-xs text-neutral-600;
-}
-
-/* ---- Dog story cell ---- */
-.admin-td-story {
-  max-width: 360px;
-  min-width: 220px;
-}
-
-.admin-story {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  word-break: break-word;
-  font-size: 0.8125rem;
-  line-height: 1.35;
-  color: #374151;
 }
 
 /* ---- Photo thumbnails ---- */
@@ -227,7 +182,7 @@
 .admin-input {
   @apply mt-1 w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm
          placeholder-neutral-400 focus:outline-none focus:ring-4 transition;
-  --tw-ring-color: rgba(196, 18, 48, 0.20);
+  --tw-ring-color: rgba(228, 32, 43, 0.20);
 }
 .admin-input:focus {
   border-color: var(--color-brand-red);
@@ -246,25 +201,25 @@
   @apply inline-flex items-center justify-center rounded-full px-6 py-2.5
          text-sm font-semibold shadow-md hover:shadow-lg
          focus:outline-none focus:ring-4 transition;
-  background: var(--color-brand-yellow);
-  color: var(--color-brand-deep-red);
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
 }
 .admin-btn-primary:hover {
-  background: var(--color-brand-amber);
-  color: var(--color-brand-black);
+  background: var(--color-brand-deep-red);
+  color: var(--color-brand-white);
 }
 .admin-btn-primary:focus {
-  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.35);
+  box-shadow: 0 0 0 4px rgba(228, 32, 43, 0.35);
 }
 
 .admin-btn-secondary {
   @apply inline-flex items-center justify-center rounded-full px-4 py-2
          text-xs sm:text-sm font-medium transition;
   background: transparent;
-  color: var(--color-brand-deep-red);
-  border: 2px solid var(--color-brand-tan);
+  color: var(--color-brand-red);
+  border: 2px solid var(--color-brand-red);
 }
 .admin-btn-secondary:hover {
-  background: var(--color-brand-tan);
+  background: var(--color-brand-red);
   color: var(--color-brand-white);
 }

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/buttons.css";
 
 import StickyBanner from "../components/StickyBanner";
+import { publicUrl } from "../utils/publicUrl";
 
 /* ── Brand helpers ──────────────────────────────────────────────────────── */
 const B = {
@@ -22,8 +23,8 @@ export default function LandingPage() {
     <div className="min-h-screen flex flex-col pb-16 sm:pb-20" style={{ background: B.black }}>
       {/* ══ HERO BANNER ══════════════════════════════════════════════════ */}
       <StickyBanner
-        desktopImage={`${import.meta.env.BASE_URL}energizer-banner-desktop.jpg`}
-        mobileImage={`${import.meta.env.BASE_URL}energizer-banner-mobile.jpg`}
+        desktopImage={publicUrl("energizer-banner-desktop.jpg")}
+        mobileImage={publicUrl("energizer-banner-mobile.jpg")}
         alt="Prepárate y Gana con Energizer"
       />
 

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/banner.css";
+import { publicUrl } from "../utils/publicUrl";
 
 export default function StickyBanner({
-  desktopImage = `${import.meta.env.BASE_URL}/alpo-banner-desktop.jpg`,
-  mobileImage = `${import.meta.env.BASE_URL}/alpo-banner-mobile.jpg`,
+  desktopImage = publicUrl("alpo-banner-desktop.jpg"),
+  mobileImage = publicUrl("alpo-banner-mobile.jpg"),
   alt = "Alpo Contest Banner",
   minHeightPx = 260,
   mobileBreakpointPx = 768,

@@ -4,6 +4,7 @@ import "../styles/form.css";
 import "../styles/buttons.css";
 import { presignUpload, uploadToBlob } from "../api/uploads";
 import { createSubmission } from "../api/submissions";
+import { compressImage } from "../utils/compressImage";
 
 const CONTEST_SLUG = "energizer-2026"; // TODO: must match the real Contest.Slug once seeded in the DB
 
@@ -15,11 +16,12 @@ export default function FormPage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
-  function handleReceiptFile(e) {
+  async function handleReceiptFile(e) {
     const f = e.target.files?.[0];
     if (!f) return;
-    setReceiptFile(f);
-    setReceiptPreview(URL.createObjectURL(f));
+    const compressed = await compressImage(f);
+    setReceiptFile(compressed);
+    setReceiptPreview(URL.createObjectURL(compressed));
   }
 
   async function onSubmit(e) {

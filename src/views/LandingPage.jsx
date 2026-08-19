@@ -22,8 +22,8 @@ export default function LandingPage() {
     <div className="min-h-screen flex flex-col pb-16 sm:pb-20" style={{ background: B.black }}>
       {/* ══ HERO BANNER ══════════════════════════════════════════════════ */}
       <StickyBanner
-        desktopImage={`${import.meta.env.BASE_URL}/energizer-banner-desktop.jpg`}
-        mobileImage={`${import.meta.env.BASE_URL}/energizer-banner-mobile.jpg`}
+        desktopImage={`${import.meta.env.BASE_URL}energizer-banner-desktop.jpg`}
+        mobileImage={`${import.meta.env.BASE_URL}energizer-banner-mobile.jpg`}
         alt="Prepárate y Gana con Energizer"
       />
 

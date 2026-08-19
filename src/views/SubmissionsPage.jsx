@@ -4,7 +4,7 @@ import "../styles/submissions.css";
 import { api } from "../api/client";
 import { exportSubmissionsCsv } from "../api/submissions";
 
-const DEFAULT_CONTEST_SLUG = "alpo-2026";
+const DEFAULT_CONTEST_SLUG = "energizer-2026";
 
 async function fetchSubmissions({ contestSlug, page, pageSize, adminKey }) {
   const params = new URLSearchParams({

@@ -16,53 +16,12 @@ export default function FormPage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
-  // Upload starts as soon as a file is selected, not on submit, so it's
-  // usually already done (or well underway) by the time the user finishes
-  // filling in the rest of the form.
-  const uploadTokenRef = useRef(0);
-  const uploadPromiseRef = useRef(null);
-  const [uploadStatus, setUploadStatus] = useState("idle"); // idle | uploading | done | error
-  const [uploadProgress, setUploadProgress] = useState(0);
-
-  function startUpload(file) {
-    const token = ++uploadTokenRef.current;
-    setUploadStatus("uploading");
-    setUploadProgress(0);
-
-    const promise = (async () => {
-      const { uploadUrl, blobName } = await presignUpload({
-        fileName: file.name,
-        contentType: file.type || "image/jpeg",
-        bytes: file.size,
-      });
-      await uploadToBlob(uploadUrl, file, {
-        onProgress: (pct) => {
-          if (uploadTokenRef.current === token) setUploadProgress(pct);
-        },
-      });
-      return { blobName, contentType: file.type || "image/jpeg", sizeBytes: file.size };
-    })();
-
-    uploadPromiseRef.current = promise;
-
-    promise.then(
-      () => {
-        if (uploadTokenRef.current === token) setUploadStatus("done");
-      },
-      () => {
-        if (uploadTokenRef.current === token) setUploadStatus("error");
-      }
-    );
-  }
-
   async function handleReceiptFile(e) {
     const f = e.target.files?.[0];
     if (!f) return;
-    setError("");
     const compressed = await compressImage(f);
     setReceiptFile(compressed);
     setReceiptPreview(URL.createObjectURL(compressed));
-    startUpload(compressed);
   }
 
   async function onSubmit(e) {
@@ -79,15 +38,17 @@ export default function FormPage() {
       const consent = !!form.get("consent");
 
       if (!consent) throw new Error("Debes aceptar las reglas oficiales.");
-      if (!receiptFile || !uploadPromiseRef.current) {
-        throw new Error("Debes seleccionar un archivo de imagen.");
-      }
+      if (!receiptFile) throw new Error("Debes seleccionar un archivo de imagen.");
 
-      let uploadResult;
-      try {
-        uploadResult = await uploadPromiseRef.current;
-      } catch {
-        throw new Error("No se pudo subir el archivo. Intenta de nuevo.");
+      let blobName = null;
+      if (receiptFile) {
+        const { uploadUrl, blobName: rb } = await presignUpload({
+          fileName: receiptFile.name,
+          contentType: receiptFile.type || "image/jpeg",
+          bytes: receiptFile.size,
+        });
+        await uploadToBlob(uploadUrl, receiptFile);
+        blobName = rb;
       }
 
       await createSubmission({
@@ -98,9 +59,9 @@ export default function FormPage() {
         phone,
         consentGiven: true,
         consentVersion: "v1",
-        blobName: uploadResult.blobName,
-        contentType: uploadResult.contentType,
-        sizeBytes: uploadResult.sizeBytes,
+        blobName:     receiptFile ? blobName : null,
+        contentType:  receiptFile ? receiptFile.type || "image/jpeg" : null,
+        sizeBytes:    receiptFile ? receiptFile.size : null,
       });
 
       nav("/success");
@@ -235,30 +196,6 @@ export default function FormPage() {
                 hidden
                 onChange={handleReceiptFile}
               />
-
-              {uploadStatus === "uploading" && (
-                <>
-                  <div className="upload-progress-track">
-                    <div
-                      className="upload-progress-fill"
-                      style={{ width: `${uploadProgress}%` }}
-                    />
-                  </div>
-                  <p className="upload-status-text upload-status-text--ok">
-                    Subiendo... {uploadProgress}%
-                  </p>
-                </>
-              )}
-              {uploadStatus === "done" && (
-                <p className="upload-status-text upload-status-text--ok">
-                  Archivo subido ✓
-                </p>
-              )}
-              {uploadStatus === "error" && (
-                <p className="upload-status-text upload-status-text--error">
-                  No se pudo subir el archivo. Selecciónalo de nuevo para reintentar.
-                </p>
-              )}
             </div>
 
             {/* Consent */}
@@ -287,15 +224,8 @@ export default function FormPage() {
               >
                 Volver
               </button>
-              <button
-                className="btn-primary"
-                disabled={busy || uploadStatus === "uploading"}
-              >
-                {busy
-                  ? "Enviando..."
-                  : uploadStatus === "uploading"
-                  ? "Subiendo imagen..."
-                  : "Enviar"}
+              <button className="btn-primary" disabled={busy}>
+                {busy ? "Enviando..." : "Enviar"}
               </button>
             </div>
           </form>
